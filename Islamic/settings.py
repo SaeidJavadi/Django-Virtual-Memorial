@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # My App
-    'memorial.apps.MemorialConfig'
+    'memorial.apps.MemorialConfig',
+    'account.apps.AccountConfig'
 ]
 
 MIDDLEWARE = [
