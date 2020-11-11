@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # My App
+    'memorial.apps.MemorialConfig'
 ]
 
 MIDDLEWARE = [
@@ -122,7 +124,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = (
-    BASE_DIR / 'static',
+    BASE_DIR / 'memorial/static',
 )
 MEDIA_ROOT = 'media'
-# STATIC_ROOT = 'media/static'
+STATIC_ROOT = 'media/static'
