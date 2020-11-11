@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="{% url 'book:index' %}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'memorial:home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'admin:login' %}">Admin Page</a>
@@ -19,10 +19,10 @@
                     Books
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{% url 'book:bookList' %}">All Books</a>
+{#                    <a class="dropdown-item" href="{% url 'book:bookList' %}">All Books</a>#}
                     <a class="dropdown-item" href="#">All Another</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'book:allBorrowed' %}">All Borrowed</a>
+{#                    <a class="dropdown-item" href="{% url 'book:allBorrowed' %}">All Borrowed</a>#}
                 </div>
             </li>
         </ul>
@@ -31,7 +31,7 @@
                 <button class="btn btn-info" style="margin-right: 8px;">Sign Out</button>
             </a>
         {% else %}
-            <a href="{% url 'login' %}">
+            <a href="{% url 'admin:login' %}">
                 <button class="btn btn-info" style="margin-right: 8px;">Sign IN</button>
             </a>
             <a href="#">
