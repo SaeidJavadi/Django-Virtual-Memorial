@@ -128,4 +128,4 @@ STATICFILES_DIRS = (
     BASE_DIR / 'memorial/static',
 )
 MEDIA_ROOT = 'media'
-STATIC_ROOT = 'media/static'
+STATIC_ROOT = 'staticfiles'
