@@ -26,17 +26,9 @@
                 </div>
             </li>
         </ul>
-        {% if user.is_authenticated %}
-            <a href="{% url 'logout' %}">
-                <button class="btn btn-info" style="margin-right: 8px;">Sign Out</button>
-            </a>
-        {% else %}
+
             <a href="{% url 'account:login' %}">
-                <button class="btn btn-info" style="margin-right: 8px;">Sign IN</button>
+                <button class="btn btn-info" style="margin-right: 8px;">Login or register</button>
             </a>
-            <a href="#">
-                <button class="btn btn-info">Sign UP</button>
-            </a>
-        {% endif %}
     </div>
 </nav>
