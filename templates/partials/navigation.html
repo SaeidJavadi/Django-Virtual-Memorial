@@ -7,13 +7,13 @@
         <div class="navbar-collapse collapse dual-nav w-50 order-1 order-md-0">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link pl-0" href="{%  url 'memorial:home' %}">Home <span class="sr-only">{%  trans "Home Page" %}</span></a>
+                    <a class="nav-link pl-0" href="{%  url 'memorial:home' %}">Home <span class="sr-only">{%  translate "Home Page" %}</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'memorial:home' %}">{% trans "Motvaselin" %}</a>
+                    <a class="nav-link" href="{% url 'memorial:home' %}">{% translate "Motvaselin" %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'admin:logi' %}">Admin Panel</a>
+                    <a class="nav-link" href="{% url 'admin:login' %}">Admin Panel</a>
                 </li>
             </ul>
         </div>
@@ -40,7 +40,7 @@
 {#                <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-twitter"></i></a></li>#}
                 <li class="nav-item">
                            <a href="{% url 'account:login' %}">
-                                <button class="btn btn-info" style="margin-right: 8px;">{% trans "Login or register" %}</button>
+                                <button class="btn btn-info" style="margin-right: 8px;">{% translate "Login or register" %}</button>
                             </a>
                 </li>
             </ul>

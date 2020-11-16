@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block body %}
     <section class="bg-texture">
         <div class="container">
@@ -9,28 +10,29 @@
                     <div class="animated rubberBand"
                          style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
                         <div>
-                            <h3 class="text-center">Login Form</h3>
+                            <h3 class="text-center">{% translate "Login Form" %}</h3>
                             <hr class="border-color: #ffffff;"/>
 
-                            <form method="post">
+                            <form method="post" novalidate>
                                 {% csrf_token %}
                                 <div class="form-group">
-                                    <label for="username">username</label>
-                                    <input id="username" name="username" type="text" class="form-control"
-                                           aria-describedby="emailHelp" placeholder="Username">
-                                    <small id="emailHelp" class="form-text text-muted">We'll never share your username
-                                        with anyone else.
+                                    <label for="username">{% translate "Enter your phone number:" %}</label>
+{#                                    <input id="username" name="username" type="text" class="form-control"#}
+{#                                           aria-describedby="emailHelp" placeholder="{% translate "phone number" %}">#}
+                                    {{ form.as_p }}
+                                    <small id="emailHelp" class="form-text text-muted">
+                                        {% translate "We'll never share your phone number with anyone else." %}
                                     </small>
                                 </div>
-                                <div class="form-group">
-                                    <label for="password">password</label>
-                                    <input name="password" type="password" class="form-control" id="password"
-                                           placeholder="password">
-                                </div>
-                                <a class="login-link" href="#">Forget Your Password?</a>
+{#                                <div class="form-group">#}
+{#                                    <label for="password">password</label>#}
+{#                                    <input name="password" type="password" class="form-control" id="password"#}
+{#                                           placeholder="password">#}
+{#                                </div>#}
+{#                                <a class="login-link" href="#">Forget Your Password?</a>#}
+{#                                <br/>#}
                                 <br/>
-                                <br/>
-                                <button type="submit" class="btn btn-info btn-block">Submit</button>
+                                <button type="submit" class="btn btn-info btn-block">{% translate "Send" %}</button>
                             </form>
 
                         </div>
@@ -40,6 +42,11 @@
             </div>
         </div>
     </section>
+
+{#    <form method="post" action="">#}
+{#        {{ form.as_table }}#}
+{#        <input type="submit" value="send">#}
+{#    </form>#}
 
 
 {% endblock %}

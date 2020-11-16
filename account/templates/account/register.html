@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block body %}
+    <section class="bg-texture">
+        <div class="container">
+            <div class="row">
+                <div class="col"></div>
+
+                <div class="col" style="margin-top: 100px;">
+                    <div class="animated rubberBand"
+                         style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
+                        <div>
+                            <h3 class="text-center">{% translate "Register Form" %}</h3>
+                            <hr class="border-color: #ffffff;"/>
+
+                            <form method="post" novalidate>
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="username">{% translate "Enter your Specifications:" %}</label>
+                                    {{ form.as_p }}
+                                    <small id="emailHelp" class="form-text text-muted">
+                                        {% translate "We'll never share your phone number with anyone else." %}
+                                    </small>
+                                </div>
+                                <br/>
+                                <button type="submit" class="btn btn-info btn-block">{% translate "register" %}</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </section>
+
+    {#    <form method="post" action="">#}
+    {#        {{ form.as_table }}#}
+    {#        <input type="submit" value="send">#}
+    {#    </form>#}
+
+
+{% endblock %}
