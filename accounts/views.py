@@ -1,8 +1,8 @@
 from django.contrib import messages
 from django.contrib.auth import login
 from django.shortcuts import render, redirect, get_object_or_404
-from account.forms import PhoneLoginForm, VerifyCodeForm, RegisterForm
-from account.models import User
+from accounts.forms import PhoneLoginForm, VerifyCodeForm, RegisterForm
+from accounts.models import User
 
 
 def LoginPage(request):
@@ -11,23 +11,25 @@ def LoginPage(request):
         if form.is_valid():
             phone = f"0{form.cleaned_data['phone']}"
             code = 1234
+            print(phone)
+
             # rand_num = randint(1000, 9999)
             # api = KavenegarAPI('54624B564154623558564355506C59417230747550612F7456524A544F4B733535374A624830485856456B3D')
             # params = {'sender':'', 'receptor':phone, 'message':rand_num}
             # api.sms_send(params)
-            # return redirect('account:verify', phone, code)
+            # return redirect('accounts:verify', phone, code)
     else:
         form = PhoneLoginForm()
-    return render(request, 'account/login.html', {'form': form})
+    return render(request, 'accounts/login.html', {'form': form})
 
 
 def RegisterPage(request):
     form = RegisterForm(request.POST)
     if form.is_valid():
         print(form.cleaned_data['full_name'])
-        return render(request, 'account/register.html', {'form': form})
+        return render(request, 'accounts/register.html', {'form': form})
 
-    return render(request, 'account/register.html', {'form': form})
+    return render(request, 'accounts/register.html', {'form': form})
 
 
 def verifyPage(request, phone):
@@ -45,4 +47,4 @@ def verifyPage(request, phone):
                 messages.error(request, 'your code is wrong', 'warning')
     else:
         form = VerifyCodeForm()
-    return render(request, 'account/verify.html', {'form': form})
+    return render(request, 'accounts/verify.html', {'form': form})
