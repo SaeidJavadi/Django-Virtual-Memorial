@@ -129,3 +129,5 @@ STATICFILES_DIRS = (
 )
 MEDIA_ROOT = 'media'
 STATIC_ROOT = 'staticfiles'
+
+AUTH_USER_MODEL = 'accounts.User'

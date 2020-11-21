@@ -2,10 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from accounts.forms import UserChangeForm, RegisterForm
 from accounts.models import User
-from django.contrib.auth.admin import User as userA
 from django.contrib.auth.models import Group
-
-admin.site.unregister(userA)
 
 
 class UserAdmin(BaseUserAdmin):
