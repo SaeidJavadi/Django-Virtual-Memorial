@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block body %}
+    <section class="bg-texture">
+        <div class="container">
+            <div class="row">
+                <div class="col"></div>
+
+                <div class="col" style="margin-top: 100px;">
+                    <div class="animated rubberBand"
+                         style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
+                        <div>
+                            <h3 class="text-center">{% translate "Verify Login" %}</h3>
+                            <hr class="border-color: #ffffff;"/>
+
+                            <form method="post" novalidate>
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    {{ form.as_p }}
+                                    <small id="emailHelp" class="form-text text-muted">
+                                        {% translate "Please enter the password sent to your number" %}
+                                    </small>
+                                </div>
+                                <p><a class="login-link" href="#">Forget Your Password?</a></p>
+                                <button type="submit" class="btn btn-info btn-block">{% translate "Login" %}</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

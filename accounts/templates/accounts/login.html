@@ -16,7 +16,7 @@
                             <form method="post" novalidate>
                                 {% csrf_token %}
                                 <div class="form-group">
-                                    <label for="username">{% translate "Enter your phone number:" %}</label>
+{#                                    <label for="username">{% translate "Enter your phone number:" %}</label>#}
 {#                                    <input id="username" name="username" type="text" class="form-control"#}
 {#                                           aria-describedby="emailHelp" placeholder="{% translate "phone number" %}">#}
                                     {{ form.as_p }}

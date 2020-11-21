@@ -3,13 +3,13 @@ from django.utils.translation import gettext_lazy as _
 
 
 class myUserMnager(BaseUserManager):
-    def create_user(self, phone, full_name,password):
+    def create_user(self, phone, full_name, password):
         if not phone:
             raise ValueError(_('users must have Phone Number'))
         if not full_name:
             raise ValueError(_('users must have full name'))
 
-        user = self.model(phone=self.phone,full_name=full_name)
+        user = self.model(phone=phone,full_name=full_name)
         user.set_password(password)
         user.save(using=self._db)
         return user

@@ -5,5 +5,5 @@ app_name = 'accounts'
 urlpatterns = [
     path('login/',views.LoginPage, name='login'),
     path('register/',views.RegisterPage, name='register'),
-    path('verify/',views.verifyPage, name='verify'),
+    path('verify/',views.VerifyPage, name='verify'),
 ]

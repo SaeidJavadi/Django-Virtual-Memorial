@@ -17,7 +17,7 @@ phoneFieldAttrs = {'class': 'form-control', 'placeholder': '09 - - - - - - - - -
 
 
 class PhoneLoginForm(forms.Form):
-    phone = forms.IntegerField(error_messages=msgError, widget=forms.NumberInput(
+    phone = forms.IntegerField(label=_('Enter your phone number :'),error_messages=msgError, widget=forms.NumberInput(
         attrs=phoneFieldAttrs))
 
     def clean_phone(self):
@@ -33,15 +33,16 @@ class RegisterForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('phone', 'full_name', 'password')
+        phoneFieldAttrs['readonly'] ='readonly'
         widgets = {
             'phone': forms.NumberInput(
                 attrs=phoneFieldAttrs),
             'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Full Name', }),
-            'password': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Code', }),
+            'password': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password', }),
         }
-        labels = {
-            'password': _('Your Code'),
-        }
+        # labels = {
+        #     'password': _('Your Code'),
+        # }
         # help_texts = {
         #     'phone': _('Some useful help text.'),
         # }
@@ -93,4 +94,4 @@ class UserChangeForm(forms.ModelForm):
 
 
 class VerifyCodeForm(forms.Form):
-    code = forms.IntegerField()
+    code = forms.IntegerField(label=_('password'), widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'password'}))
