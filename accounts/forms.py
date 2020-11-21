@@ -12,12 +12,12 @@ msgError = {
     'min_value': _('The value entered is less than the specified limit')
 }
 
-phoneFieldAttrs = {'class': 'form-control', 'placeholder': '09 - - - - - - - - -', 'type': 'tel', 'maxlength': '14',
+phoneFieldAttrs = {'class': 'form-control', 'placeholder': '09 - - - - - - - - -', 'type': 'tel', 'maxlength': '11',
                    'minlength': '11'}
 
 
 class PhoneLoginForm(forms.Form):
-    phone = forms.IntegerField(label=_('Enter your phone number :'),error_messages=msgError, widget=forms.NumberInput(
+    phone = forms.IntegerField(label=_('Enter your phone number :'), error_messages=msgError, widget=forms.NumberInput(
         attrs=phoneFieldAttrs))
 
     def clean_phone(self):
@@ -33,7 +33,7 @@ class RegisterForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('phone', 'full_name', 'password')
-        phoneFieldAttrs['readonly'] ='readonly'
+        phoneFieldAttrs['readonly'] = 'readonly'
         widgets = {
             'phone': forms.NumberInput(
                 attrs=phoneFieldAttrs),
@@ -51,12 +51,24 @@ class RegisterForm(forms.ModelForm):
         #         'max_length': _("This writer's name is too long."),
         #     },
         # }
+
     def save(self, commit=True):
         user = super().save(commit=False)
         user.set_password(self.cleaned_data["password"])
         if commit:
             user.save()
         return user
+
+
+class RegisterFormAdmin(RegisterForm):
+    class Meta:
+        widgets = {
+            'phone': forms.NumberInput(
+                attrs={'class': 'form-control', 'placeholder': '09 - - - - - - - - -', 'type': 'tel', 'maxlength': '11',
+                       'minlength': '11'}),
+            'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Full Name', }),
+            'password': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password', }),
+        }
 
 
 # class UserCreationForm(forms.ModelForm):
@@ -94,4 +106,5 @@ class UserChangeForm(forms.ModelForm):
 
 
 class VerifyCodeForm(forms.Form):
-    code = forms.IntegerField(label=_('password'), widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'password'}))
+    code = forms.IntegerField(label=_('password'),
+                              widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'password'}))

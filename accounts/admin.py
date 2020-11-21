@@ -1,13 +1,13 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from accounts.forms import UserChangeForm, RegisterForm
+from accounts.forms import UserChangeForm, RegisterFormAdmin
 from accounts.models import User
 from django.contrib.auth.models import Group
 
 
 class UserAdmin(BaseUserAdmin):
     form = UserChangeForm
-    add_form = RegisterForm
+    add_form = RegisterFormAdmin
     list_display = ('phone', 'full_name', 'is_admin')
     list_filter = ('is_admin',)
     fieldsets = (
@@ -17,7 +17,7 @@ class UserAdmin(BaseUserAdmin):
     )
     add_fieldsets = (
         (None, {
-            'fields': ('phone', 'full_name','password')
+            'fields': ('phone', 'full_name', 'password')
         }),
     )
     search_fields = ('phone',)
