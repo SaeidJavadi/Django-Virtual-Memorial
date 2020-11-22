@@ -14,9 +14,12 @@
 </head>
 <body>
 {% include 'partials/navigation.html' %}
+<div class="jumbotron">
+    {% include 'partials/messages.html' %}
+    {% block body %}
+    {% endblock body %}
+</div>
 
-{% block body %}
-{% endblock body %}
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
