@@ -41,11 +41,11 @@ class RegisterForm(forms.ModelForm):
             'password': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password', }),
         }
         # labels = {
-        #     'password': _('Your Code'),
+        #     'password': _('Password :'),
         # }
-        # help_texts = {
-        #     'phone': _('Some useful help text.'),
-        # }
+        help_texts = {
+            'password': _('The login password has been sent to your number.'),
+        }
         # error_messages = {
         #     'phone': {
         #         'max_length': _("This writer's name is too long."),
@@ -106,5 +106,5 @@ class UserChangeForm(forms.ModelForm):
 
 
 class VerifyCodeForm(forms.Form):
-    code = forms.IntegerField(label=_('password'),
-                              widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'password'}))
+    code = forms.IntegerField(label=_('Password :'),
+                              widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
