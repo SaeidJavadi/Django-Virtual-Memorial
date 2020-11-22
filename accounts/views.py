@@ -6,15 +6,16 @@ from accounts.models import User
 from django.utils.translation import gettext_lazy as _
 
 
+
 def LoginPage(request):
     if request.method == 'POST':
         form = PhoneLoginForm(request.POST)
         if form.is_valid():
             phone = form.cleaned_data['phone']
-            code = str(321)
             if User.objects.filter(phone=phone).exists():
                 return redirect('accounts:verify')
             else:
+                code = str(321)
                 # rand_num = randint(1000, 9999)
                 # api = KavenegarAPI('54624B564154623558564355506C59417230747550612F7456524A544F4B733535374A624830485856456B3D')
                 # params = {'sender':'', 'receptor':phone, 'message':rand_num}
@@ -43,7 +44,7 @@ def RegisterPage(request):
                 user = User.objects.create_user(phone=form.cleaned_data['phone'], full_name=form.cleaned_data['full_name'],
                                                 password=password)
                 user.save()
-                return redirect('accounts:verify')
+                return redirect('accounts:login')
             else:
                 messages.error(request, 'The code entered is incorrect', 'warning')
                 print('error code')
