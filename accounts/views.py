@@ -59,17 +59,14 @@ def RegisterPage(request):
 
 
 def VerifyPage(request):
-    code = 1234
-    phone = 0
     if request.method == 'POST':
         form = VerifyCodeForm(request.POST)
         if form.is_valid():
             if code == form.cleaned_data['code']:
-                profile = get_object_or_404(User, phone=phone)
-                user = get_object_or_404(User, profile__id=profile.id)
+                user = get_object_or_404(User, phone=phone, password=code)
                 login(request, user)
                 messages.success(request, 'logged in successfully', 'success')
-                return redirect('posts:all_posts')
+                return redirect('memorial:home')
             else:
                 messages.error(request, 'your code is wrong', 'warning')
     else:
