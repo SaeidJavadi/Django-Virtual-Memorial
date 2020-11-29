@@ -1,26 +1,96 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+STATUS_CHOICES = (
+    ('active', _('active')),
+    ('inactive', _('inactive'))
+)
+
 
 class Deveased(models.Model):
-    state = models.CharField(max_length=100, verbose_name=_('State'))
-    city = models.CharField(max_length=100, verbose_name=_('City'))
-    picture = models.ImageField(verbose_name=_('Picture'))
-    title = models.CharField(max_length=120, verbose_name=_('Title'))
-    fname = models.CharField(max_length=120, verbose_name=_('First Name'))
-    lname = models.CharField(max_length=120, verbose_name=_('Last Name'))
-    description = models.TextField(verbose_name=_('Description'), null=True)
-    address = models.TextField(verbose_name=_('Address'), null=True)
-    quran = models.ForeignKey('Quran', on_delete=models.CASCADE)
-    fatehe = models.BooleanField(verbose_name=_('Fatehe'), default=True, null=True)
-    ashora = models.BooleanField(verbose_name=_('Ashora'), default=False, null=True)
-    arbian = models.BooleanField(verbose_name=_('Arbian'), default=False, null=True)
-    ahd = models.BooleanField(verbose_name=_('Ahd'), default=False, null=True)
-    aye = models.BooleanField(verbose_name=_('Aye'), default=False, null=True)
-    sajadie7 = models.BooleanField(verbose_name=_('Sajadie'), default=False, null=True)
-    komil = models.BooleanField(verbose_name=_('Komil'), default=False, null=True)
-    rabana = models.BooleanField(verbose_name=_('Rabana'), default=False, null=True)
-    joz_30 = models.ForeignKey('Quran', to_field='joze30', on_delete=models.CASCADE)
+    state = models.CharField(max_length=100, verbose_name=_('State'), null=True, blank=True)
+    city = models.CharField(max_length=100, verbose_name=_('City'), null=True, blank=True)
+    picture = models.ImageField(verbose_name=_('Picture'), null=True, blank=True)
+    title = models.CharField(max_length=120, verbose_name=_('Title'), null=True, blank=True)
+    fname = models.CharField(max_length=120, verbose_name=_('First Name'), null=True, blank=True)
+    lname = models.CharField(max_length=120, verbose_name=_('Last Name'), null=True, blank=True)
+    description = models.TextField(verbose_name=_('Description'), null=True, blank=True)
+    address = models.TextField(verbose_name=_('Address'), null=True, blank=True)
+    # quran = models.ForeignKey('Quran', on_delete=models.CASCADE, related_name='dead_quran', null=True)
+    status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
+
+    def __str__(self):
+        return self.fname + " " + self.lname
+
+    class Meta:
+        verbose_name = _('Deveased')
+        verbose_name_plural = _('Deveaseds')
+
+
+class Fatehe(models.Model):
+    fatehe = models.ForeignKey(Deveased, on_delete=models.CASCADE)
+    status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
+
+    def __str__(self):
+        return self.fatehe.fname + ' '+ self.fatehe.lname
+
+
+class Ashora(models.Model):
+    ashora = models.ForeignKey(Deveased, on_delete=models.CASCADE)
+    status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
+
+    def __str__(self):
+        return self.ashora.fname + ' '+ self.ashora.lname
+
+
+class Arbain(models.Model):
+    arbian = models.ForeignKey(Deveased, on_delete=models.CASCADE)
+    status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
+
+    def __str__(self):
+        return self.arbian.fname + ' '+ self.arbian.lname
+
+
+class Ahd(models.Model):
+    ahd = models.ForeignKey(Deveased, on_delete=models.CASCADE)
+    status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
+
+    def __str__(self):
+        return self.ahd.fname + ' '+ self.ahd.lname
+
+
+class Aye(models.Model):
+    aye = models.ForeignKey(Deveased, on_delete=models.CASCADE)
+    status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
+
+    def __str__(self):
+        return self.aye.fname + ' '+ self.aye.lname
+
+
+class Sahifeh(models.Model):
+    sahifeh = models.ForeignKey(Deveased, on_delete=models.CASCADE)
+    status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
+
+    def __str__(self):
+        return self.sahifeh.fname + ' '+ self.sahifeh.lname
+
+
+class Komil(models.Model):
+    komil = models.ForeignKey(Deveased, on_delete=models.CASCADE)
+    status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
+
+    def __str__(self):
+        return self.komil.fname + ' '+ self.komil.lname
+
+
+class Rabana(models.Model):
+    rabana = models.ForeignKey(Deveased, on_delete=models.CASCADE)
+    status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
+
+    def __str__(self):
+        return self.rabana.fname + ' '+ self.rabana.lname
+
+    # joz_30 = models.ForeignKey('Quran', to_field='joze30', on_delete=models.CASCADE)
 
 
 class Quran(models.Model):
@@ -54,3 +124,6 @@ class Quran(models.Model):
     joze28 = models.BooleanField(verbose_name=_('joze 28'), default=False, null=True)
     joze29 = models.BooleanField(verbose_name=_('joze 29'), default=False, null=True)
     joze30 = models.BooleanField(verbose_name=_('joze 30'), default=False, null=True)
+
+    def __str__(self):
+        return ' quran '
