@@ -4,42 +4,50 @@ from memorial.models import *
 
 @admin.register(Deveased)
 class DeveasedAdmin(admin.ModelAdmin):
-    list_display = ('fname', 'lname')
+    list_display = ('id', 'fname', 'lname', 'user_phone', 'created', 'updated', 'status')
+    list_editable = ('status',)
+
 
 @admin.register(Quran)
 class QuranAdmin(admin.ModelAdmin):
-    list_display = ('joze1',)
+    list_display = ('dead',)
+
 
 @admin.register(Fatehe)
 class FateheAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('ip', 'fatehe', 'created')
+
 
 @admin.register(Ashora)
 class AshoraAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('ip', 'ashora', 'created')
+
 
 @admin.register(Arbain)
 class ArbainAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('ip', 'arbain', 'created')
+
 
 @admin.register(Ahd)
 class AhdAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('ip', 'ahd', 'created')
+
 
 @admin.register(Aye)
 class AyeAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('ip', 'aye', 'created')
+
 
 @admin.register(Sahifeh)
 class SahifehAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('ip', 'sahifeh', 'created')
+
 
 @admin.register(Komil)
 class KomilhAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('ip', 'komil', 'created')
+
 
 @admin.register(Rabana)
 class RabanahAdmin(admin.ModelAdmin):
-    pass
-
-
+    list_display = ('ip', 'rabana', 'created')
