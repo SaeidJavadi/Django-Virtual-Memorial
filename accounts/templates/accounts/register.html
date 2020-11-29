@@ -22,9 +22,12 @@
                                         {% translate "We'll never share your phone number with anyone else." %}
                                     </small>
                                 </div>
-                                <button type="submit" class="btn btn-info btn-block">{% translate "register" %}</button>
+                                <button type="submit" class="btn btn-info btn-block">{% translate "Register" %}</button>
+                                <br>
+                                <a class="btn btn-outline-warning btn-block" href="{% url 'accounts:login' %}">
+                                    {% translate "Change Number" %}
+                                </a>
                             </form>
-
                         </div>
                     </div>
                 </div>
