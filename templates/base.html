@@ -15,10 +15,11 @@
 <body>
 {% include 'partials/navigation.html' %}
 {% include 'partials/messages.html' %}
-{#<div class="jumbotron">#}
-{% block body %}
-{% endblock body %}
-{#</div>#}
+<div class="container">
+    {% block body %}
+    {% endblock body %}
+</div>
+<br>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
