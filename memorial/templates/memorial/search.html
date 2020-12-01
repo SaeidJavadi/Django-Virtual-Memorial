@@ -1,0 +1,22 @@
+{% load i18n %}
+<section class="bg-texture">
+    <div class="row">
+        <div class="col-md-3 col-sm-1"></div>
+        <div class="col-md-6 col-sm-10" style="margin-top: 10px;">
+            <div class="animated rubberBand"
+                 style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
+                <div>
+                    <form method="get">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            {{ form.as_p }}
+                            <button type="submit"
+                                    class="btn btn-info btn-block">{% translate "Search" %}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-1"></div>
+    </div>
+</section>
