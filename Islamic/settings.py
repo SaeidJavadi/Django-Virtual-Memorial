@@ -131,6 +131,8 @@ MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = (
     BASE_DIR / 'memorial/static',
+    BASE_DIR / 'accounts/static',
+    BASE_DIR / 'static',
 )
 MEDIA_ROOT = 'media'
 STATIC_ROOT = 'staticfiles'
