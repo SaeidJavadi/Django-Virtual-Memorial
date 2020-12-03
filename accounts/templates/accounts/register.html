@@ -10,22 +10,22 @@
                     <div class="animated rubberBand"
                          style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
                         <div>
-                            <h3 class="text-center">{% translate "Register Form" %}</h3>
+                            <h3 class="text-center">{% trans "Register Form" %}</h3>
                             <hr class="border-color: #ffffff;"/>
 
                             <form method="post" novalidate>
                                 {% csrf_token %}
                                 <div class="form-group">
-                                    <label for="username">{% translate "Enter your Specifications:" %}</label>
+                                    <label for="username">{% trans "Enter your Specifications:" %}</label>
                                     {{ form.as_p }}
                                     <small id="emailHelp" class="form-text text-muted">
-                                        {% translate "We'll never share your phone number with anyone else." %}
+                                        {% trans "We'll never share your phone number with anyone else." %}
                                     </small>
                                 </div>
-                                <button type="submit" class="btn btn-info btn-block">{% translate "Register" %}</button>
+                                <button type="submit" class="btn btn-info btn-block">{% trans "Register" %}</button>
                                 <br>
                                 <a class="btn btn-outline-warning btn-block" href="{% url 'accounts:login' %}">
-                                    {% translate "Change Number" %}
+                                    {% trans "Change Number" %}
                                 </a>
                             </form>
                         </div>

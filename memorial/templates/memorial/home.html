@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
 {% load i18n %}
-
+{% block head %}
+    <link rel="stylesheet" href="{% static 'memorial/counter.css' %}">
+{% endblock %}
 {% block body %}
     {% include 'memorial/header.html' %}
     {% include 'memorial/search.html' %}

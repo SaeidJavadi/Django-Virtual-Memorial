@@ -10,7 +10,7 @@
                     <div class="animated rubberBand"
                          style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
                         <div>
-                            <h3 class="text-center">{% translate "Verify Login" %}</h3>
+                            <h3 class="text-center">{% trans "Verify Login" %}</h3>
                             <hr class="border-color: #ffffff;"/>
 
                             <form method="post" novalidate>
@@ -18,11 +18,11 @@
                                 <div class="form-group">
                                     {{ form.as_p }}
                                     <small id="emailHelp" class="form-text text-muted">
-                                        {% translate "Please enter the password sent to your number" %}
+                                        {% trans "Please enter the password sent to your number" %}
                                     </small>
                                 </div>
                                 <p><a class="login-link" href="#">Forget Your Password?</a></p>
-                                <button type="submit" class="btn btn-info btn-block">{% translate "Login" %}</button>
+                                <button type="submit" class="btn btn-info btn-block">{% trans "Login" %}</button>
                             </form>
 
                         </div>

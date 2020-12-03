@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load static %}
 <div class="row">
     <div class="col-md-3 col-sm-1"></div>
     <div class="col-md-6 col-sm-10" style="margin-top: 10px;">
@@ -6,16 +7,15 @@
              style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
             <div>
                 <div class="row">
-                    <div class="col-md-4"><p style=" border-style: solid;
-  border-color: green; border-radius: 25px; text-align: center;background-color: darkslategrey">Total S1</p>
+                    <div class="col-md-4"><p class="totalshow">{% trans 'Total Salavat:' %}</p>
+                    </div>
+
+                    <div class="col-md-4"><p class="totalshow">{% trans 'Total Fatehe:' %}</p>
+                    </div>
+
+                    <div class="col-md-4"><p class="totalshow">{% trans 'Total Khatm:' %}</p>
                     </div>
                 </div>
-                <div class="col-md-4"><p style=" border-style: solid;
-  border-color: green; border-radius: 25px; text-align: center;background-color: darkslategrey">Total S2</p>
-                </div>
-            </div>
-            <div class="col-md-4"><p style=" border-style: solid;
-  border-color: green; border-radius: 25px; text-align: center;background-color: darkslategrey">Total S3</p>
             </div>
         </div>
     </div>
