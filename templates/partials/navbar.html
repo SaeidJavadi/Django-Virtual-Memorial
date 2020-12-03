@@ -1,0 +1,59 @@
+{% load i18n %}
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto" >
+            <li class="nav-item" style="margin-left: 30px;">
+                {% if not request.user.is_authenticated %}
+                    <a href="{% url 'accounts:login' %}">
+                        <button class="btn btn-info"
+                                style="margin-left: 8px;">{% trans "Login or register" %}</button>
+                    </a>
+                {% else %}
+                    <a href="{% url 'accounts:logout' %}">
+                        <button class="btn btn-info"
+                                style="margin-left: 8px;">{% trans "Logout" %}</button>
+                    </a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+    <div class="mx-auto order-0">
+        <a class="navbar-brand mx-auto" href="#">
+            <b>
+                <span id="show_time_1" style="font-size:18px;font-family:tahoma,arial;">
+                                <script language="JavaScript">
+                                function show_time_1() {
+                                    d = new Date();
+                                    H = d.getHours();
+                                    H = (H < 10) ? "0" + H : H;
+                                    i = d.getMinutes();
+                                    i = (i < 10) ? "0" + i : i;
+                                    s = d.getSeconds();
+                                    s = (s < 10) ? "0" + s : s;
+                                    document.getElementById('show_time_1').innerHTML = H + ":" + i + ":" + s;
+                                    setTimeout("show_time_1()", 1000);/* 1 sec */
+                                }
+                                show_time_1();
+                                </script>
+            </span>
+            </b>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" dir="rtl">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link pl-0" href="{% url 'memorial:home' %}">{% trans "Home Page" %}<span
+                        class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'memorial:home' %}">{% trans "Option-1" %}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'admin:login' %}">Admin Panel</a>
+            </li>
+        </ul>
+    </div>
+</nav>
