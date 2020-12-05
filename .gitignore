@@ -3,6 +3,6 @@ __pycache__/
 .idea/
 tmp/
 *.sqlite3
-*jpg
+media/*.jpg
 *png
 *.html.py
