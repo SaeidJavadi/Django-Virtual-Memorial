@@ -53,7 +53,7 @@ def RegisterPage(request):
                 user.save()
                 return redirect('accounts:login')
             else:
-                messages.error(request, 'The code entered is incorrect', 'warning')
+                messages.error(request, _('The code entered is incorrect'), 'warning')
                 print('error code')
     return render(request, 'accounts/register.html', {'form': form})
 
@@ -67,10 +67,10 @@ def VerifyPage(request):
             user = authenticate(request, username=phone, password=form.cleaned_data['code'])
             if user:
                 login(request, user)
-                messages.success(request, 'logged in successfully', 'success')
+                messages.success(request, _('logged in successfully'), 'success')
                 return redirect('memorial:home')
             else:
-                messages.error(request, 'your code is wrong', 'warning')
+                messages.error(request, _('your code is wrong'), 'warning')
     else:
         form = VerifyCodeForm()
     return render(request, 'accounts/verify.html', {'form': form})
@@ -78,5 +78,5 @@ def VerifyPage(request):
 
 def LogoutPage(request):
     logout(request)
-    messages.success(request, 'you logged out successfully', 'success')
+    messages.success(request, _('you logged out successfully'), 'success')
     return redirect('memorial:home')
