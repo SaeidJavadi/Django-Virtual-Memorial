@@ -49,14 +49,14 @@
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" dir="rtl">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link pl-0" href="{% url 'memorial:home' %}">{% trans "Home Page" %}<span
+                <a class="nav-link pl-0" href="{% url 'memorial:home' %}"><button type="button" class="btn btn-outline-primary">{% trans "Home Page" %}</button><span
                         class="sr-only"></span></a>
             </li>
 {#            <li class="nav-item">#}
 {#                <a class="nav-link" href="{% url 'memorial:home' %}">{% trans "Option-1" %}</a>#}
 {#            </li>#}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'admin:login' %}">{% trans 'Admin Panel' %}</a>
+                <a class="nav-link" href="{% url 'admin:login' %}"><button type="button" class="btn btn-outline-primary">{% trans 'Admin Panel' %}</button></a>
             </li>
         </ul>
     </div>
