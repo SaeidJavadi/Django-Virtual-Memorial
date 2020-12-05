@@ -1,0 +1,165 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-05 18:05+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: memorial/models.py:5
+msgid "active"
+msgstr "فعال"
+
+#: memorial/models.py:6
+msgid "inactive"
+msgstr "غیر فعال"
+
+#: memorial/models.py:11
+msgid "State"
+msgstr "استان"
+
+#: memorial/models.py:12 memorial/models.py:16 memorial/models.py:40
+#: memorial/models.py:169
+msgid "Status"
+msgstr "وضعیت"
+
+#: memorial/models.py:15
+msgid "City"
+msgstr "شهر"
+
+#: memorial/models.py:20
+msgid "Phone"
+msgstr "تلفن"
+
+#: memorial/models.py:23
+msgid "Picture"
+msgstr "تصویر"
+
+#: memorial/models.py:24
+msgid "Title"
+msgstr "عنوان"
+
+#: memorial/models.py:25
+msgid "First Name"
+msgstr "نام"
+
+#: memorial/models.py:26
+msgid "Last Name"
+msgstr "نام خانوادگی"
+
+#: memorial/models.py:27
+msgid "Description"
+msgstr "توضیحات"
+
+#: memorial/models.py:28
+msgid "Address"
+msgstr "آدرس"
+
+#: memorial/models.py:29 memorial/models.py:175 memorial/models.py:176
+#: memorial/models.py:180 memorial/models.py:187 memorial/models.py:194
+#: memorial/models.py:201 memorial/models.py:208 memorial/models.py:215
+#: memorial/models.py:222 memorial/models.py:229 memorial/models.py:236
+#: memorial/models.py:243 memorial/models.py:250 memorial/models.py:257
+#: memorial/models.py:264 memorial/models.py:271 memorial/models.py:278
+#: memorial/models.py:285 memorial/models.py:292 memorial/models.py:299
+#: memorial/models.py:306 memorial/models.py:313 memorial/models.py:320
+#: memorial/models.py:327 memorial/models.py:334 memorial/models.py:341
+#: memorial/models.py:348 memorial/models.py:355 memorial/models.py:362
+#: memorial/models.py:369 memorial/models.py:376 memorial/models.py:383
+msgid "Quran"
+msgstr "قرآن"
+
+#: memorial/models.py:30 memorial/models.py:51 memorial/models.py:59
+#: memorial/models.py:60
+msgid "Fatehe"
+msgstr "فاتحه"
+
+#: memorial/models.py:31 memorial/models.py:72 memorial/models.py:73
+msgid "Ashora"
+msgstr "زیارت عاشورا"
+
+#: memorial/models.py:32 memorial/models.py:77 memorial/models.py:85
+#: memorial/models.py:86
+msgid "Arbain"
+msgstr "زیارت اربعین"
+
+#: memorial/models.py:33 memorial/models.py:90 memorial/models.py:98
+#: memorial/models.py:99
+msgid "Ahd"
+msgstr "دعای عهد"
+
+#: memorial/models.py:34 memorial/models.py:103 memorial/models.py:111
+#: memorial/models.py:112
+msgid "Aye"
+msgstr "آیه الکرسی"
+
+#: memorial/models.py:35
+#, fuzzy
+#| msgid "sahife"
+msgid "Sahife"
+msgstr "صحیفه سجادیه"
+
+#: memorial/models.py:36 memorial/models.py:129 memorial/models.py:137
+#: memorial/models.py:138
+msgid "Komil"
+msgstr "دعای کمیل"
+
+#: memorial/models.py:37 memorial/models.py:142 memorial/models.py:150
+#: memorial/models.py:151
+msgid "Rabana"
+msgstr "ربنا"
+
+#: memorial/models.py:46
+msgid "Deveased"
+msgstr "مرحوم"
+
+#: memorial/models.py:47
+msgid "Deveaseds"
+msgstr "مرحومین"
+
+#: memorial/models.py:52 memorial/models.py:65 memorial/models.py:78
+#: memorial/models.py:91 memorial/models.py:104 memorial/models.py:117
+#: memorial/models.py:130 memorial/models.py:143 memorial/models.py:156
+msgid "ip"
+msgstr "آی پی"
+
+#: memorial/models.py:116 memorial/models.py:124 memorial/models.py:125
+msgid "Sahifeh"
+msgstr "صحیفه سجادیه"
+
+#: memorial/models.py:155 memorial/models.py:163 memorial/models.py:164
+msgid "Salavat"
+msgstr "صلوات"
+
+#: memorial/models.py:168
+msgid "Dead"
+msgstr "متوفی"
+
+#: memorial/templates/memorial/counter.html:10
+msgid "Total Salavat:"
+msgstr "تعداد کل صلوات ها:"
+
+#: memorial/templates/memorial/counter.html:13
+msgid "Total Fatehe:"
+msgstr "تعداد کل فاتحه ها:"
+
+#: memorial/templates/memorial/counter.html:16
+msgid "Total Khatm:"
+msgstr "تعداد کل ختم قرآن:"
+
+#: memorial/templates/memorial/search.html:13
+msgid "Search"
+msgstr "جستجو:"
+
