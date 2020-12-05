@@ -7,10 +7,19 @@ STATUS_CHOICES = (
 )
 
 
+class State(models.Model):
+    ostan = models.CharField(max_length=120, verbose_name=_('State'))
+    status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
+
+class City(models.Model):
+    city = models.CharField(max_length=120, verbose_name=_('City'))
+    status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
+
+
 class Deveased(models.Model):
     user_phone = models.ForeignKey('accounts.User', on_delete=models.CASCADE, verbose_name=_('Phone'))
-    # state = models.CharField(max_length=100, verbose_name=_('State'), null=True, blank=True)
-    city = models.CharField(max_length=100, verbose_name=_('City'), null=True, blank=True)
+    state = models.ForeignKey(State, on_delete=models.SET_NULL, null=True)
+    city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True)
     picture = models.ImageField(verbose_name=_('Picture'), null=True, blank=True)
     title = models.CharField(max_length=120, verbose_name=_('Title'), null=True, blank=True)
     fname = models.CharField(max_length=120, verbose_name=_('First Name'), null=True, blank=True)
