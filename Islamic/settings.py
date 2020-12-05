@@ -107,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fa-ir'
 
 TIME_ZONE = 'Asia/Tehran'
 
@@ -121,6 +121,8 @@ TIME_INPUT_FORMATS = [
     '%H:%M:%S',     # '14:30:59'
     '%H:%M',        # '14:30'
 ]
+
+LOCALE_PATHS = (BASE_DIR / 'locale',)
 
 
 # Static files (CSS, JavaScript, Images)
