@@ -15,9 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.utils.translation import gettext_lazy as _
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('memorial.urls', namespace='memorial')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
 ]
+
+admin.site.site_header = _("Administrator")
+admin.site.site_title = _("Administrator Panel")
+admin.site.index_title = _("Welcome to the admin panel")

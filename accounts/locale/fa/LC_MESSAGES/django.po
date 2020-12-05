@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-05 19:03+0330\n"
+"POT-Creation-Date: 2020-12-05 19:54+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: accounts/apps.py:7
+msgid "ACCOUNTS"
+msgstr "حساب های کاربری"
 
 #: accounts/forms.py:9
 msgid "This field is required"
@@ -67,6 +71,14 @@ msgstr "کاربران باید نام کامل داشته باشند"
 #: accounts/models.py:9
 msgid "Phone Number"
 msgstr "شماره تلفن"
+
+#: accounts/models.py:32
+msgid "User"
+msgstr "کاربر"
+
+#: accounts/models.py:33
+msgid "Users"
+msgstr "کاربران"
 
 #: accounts/templates/accounts/login.html:12
 msgid "Login Form"

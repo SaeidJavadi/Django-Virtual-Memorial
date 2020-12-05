@@ -28,3 +28,7 @@ class User(AbstractBaseUser):
     def is_staff(self):
         return self.is_admin
 
+    class Meta:
+        verbose_name = _('User')
+        verbose_name_plural = _('Users')
+
