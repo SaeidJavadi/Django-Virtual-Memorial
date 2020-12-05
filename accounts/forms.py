@@ -17,8 +17,10 @@ phoneFieldAttrs = {'class': 'form-control', 'placeholder': '09 - - - - - - - - -
 
 
 class PhoneLoginForm(forms.Form):
+    phoneFieldAttrs1 = phoneFieldAttrs
+    phoneFieldAttrs1['dir'] = 'ltr'
     phone = forms.IntegerField(label=_('Enter your phone number :'), error_messages=msgError, widget=forms.NumberInput(
-        attrs=phoneFieldAttrs))
+        attrs=phoneFieldAttrs1))
 
     def clean_phone(self):
         phone = User.objects.filter(phone=self.cleaned_data['phone'])
@@ -35,10 +37,9 @@ class RegisterForm(forms.ModelForm):
         fields = ('phone', 'full_name', 'password')
         phoneFieldAttrs['readonly'] = 'readonly'
         widgets = {
-            'phone': forms.NumberInput(
-                attrs=phoneFieldAttrs),
-            'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Full Name', }),
-            'password': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password', }),
+            'phone': forms.NumberInput(attrs=phoneFieldAttrs),
+            'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Full Name'), }),
+            'password': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': _('Password'), }),
         }
         # labels = {
         #     'password': _('Password :'),
@@ -66,8 +67,8 @@ class RegisterFormAdmin(RegisterForm):
             'phone': forms.NumberInput(
                 attrs={'class': 'form-control', 'placeholder': '09 - - - - - - - - -', 'type': 'tel', 'maxlength': '11',
                        'minlength': '11'}),
-            'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Full Name', }),
-            'password': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password', }),
+            'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Full Name'), }),
+            'password': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': _('Password'), }),
         }
 
 
@@ -107,4 +108,4 @@ class UserChangeForm(forms.ModelForm):
 
 class VerifyCodeForm(forms.Form):
     code = forms.IntegerField(label=_('Password :'),
-                              widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
+                              widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': _('Password'),'dir':'rtl'}))
