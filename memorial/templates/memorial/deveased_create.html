@@ -16,10 +16,10 @@
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-md-1"></div>
-                            <div class="col-md-3">
+                            <div class="col-md-4" style="text-align: center">
                                 <label>استان :</label>
                             </div>
-                            <div class="col-md-7 form-group">
+                            <div class="col-md-6 form-group">
                                 {{ form.state }}
                                 {{ form.state.errors }}
                             </div>
