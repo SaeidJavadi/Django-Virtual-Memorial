@@ -68,7 +68,7 @@ def VerifyPage(request):
             if user:
                 login(request, user)
                 messages.success(request, _('logged in successfully'), 'success')
-                return redirect('memorial:home')
+                return redirect('memorial:dashboard')
             else:
                 messages.error(request, _('your code is wrong'), 'warning')
     else:

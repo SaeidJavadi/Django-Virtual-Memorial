@@ -51,3 +51,14 @@ class KomilhAdmin(admin.ModelAdmin):
 @admin.register(Rabana)
 class RabanahAdmin(admin.ModelAdmin):
     list_display = ('ip', 'rabana', 'created')
+
+@admin.register(State)
+class StateAdmin(admin.ModelAdmin):
+    list_display = ('id','state','status')
+    list_editable = ('status',)
+
+@admin.register(City)
+class CityAdmin(admin.ModelAdmin):
+    list_display = ('id','state','city','status')
+    list_editable = ('status',)
+
