@@ -3,5 +3,6 @@ from memorial import views
 
 app_name = 'memorial'
 urlpatterns= [
-    path('', views.home, name='home')
+    path('', views.home, name='home'),
+    path('Dashboard', views.dashboard, name='dashboard'),
 ]
