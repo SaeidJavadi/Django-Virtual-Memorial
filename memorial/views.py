@@ -22,5 +22,5 @@ class DeveasedCreate(LoginRequiredMixin, CreateView):
     fields = (
     'state','city', 'picture', 'title', 'fname', 'lname', 'description', 'address', 'quran_chk', 'fatehe_chk', 'ashora_chk',
     'arbain_chk', 'ahd_chk', 'aye_chk', 'Sahifeh_chk', 'komil_chk', 'rabana_chk')
-    template_name = 'memorial/deveasedcreate.html'
+    template_name = 'memorial/deveased_create.html'
     success_url = reverse_lazy('memorial:home')
