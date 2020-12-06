@@ -40,7 +40,7 @@ class AyeAdmin(admin.ModelAdmin):
 
 @admin.register(Sahifeh)
 class SahifehAdmin(admin.ModelAdmin):
-    list_display = ('ip', 'sahifeh', 'created')
+    list_display = ('ip', 'Sahifeh', 'created')
 
 
 @admin.register(Komil)

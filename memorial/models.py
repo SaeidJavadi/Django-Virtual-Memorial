@@ -34,7 +34,7 @@ class City(models.Model):
 
 class Deveased(models.Model):
     user_phone = models.ForeignKey('accounts.User', on_delete=models.CASCADE, verbose_name=_('Phone'))
-    city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True)
+    city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True ,verbose_name=_('City'))
     picture = models.ImageField(verbose_name=_('Picture'), null=True, blank=True)
     title = models.CharField(max_length=120, verbose_name=_('Title'), null=True, blank=True)
     fname = models.CharField(max_length=120, verbose_name=_('First Name'), null=True, blank=True)
@@ -47,7 +47,7 @@ class Deveased(models.Model):
     arbain_chk = models.BooleanField(verbose_name=_('Arbain'))
     ahd_chk = models.BooleanField(verbose_name=_('Ahd'))
     aye_chk = models.BooleanField(verbose_name=_('Aye'))
-    sahife_chk = models.BooleanField(verbose_name=_('Sahife'))
+    Sahifeh_chk = models.BooleanField(verbose_name=_('Sahifeh'))
     komil_chk = models.BooleanField(verbose_name=_('Komil'))
     rabana_chk = models.BooleanField(verbose_name=_('Rabana'))
     created = models.DateTimeField(auto_now_add=True)
@@ -128,12 +128,12 @@ class Aye(models.Model):
 
 
 class Sahifeh(models.Model):
-    sahifeh = models.ForeignKey(Deveased, on_delete=models.CASCADE, verbose_name=_('Sahifeh'))
+    Sahifeh = models.ForeignKey(Deveased, on_delete=models.CASCADE, verbose_name=_('Sahifeh'))
     ip = models.CharField(max_length=20, verbose_name=_('ip'), null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.sahifeh.fname + ' ' + self.sahifeh.lname
+        return self.Sahifeh.fname + ' ' + self.Sahifeh.lname
 
     class Meta:
         verbose_name = _('Sahifeh')

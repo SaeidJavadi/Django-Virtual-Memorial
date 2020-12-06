@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-06 17:19+0330\n"
+"POT-Creation-Date: 2020-12-06 20:33+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -125,8 +125,9 @@ msgstr "دعای عهد"
 msgid "Aye"
 msgstr "آیه الکرسی"
 
-#: memorial/models.py:50
-msgid "Sahife"
+#: memorial/models.py:50 memorial/models.py:131 memorial/models.py:139
+#: memorial/models.py:140
+msgid "Sahifeh"
 msgstr "صحیفه سجادیه"
 
 #: memorial/models.py:51 memorial/models.py:144 memorial/models.py:152
@@ -153,10 +154,6 @@ msgstr "مرحومین"
 msgid "ip"
 msgstr "آی پی"
 
-#: memorial/models.py:131 memorial/models.py:139 memorial/models.py:140
-msgid "Sahifeh"
-msgstr "صحیفه سجادیه"
-
 #: memorial/models.py:170 memorial/models.py:178 memorial/models.py:179
 msgid "Salavat"
 msgstr "صلوات"
@@ -181,9 +178,31 @@ msgstr "تعداد کل ختم قرآن:"
 msgid "Dashboard"
 msgstr "داشبورد"
 
-#: memorial/templates/memorial/dashboard.html:20
+#: memorial/templates/memorial/dashboard.html:21
 msgid "لیست صفحات یادبود من"
 msgstr ""
+
+#: memorial/templates/memorial/dashboard.html:32
+msgid "افزودن متوفی جدید"
+msgstr ""
+
+#: memorial/templates/memorial/dashboard.html:43
+msgid "لیست درخواسستهای زیارت نیابتی من"
+msgstr ""
+
+#: memorial/templates/memorial/dashboard.html:54
+msgid "درخواست زیارت نیابتی جدید"
+msgstr ""
+
+#: memorial/templates/memorial/dashboard.html:65
+msgid "کمک و حمایت از ما"
+msgstr ""
+
+#: memorial/templates/memorial/deveasedـcreate.html:4
+#, fuzzy
+#| msgid "Deveased"
+msgid "Add Deveased"
+msgstr "افزودن متوفی"
 
 #: memorial/templates/memorial/ostanha.html:12
 msgid "استان 1"
@@ -196,3 +215,6 @@ msgstr ""
 #: memorial/templates/memorial/search.html:13
 msgid "Search"
 msgstr "جستجو:"
+
+#~ msgid "Sahife"
+#~ msgstr "صحیفه سجادیه"
