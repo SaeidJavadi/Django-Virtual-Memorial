@@ -4,6 +4,7 @@ from memorial.forms import Search
 from memorial.models import Deveased
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def home(request):
@@ -16,9 +17,10 @@ def dashboard(request):
     return render(request, 'memorial/dashboard.html', {})
 
 
-class DeveasedCreate(CreateView):
+class DeveasedCreate(LoginRequiredMixin, CreateView):
     model = Deveased
-    fields = ('city', 'picture', 'title', 'fname', 'lname', 'description', 'address', 'quran_chk', 'fatehe_chk', 'ashora_chk',
-        'arbain_chk', 'ahd_chk', 'aye_chk', 'Sahifeh_chk', 'komil_chk', 'rabana_chk')
-    template_name = 'memorial/deveasedـcreate.html'
+    fields = (
+    'state','city', 'picture', 'title', 'fname', 'lname', 'description', 'address', 'quran_chk', 'fatehe_chk', 'ashora_chk',
+    'arbain_chk', 'ahd_chk', 'aye_chk', 'Sahifeh_chk', 'komil_chk', 'rabana_chk')
+    template_name = 'memorial/deveasedcreate.html'
     success_url = reverse_lazy('memorial:home')

@@ -34,6 +34,7 @@ class City(models.Model):
 
 class Deveased(models.Model):
     user_phone = models.ForeignKey('accounts.User', on_delete=models.CASCADE, verbose_name=_('Phone'))
+    state = models.ForeignKey(State, on_delete=models.SET_NULL, null=True ,verbose_name=_('State'))
     city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True ,verbose_name=_('City'))
     picture = models.ImageField(verbose_name=_('Picture'), null=True, blank=True)
     title = models.CharField(max_length=120, verbose_name=_('Title'), null=True, blank=True)

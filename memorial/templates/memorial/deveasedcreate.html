@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans 'Add Deveased' %}{% endblock %}
+{% block head %}
+    {#    <link rel="stylesheet" href="{% static 'memorial/css/counter.css' %}">#}
+{% endblock %}
+{% block body %}
+    <div class="row" dir="rtl" style="text-align: right">
+        <div class="col-md-3 col-sm-1"></div>
+        <div class="col-md-6 col-sm-10" style="margin-top: 10px;">
+            <div class="animated rubberBand"
+                 style="background: #2c3e50; border-radius: 5px; padding: 15px; color: #ffffff;">
+                <div class="form-group" style="margin-top: 20px">
+                    <form action="">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-3">
+                                <label>استان :</label>
+                            </div>
+                            <div class="col-md-7 form-group">
+                                {{ form.state }}
+                                {{ form.state.errors }}
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="submit" value="{% trans 'Add' %}" class="btn btn-primary">
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-1"></div>
+    </div>
+
+{% endblock %}
