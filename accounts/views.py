@@ -51,7 +51,8 @@ def RegisterPage(request):
                                                 full_name=form.cleaned_data['full_name'],
                                                 password=password)
                 user.save()
-                return redirect('accounts:login')
+                login(request, user)
+                return redirect('memorial:dashboard')
             else:
                 messages.error(request, _('The code entered is incorrect'), 'warning')
                 print('error code')
