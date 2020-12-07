@@ -3,7 +3,8 @@
 {% load i18n %}
 {% block title %}{% trans 'Add Deveased' %}{% endblock %}
 {% block head %}
-    {#    <link rel="stylesheet" href="{% static 'memorial/css/counter.css' %}">#}
+    <link rel="stylesheet" href="{% static 'memorial/css/deveased_create.css' %}">
+    <script language="javascript" src="{% static 'memorial/js/city.js' %}"></script>
 {% endblock %}
 {% block body %}
     <div class="row" dir="rtl" style="text-align: right">
@@ -12,25 +13,221 @@
             <div class="animated rubberBand"
                  style="background: #2c3e50; border-radius: 5px; padding: 15px; color: #ffffff;">
                 <div class="form-group" style="margin-top: 20px">
-                    <form action="">
+                    <form action="" method="post">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-md-1"></div>
-                            <div class="col-md-4" style="text-align: center">
-                                <label>استان :</label>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                {{ form.state }}
-                                {{ form.state.errors }}
+                            <div class="col-md-10">
+                                <select name="state" onChange="CityList(this.value);">
+                                    <option value="0">لطفا استان را انتخاب نمایید</option>
+                                    <option value="1">تهران</option>
+                                    <option value="2">گیلان</option>
+                                    <option value="3">آذربایجان شرقی</option>
+                                    <option value="4">خوزستان</option>
+                                    <option value="5">فارس</option>
+                                    <option value="6">اصفهان</option>
+                                    <option value="7">خراسان رضوی</option>
+                                    <option value="8">قزوین</option>
+                                    <option value="9">سمنان</option>
+                                    <option value="10">قم</option>
+                                    <option value="11">مرکزی</option>
+                                    <option value="12">زنجان</option>
+                                    <option value="13">مازندران</option>
+                                    <option value="14">گلستان</option>
+                                    <option value="15">اردبیل</option>
+                                    <option value="16">آذربایجان غربی</option>
+                                    <option value="17">همدان</option>
+                                    <option value="18">کردستان</option>
+                                    <option value="19">کرمانشاه</option>
+                                    <option value="20">لرستان</option>
+                                    <option value="21">بوشهر</option>
+                                    <option value="22">کرمان</option>
+                                    <option value="23">هرمزگان</option>
+                                    <option value="24">چهارمحال و بختیاری</option>
+                                    <option value="25">یزد</option>
+                                    <option value="26">سیستان و بلوچستان</option>
+                                    <option value="27">ایلام</option>
+                                    <option value="28">کهگلویه و بویراحمد</option>
+                                    <option value="29">خراسان شمالی</option>
+                                    <option value="30">خراسان جنوبی</option>
+                                    <option value="31">البرز</option>
+                                </select>
+                                <select name="city" id="city">
+                                    <option value="0">لطفا استان را انتخاب نمایید</option>
+                                </select>
+                                {#                                {{ form.as_p }}#}
+                                <p>
+                                    {{ form.state.errors }}
+                                    <label for="{{ form.state.id_for_label }}">{{ form.state.label }}:</label>
+                                    {{ form.state }}
+                                </p>
+                                <p>
+                                    {{ form.city.errors }}
+                                    <label for="{{ form.city.id_for_label }}">{{ form.city.label }}:</label>
+                                    {{ form.city }}
+                                </p>
+                                <p>
+                                    {{ form.picture.errors }}
+                                    <label for="{{ form.picture.id_for_label }}">{{ form.picture.label }}:</label>
+                                    {{ form.picture }}
+                                </p>
+                                <p>
+                                    {{ form.title.errors }}
+                                    <label for="{{ form.title.id_for_label }}">{{ form.title.label }}:</label>
+                                    {{ form.title }}
+                                </p>
+                                <p>
+                                    {{ form.fname.errors }}
+                                    <label for="{{ form.fname.id_for_label }}">{{ form.fname.label }}:</label>
+                                    {{ form.fname }}
+                                </p>
+                                <p>
+                                    {{ form.lname.errors }}
+                                    <label for="{{ form.lname.id_for_label }}">{{ form.lname.label }}:</label>
+                                    {{ form.lname }}
+                                </p>
+                                <p>
+                                    {{ form.description.errors }}
+                                    <label for="{{ form.description.id_for_label }}">{{ form.description.label }}:</label>
+                                    {{ form.description }}
+                                </p>
+                                <p>
+                                    {{ form.address.errors }}
+                                    <label for="{{ form.address.id_for_label }}">{{ form.address.label }}</label>
+                                    {{ form.address }}
+                                </p>
+                                <table class="table table-striped" style="color: #9fcdff">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.fatehe_chk.id_for_label }}"
+                                                       name="{{ form.fatehe_chk.name }}">
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.fatehe_chk.id_for_label }}">{{ form.fatehe_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.quran_chk.id_for_label }}"
+                                                       name="{{ form.quran_chk.name }}">
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.quran_chk.id_for_label }}">{{ form.quran_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.ashora_chk.id_for_label }}"
+                                                       name="{{ form.ashora_chk.name }}">
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.ashora_chk.id_for_label }}">{{ form.ashora_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.arbain_chk.id_for_label }}"
+                                                       name="{{ form.arbain_chk.name }}">
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.arbain_chk.id_for_label }}">{{ form.arbain_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.ahd_chk.id_for_label }}" name="{{ form.ahd_chk.name }}">
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.ahd_chk.id_for_label }}">{{ form.ahd_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.aye_chk.id_for_label }}" name="{{ form.aye_chk.name }}">
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.aye_chk.id_for_label }}">{{ form.aye_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.Sahifeh_chk.id_for_label }}"
+                                                       name="{{ form.Sahifeh_chk.name }}">
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.Sahifeh_chk.id_for_label }}">{{ form.Sahifeh_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.komil_chk.id_for_label }}"
+                                                       name="{{ form.komil_chk.name }}">
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.komil_chk.id_for_label }}">{{ form.komil_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.rabana_chk.id_for_label }}"
+                                                       name="{{ form.rabana_chk.name }}">
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.rabana_chk.id_for_label }}">{{ form.rabana_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                </table>
+{#                                <div class="row" style="padding: 20px 0 20px 0">#}
+{#                                    <div class="col-md-3">#}
+{##}
+{#                                    </div>#}
+{#                                    <div class="col-md-3">#}
+{##}
+{#                                    </div>#}
+{#                                    <div class="col-md-3">#}
+{##}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="row" style="padding: 20px 0 20px 0">#}
+{#                                    <div class="col-md-3">#}
+{##}
+{#                                    </div>#}
+{#                                    <div class="col-md-3">#}
+{##}
+{#                                    </div>#}
+{#                                    <div class="col-md-3">#}
+{##}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="row" style="padding: 20px 0 20px 0">#}
+{#                                    <div class="col-md-3">#}
+{##}
+{#                                    </div>#}
+{#                                    <div class="col-md-3">#}
+{##}
+{#                                    </div>#}
+{#                                    <div class="col-md-3">#}
+{##}
+{#                                    </div>#}
+{#                                </div>#}
                             </div>
                             <div class="col-md-1"></div>
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-md-12">
-                                <input type="submit" value="{% trans 'Add' %}" class="btn btn-primary">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <input type="submit" value="{% trans 'Add' %}" class="btn btn-success btn-block">
                             </div>
-
+                            <div class="col-md-2"></div>
                         </div>
 
                     </form>
@@ -39,5 +236,10 @@
         </div>
         <div class="col-md-3 col-sm-1"></div>
     </div>
-
+    <script>
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
 {% endblock %}

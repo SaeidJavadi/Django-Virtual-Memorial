@@ -25,7 +25,7 @@ class City(models.Model):
     status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
 
     def __str__(self):
-        return f"{self.state} '-' {self.city}"
+        return f"{self.city}"
 
     class Meta:
         verbose_name = _('City')
@@ -33,7 +33,7 @@ class City(models.Model):
 
 
 class Deveased(models.Model):
-    user_phone = models.ForeignKey('accounts.User', on_delete=models.CASCADE, verbose_name=_('Phone'))
+    user = models.ForeignKey('accounts.User', on_delete=models.CASCADE, verbose_name=_('Phone'))
     state = models.ForeignKey(State, on_delete=models.SET_NULL, null=True ,verbose_name=_('State'))
     city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True ,verbose_name=_('City'))
     picture = models.ImageField(verbose_name=_('Picture'), null=True, blank=True)
@@ -56,7 +56,7 @@ class Deveased(models.Model):
     status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
 
     def __str__(self):
-        return self.fname + " " + self.lname
+        return f"{self.id}-{self.fname} {self.lname}"
 
     class Meta:
         verbose_name = _('Deveased')

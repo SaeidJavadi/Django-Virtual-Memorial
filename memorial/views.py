@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from memorial.forms import Search
+from django.views.generic.edit import ModelFormMixin
+from memorial.forms import Search, DeveasedForm
 from memorial.models import Deveased
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
@@ -19,8 +20,13 @@ def dashboard(request):
 
 class DeveasedCreate(LoginRequiredMixin, CreateView):
     model = Deveased
-    fields = (
-    'state','city', 'picture', 'title', 'fname', 'lname', 'description', 'address', 'quran_chk', 'fatehe_chk', 'ashora_chk',
-    'arbain_chk', 'ahd_chk', 'aye_chk', 'Sahifeh_chk', 'komil_chk', 'rabana_chk')
+    form_class = DeveasedForm
     template_name = 'memorial/deveased_create.html'
-    success_url = reverse_lazy('memorial:home')
+    success_url = reverse_lazy('memorial:dashboard')
+    success_message = 'با موفقیت اضافه شد'
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.save()
+        return super(ModelFormMixin, self).form_valid(form)

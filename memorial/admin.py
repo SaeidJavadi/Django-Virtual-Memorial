@@ -4,7 +4,7 @@ from memorial.models import *
 
 @admin.register(Deveased)
 class DeveasedAdmin(admin.ModelAdmin):
-    list_display = ('id', 'fname', 'lname', 'user_phone', 'created', 'updated', 'status')
+    list_display = ('id', 'fname', 'lname', 'user', 'created', 'updated', 'status')
     list_editable = ('status',)
 
 
