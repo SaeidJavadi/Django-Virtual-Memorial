@@ -1,6 +1,6 @@
 function iranwebsv(state)
 {
-	with(document.getElementById('city')) 
+	with(document.getElementById('id_city'))
 	{
 		options.length = 0;
 
