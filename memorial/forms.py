@@ -15,7 +15,7 @@ class DeveasedForm(forms.ModelForm):
             'arbain_chk', 'ahd_chk', 'aye_chk', 'Sahifeh_chk', 'komil_chk', 'rabana_chk')
         widgets = {
             'state':forms.Select(attrs={'class':'form-control','onChange':'iranwebsv(this.value);'}),
-            'city':forms.Select(attrs={'class':'form-control'}),
+            'city':forms.TextInput(attrs={'class':'form-control'}),
             'picture':forms.FileInput(attrs={'class':'form-control-file border'}),
             'title':forms.TextInput(attrs={'class':'form-control'}),
             'fname':forms.TextInput(attrs={'class':'form-control'}),

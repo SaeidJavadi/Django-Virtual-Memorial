@@ -1,3 +1,5 @@
+import uuid
+
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -20,6 +22,7 @@ class State(models.Model):
 
 
 class City(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4(), editable=True)
     state = models.ForeignKey(State, on_delete=models.SET_NULL, null=True, verbose_name=_('State'))
     city = models.CharField(max_length=120, verbose_name=_('City'))
     status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
