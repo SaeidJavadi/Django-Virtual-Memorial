@@ -14,7 +14,7 @@ class DeveasedForm(forms.ModelForm):
         fields = ('state','city', 'picture', 'title', 'fname', 'lname', 'description', 'address', 'quran_chk', 'fatehe_chk', 'ashora_chk',
             'arbain_chk', 'ahd_chk', 'aye_chk', 'Sahifeh_chk', 'komil_chk', 'rabana_chk')
         widgets = {
-            'state':forms.Select(attrs={'class':'form-control'}),
+            'state':forms.Select(attrs={'class':'form-control','onChange':'iranwebsv(this.value);'}),
             'city':forms.Select(attrs={'class':'form-control'}),
             'picture':forms.FileInput(attrs={'class':'form-control-file border'}),
             'title':forms.TextInput(attrs={'class':'form-control'}),
@@ -26,7 +26,10 @@ class DeveasedForm(forms.ModelForm):
 
         }
         labels = {
-            'title': 'عنوان (مانند شادروان):',
+            'title': 'عنوان (مانند شادروان)',
             'address': 'آدرس آرمگاه:',
             'Sahifeh_chk':'دعای 7 صحیفه سجادیه'
         }
+    def __init__(self, *args, **kwargs):
+        super(DeveasedForm, self).__init__(*args, **kwargs)
+        self.fields['state'].empty_label = 'لطفا استان را انتخاب نمایید'
