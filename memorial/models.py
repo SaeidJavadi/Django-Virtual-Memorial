@@ -43,10 +43,10 @@ class Deveased(models.Model):
     city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True ,verbose_name=_('City'))
     picture = models.ImageField(verbose_name=_('Picture'), null=True, blank=True)
     title = models.CharField(max_length=120, verbose_name=_('Title'), null=True, blank=True)
-    fname = models.CharField(max_length=120, verbose_name=_('First Name'), null=True, blank=True)
-    lname = models.CharField(max_length=120, verbose_name=_('Last Name'), null=True, blank=True)
+    name = models.CharField(max_length=120, verbose_name=_('Full Name'))
     description = models.TextField(verbose_name=_('Description'), null=True, blank=True)
     address = models.TextField(verbose_name=_('Address'), null=True, blank=True)
+    datedied = models.DateField(verbose_name=_('Date died'))
     quran_chk = models.BooleanField(verbose_name=_('Quran'))
     fatehe_chk = models.BooleanField(verbose_name=_('Fatehe'))
     ashora_chk = models.BooleanField(verbose_name=_('Ashora'))
@@ -56,12 +56,12 @@ class Deveased(models.Model):
     Sahifeh_chk = models.BooleanField(verbose_name=_('Sahifeh'))
     komil_chk = models.BooleanField(verbose_name=_('Komil'))
     rabana_chk = models.BooleanField(verbose_name=_('Rabana'))
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
+    updated = models.DateTimeField(auto_now=True, verbose_name=_('Updated'))
     status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
 
     def __str__(self):
-        return f"{self.id}-{self.fname} {self.lname}"
+        return f"{self.id}-{self.name}"
 
     class Meta:
         verbose_name = _('Deveased')
@@ -74,7 +74,7 @@ class Fatehe(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.fatehe.fname + ' ' + self.fatehe.lname
+        return f"{self.id}-{self.fatehe.name}"
 
     class Meta:
         verbose_name = _('Fatehe')
@@ -87,7 +87,7 @@ class Ashora(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.ashora.fname + ' ' + self.ashora.lname
+        return f"{self.id}-{self.ashora.name}"
 
     class Meta:
         verbose_name = _('Ashora')
@@ -100,7 +100,7 @@ class Arbain(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.arbian.fname + ' ' + self.arbian.lname
+        return f"{self.id}-{self.arbain.name}"
 
     class Meta:
         verbose_name = _('Arbain')
@@ -113,7 +113,7 @@ class Ahd(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.ahd.fname + ' ' + self.ahd.lname
+        return f"{self.id}-{self.ahd.name}"
 
     class Meta:
         verbose_name = _('Ahd')
@@ -126,7 +126,7 @@ class Aye(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.aye.fname + ' ' + self.aye.lname
+        return f"{self.id}-{self.aye.name}"
 
     class Meta:
         verbose_name = _('Aye')
@@ -134,12 +134,12 @@ class Aye(models.Model):
 
 
 class Sahifeh(models.Model):
-    Sahifeh = models.ForeignKey(Deveased, on_delete=models.CASCADE, verbose_name=_('Sahifeh'))
+    sahifeh = models.ForeignKey(Deveased, on_delete=models.CASCADE, verbose_name=_('Sahifeh'))
     ip = models.CharField(max_length=20, verbose_name=_('ip'), null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.Sahifeh.fname + ' ' + self.Sahifeh.lname
+        return f"{self.id}-{self.sahifeh.name}"
 
     class Meta:
         verbose_name = _('Sahifeh')
@@ -152,7 +152,7 @@ class Komil(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.komil.fname + ' ' + self.komil.lname
+        return f"{self.id}-{self.komil.name}"
 
     class Meta:
         verbose_name = _('Komil')
@@ -165,7 +165,7 @@ class Rabana(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.rabana.fname + ' ' + self.rabana.lname
+        return f"{self.id}-{self.rabana.name}"
 
     class Meta:
         verbose_name = _('Rabana')
@@ -178,7 +178,7 @@ class Salavat(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.salavat.fname + ' ' + self.salavat.lname
+        return f"{self.id}-{self.salavat.name}"
 
     class Meta:
         verbose_name = _('Salavat')
@@ -190,7 +190,7 @@ class Quran(models.Model):
     status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
 
     def __str__(self):
-        return self.dead.fname + ' ' + self.dead.lname
+        return f"{self.id}-{self.dead.name}"
 
     class Meta:
         verbose_name = _('Quran')
@@ -201,207 +201,207 @@ class Joz1(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+        return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze2(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze3(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze4(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze5(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze6(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze7(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze8(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze9(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze10(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze11(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze12(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze13(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze14(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze15(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze16(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze17(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze18(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze19(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze20(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze21(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze22(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze23(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze24(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze25(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze26(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze27(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze28(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze29(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"
 
 
 class Joze30(models.Model):
     quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
 
     def __str__(self):
-        return self.quran.dead.fname + ' ' + self.quran.dead.lname
+                return f"{self.quran.dead.id}-{self.quran.dead.name}"

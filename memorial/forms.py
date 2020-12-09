@@ -11,15 +11,14 @@ class Search(forms.Form):
 class DeveasedForm(forms.ModelForm):
     class Meta:
         model = Deveased
-        fields = ('state','city', 'picture', 'title', 'fname', 'lname', 'description', 'address', 'quran_chk', 'fatehe_chk', 'ashora_chk',
+        fields = ('state','city', 'picture', 'title', 'name', 'description', 'address', 'quran_chk', 'fatehe_chk', 'ashora_chk',
             'arbain_chk', 'ahd_chk', 'aye_chk', 'Sahifeh_chk', 'komil_chk', 'rabana_chk')
         widgets = {
             'state':forms.Select(attrs={'class':'form-control','onChange':'iranwebsv(this.value);'}),
             'city':forms.TextInput(attrs={'class':'form-control'}),
             'picture':forms.FileInput(attrs={'class':'form-control-file border'}),
             'title':forms.TextInput(attrs={'class':'form-control'}),
-            'fname':forms.TextInput(attrs={'class':'form-control'}),
-            'lname':forms.TextInput(attrs={'class':'form-control'}),
+            'name':forms.TextInput(attrs={'class':'form-control'}),
             'description':forms.Textarea(attrs={'class':'form-control'}),
             'address':forms.TextInput(attrs={'class':'form-control'}),
             # 'quran_chk':forms.CheckboxInput(attrs={'class':'custom-control-input','type':'checkbox'}),

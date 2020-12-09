@@ -13,33 +13,24 @@
             <div class="animated rubberBand"
                  style="background: #2c3e50; border-radius: 5px; padding: 15px; color: #ffffff;">
                 <div class="form-group" style="margin-top: 20px">
-                    <form action="" method="post">
+                    <form action="" method="post" novalidate>
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-md-1"></div>
                             <div class="col-md-10">
                                 <p>
-
                                     <label for="{{ form.state.id_for_label }}">{{ form.state.label }}:</label>
                                     {{ form.state }}
                                     {{ form.state.errors }}
                                 </p>
                                 <p>
-{#                                    {{ form.city.errors }}#}
-{#                                    <label for="{{ form.city.id_for_label }}">{{ form.city.label }};:</label>#}
-                                    {#                                    <select name="city" id="{{ form.city.id_for_label }}" class="form-control">#}
-                                    {#                                        <option value="">لطفا ابتدا استان را انتخاب نمایید</option>#}
-                                    {#                                    </select>#}
-{#                                    {{ form.city }}#}
-                                </p>
-                                <p>
 
                                     <label for="{{ form.city.id_for_label }}">{{ form.city.label }}:</label>
-                                    <select name="{{ form.city.name }}" id="{{ form.city.id_for_label }}" class="form-control" required="">
+                                    <select name="{{ form.city.name }}" id="{{ form.city.id_for_label }}"
+                                            class="form-control" required="">
                                         <option value="">لطفا ابتدا استان را انتخاب نمایید</option>
                                     </select>
                                     {{ form.city.errors }}
-                                    {#                                    {{ form.city }}#}
                                 </p>
                                 <p>
                                     {{ form.picture.errors }}
@@ -52,14 +43,9 @@
                                     {{ form.title }}
                                 </p>
                                 <p>
-                                    {{ form.fname.errors }}
-                                    <label for="{{ form.fname.id_for_label }}">{{ form.fname.label }}:</label>
-                                    {{ form.fname }}
-                                </p>
-                                <p>
-                                    {{ form.lname.errors }}
-                                    <label for="{{ form.lname.id_for_label }}">{{ form.lname.label }}:</label>
-                                    {{ form.lname }}
+                                    {{ form.name.errors }}
+                                    <label for="{{ form.name.id_for_label }}">{{ form.name.label }}:</label>
+                                    {{ form.name }}
                                 </p>
                                 <p>
                                     {{ form.description.errors }}

@@ -4,8 +4,10 @@ from memorial.models import *
 
 @admin.register(Deveased)
 class DeveasedAdmin(admin.ModelAdmin):
-    list_display = ('id', 'fname', 'lname', 'user', 'created', 'updated', 'status')
+    list_display = ('id', 'name', 'user', 'created', 'updated', 'status')
     list_editable = ('status',)
+    list_display_links = ('id', 'name')
+    search_fields = ('id', 'name')
 
 
 @admin.register(Quran)
@@ -40,7 +42,7 @@ class AyeAdmin(admin.ModelAdmin):
 
 @admin.register(Sahifeh)
 class SahifehAdmin(admin.ModelAdmin):
-    list_display = ('ip', 'Sahifeh', 'created')
+    list_display = ('ip', 'sahifeh', 'created')
 
 
 @admin.register(Komil)
@@ -52,13 +54,16 @@ class KomilhAdmin(admin.ModelAdmin):
 class RabanahAdmin(admin.ModelAdmin):
     list_display = ('ip', 'rabana', 'created')
 
+
 @admin.register(State)
 class StateAdmin(admin.ModelAdmin):
-    list_display = ('id','state','status')
+    list_display = ('id', 'state', 'status')
     list_editable = ('status',)
+    search_fields = ('id', 'state')
+
 
 @admin.register(City)
 class CityAdmin(admin.ModelAdmin):
-    list_display = ('id','state','city','status')
+    list_display = ('id', 'state', 'city', 'status')
     list_editable = ('status',)
-
+    search_fields = ('id', 'state', 'city')

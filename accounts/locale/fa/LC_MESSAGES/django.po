@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-06 20:33+0330\n"
+"POT-Creation-Date: 2020-12-09 17:42+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -122,20 +122,20 @@ msgstr "لطفاً رمزعبور ارسال شده به شماره خود را 
 msgid "Forget Your Password?"
 msgstr "رمز عبور را فراموش کرده اید؟"
 
-#: accounts/views.py:56
+#: accounts/views.py:57
 #, fuzzy
 #| msgid "The value entered is invalid"
 msgid "The code entered is incorrect"
 msgstr "مقدار وارد شده معتبر نیست"
 
-#: accounts/views.py:70
+#: accounts/views.py:71
 msgid "logged in successfully"
 msgstr "با موفقیت وارد شوید"
 
-#: accounts/views.py:73
+#: accounts/views.py:74
 msgid "your code is wrong"
 msgstr "کد شما اشتباه است"
 
-#: accounts/views.py:81
+#: accounts/views.py:82
 msgid "you logged out successfully"
 msgstr "با موفقیت از خارج شدید"
