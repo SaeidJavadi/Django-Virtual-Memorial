@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{% static 'memorial/css/deveased_create.css' %}">
     <script language="javascript" src="{% static 'memorial/js/city.js' %}"></script>
     {#    <script type="text/javascript" src="{% static 'root/bs/js/' %}js/bootstrap-filestyle.min.js"> </script>#}
+    <link rel="stylesheet" type="text/css" href="{% static 'memorial/css/inputStyle.css' %}">
 
 {% endblock %}
 {% block body %}
@@ -53,6 +54,23 @@
 {#                                           data-input="false" data-classIcon="icon-plus"#}
 {#                                           data-buttonText="Your label here.">#}
 {#                                </p>#}
+                                <p>
+{#                                    <button style="display:block;width:120px; height:30px;" onclick="document.getElementById('getFile').click()">Your text here</button>#}
+{#                                    <input type='file' id="getFile" style="display:none">#}
+                                </p>
+                                <p>
+{#                                    <link href="https://cdnjs.cloudflare.com/ajax/libs/ratchet/2.0.2/css/ratchet.css" rel="stylesheet"/>#}
+{#                                    <label for="imageUpload" class="btn btn-primary btn-block btn-outlined">بازگزاری</label>#}
+{#                                    <input type="file" id="imageUpload" accept="image/*" style="display: none">#}
+                                </p>
+                                <p>
+{#                                    <button class="styleClass" onclick="document.getElementById('getFile').click()">بارگزاری</button>#}
+{#                                    <input type='file' id="getFile" style="display:none">#}
+                                </p>
+                                <p>
+                                    <button class="styleClass" onclick="document.getElementById('getFile').click()">Your text here</button>
+                                    <input type='file' id="getFile" style="display:none">
+                                </p>
                                 <p>
 
                                     <label for="{{ form.title.id_for_label }}">{{ form.title.label }}:</label>
