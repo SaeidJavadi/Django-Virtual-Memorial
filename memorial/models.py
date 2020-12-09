@@ -19,6 +19,7 @@ class State(models.Model):
     class Meta:
         verbose_name = _('State')
         verbose_name_plural = _('States')
+        ordering=('id',)
 
 
 class City(models.Model):
@@ -33,6 +34,7 @@ class City(models.Model):
     class Meta:
         verbose_name = _('City')
         verbose_name_plural = _('Citys')
+        ordering=('id',)
 
 
 class Deveased(models.Model):
