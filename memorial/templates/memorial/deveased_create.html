@@ -5,6 +5,8 @@
 {% block head %}
     <link rel="stylesheet" href="{% static 'memorial/css/deveased_create.css' %}">
     <script language="javascript" src="{% static 'memorial/js/city.js' %}"></script>
+    {#    <script type="text/javascript" src="{% static 'root/bs/js/' %}js/bootstrap-filestyle.min.js"> </script>#}
+
 {% endblock %}
 {% block body %}
     <div class="row" dir="rtl" style="text-align: right">
@@ -32,35 +34,50 @@
                                     </select>
                                     {{ form.city.errors }}
                                 </p>
+                                <div style="padding: 5px;">
+                                    <center><img src="{% static 'memorial/pic/rajeon.jpg' %}" alt="20" width="60%"
+                                                 height="60%"><br>
+                                        <span style="color: #7daf08">تصویر پیش فرض (در صورتی که عکس مرحوم را بارگزاری نکنید)</span>
+                                    </center>
+                                </div>
                                 <p>
-                                    {{ form.picture.errors }}
                                     <label for="{{ form.picture.id_for_label }}">{{ form.picture.label }}:</label>
                                     {{ form.picture }}
+                                    {{ form.picture.errors }}
                                 </p>
+{#                                <p>#}
+{#                                    <script>#}
+{#                                        $(":file").filestyle();#}
+{#                                    </script>#}
+{#                                    <input type="file" class="filestyle" data-classButton="btn btn-primary"#}
+{#                                           data-input="false" data-classIcon="icon-plus"#}
+{#                                           data-buttonText="Your label here.">#}
+{#                                </p>#}
                                 <p>
-                                    {{ form.title.errors }}
+
                                     <label for="{{ form.title.id_for_label }}">{{ form.title.label }}:</label>
                                     {{ form.title }}
+                                    {{ form.title.errors }}
                                 </p>
                                 <p>
-                                    {{ form.name.errors }}
                                     <label for="{{ form.name.id_for_label }}">{{ form.name.label }}:</label>
                                     {{ form.name }}
+                                    {{ form.name.errors }}
                                 </p>
                                 <p>
-                                    {{ form.description.errors }}
                                     <label for="{{ form.description.id_for_label }}">{{ form.description.label }}:</label>
                                     {{ form.description }}
+                                    {{ form.description.errors }}
                                 </p>
                                 <p>
-                                    {{ form.address.errors }}
                                     <label for="{{ form.address.id_for_label }}">{{ form.address.label }}</label>
                                     {{ form.address }}
+                                    {{ form.address.errors }}
                                 </p>
                                 <p>
-                                    {{ form.datedied.errors }}
-                                    <label for="{{ form.datedied.id_for_label }}">{% trans 'Date died' %}:</label>
+                                    <label for="{{ form.datedied.id_for_label }}">{% trans 'Date died' %}: </label>
                                     {{ form.datedied }}
+                                    {{ form.datedied.errors }}
                                 </p>
                                 <table class="table table-striped" style="color: #9fcdff">
                                     <thead>
@@ -69,7 +86,7 @@
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input"
                                                        id="{{ form.fatehe_chk.id_for_label }}"
-                                                       name="{{ form.fatehe_chk.name }}">
+                                                       name="{{ form.fatehe_chk.name }}" checked>
                                                 <label class="custom-control-label" type="checkbox"
                                                        for="{{ form.fatehe_chk.id_for_label }}">{{ form.fatehe_chk.label }}:</label>
                                             </div>

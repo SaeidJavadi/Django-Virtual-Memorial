@@ -1,6 +1,8 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 from memorial.models import Deveased
+from pytz import timezone
+from jdatetime import datetime as dt
 
 searchD = {'class': 'form-control', 'placeholder': _('Deveased Code'), 'dir': 'rtl'}
 
@@ -36,7 +38,11 @@ class DeveasedForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(DeveasedForm, self).__init__(*args, **kwargs)
         self.fields['state'].empty_label = 'لطفا استان را انتخاب نمایید'
-        YEAR_CHOICES = range(1400, 1250, -1)
+        tz = timezone('Asia/Tehran')
+        timDel = dt.now(tz)
+        # DateNow = timDel.strftime("%Y/%m/%d %H:%M:%S")
+        YearNow = int(timDel.strftime("%Y"))
+        YEAR_CHOICES = range(YearNow, 1249, -1)
         MONTH_CHOICES = {1: 'فروردین', 2: 'اردیبهشت', 3: 'خرداد', 4: 'تیر', 5: 'مرداد', 6: 'شهریور', 7: 'مهر',
                          8: 'آبان', 9: 'آذر', 10: 'دی', 11: 'بهمن', 12: 'اسفند'}
         self.fields['datedied'] = forms.DateField(required=False,
