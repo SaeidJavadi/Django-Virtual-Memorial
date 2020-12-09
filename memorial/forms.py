@@ -27,7 +27,7 @@ class DeveasedForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'class': 'form-control'}),
             'address': forms.TextInput(attrs={'class': 'form-control'}),
             'datedied': forms.DateInput(attrs={'class': 'form-control'},)
-            # 'quran_chk':forms.CheckboxInput(attrs={'class':'custom-control-input','type':'checkbox'}),
+            # 'quran_chk':forms.CheckboxInput(attrs={'class':'customInput-control-input','type':'checkbox'}),
         }
         labels = {
             'title': 'عنوان (مانند شادروان)',
