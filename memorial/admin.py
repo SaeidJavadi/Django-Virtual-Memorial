@@ -67,3 +67,5 @@ class CityAdmin(admin.ModelAdmin):
     list_display = ('id', 'state', 'city', 'status')
     list_editable = ('status',)
     search_fields = ('id', 'state', 'city')
+
+

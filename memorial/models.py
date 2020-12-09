@@ -1,5 +1,3 @@
-import uuid
-
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -46,7 +44,7 @@ class Deveased(models.Model):
     name = models.CharField(max_length=120, verbose_name=_('Full Name'))
     description = models.TextField(verbose_name=_('Description'), null=True, blank=True)
     address = models.TextField(verbose_name=_('Address'), null=True, blank=True)
-    datedied = models.DateField(verbose_name=_('Date died'))
+    datedied = models.DateField(verbose_name=_('Date died'), null=True, blank=True)
     quran_chk = models.BooleanField(verbose_name=_('Quran'))
     fatehe_chk = models.BooleanField(verbose_name=_('Fatehe'))
     ashora_chk = models.BooleanField(verbose_name=_('Ashora'))
