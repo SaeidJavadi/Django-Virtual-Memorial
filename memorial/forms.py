@@ -21,7 +21,7 @@ class DeveasedForm(forms.ModelForm):
         widgets = {
             'state': forms.Select(attrs={'class': 'form-control', 'onChange': 'iranwebsv(this.value);'}),
             'city': forms.TextInput(attrs={'class': 'form-control'}),
-            # 'picture': forms.FileInput(attrs={'class': 'form-control'}),
+            'picture': forms.FileInput(attrs={'class': 'form-control'}),
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control'}),
