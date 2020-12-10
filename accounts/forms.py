@@ -34,11 +34,11 @@ class PhoneLoginForm(forms.Form):
 class RegisterForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('phone', 'full_name', 'password')
+        fields = ('phone', 'name', 'password')
         phoneFieldAttrs['readonly'] = 'readonly'
         widgets = {
             'phone': forms.NumberInput(attrs=phoneFieldAttrs),
-            'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Full Name'), }),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Full Name'), }),
             'password': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': _('Password'), }),
         }
         # labels = {
@@ -67,7 +67,7 @@ class RegisterFormAdmin(RegisterForm):
             'phone': forms.NumberInput(
                 attrs={'class': 'form-control', 'placeholder': '09 - - - - - - - - -', 'type': 'tel', 'maxlength': '11',
                        'minlength': '11'}),
-            'full_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Full Name'), }),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Full Name'), }),
             'password': forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': _('Password'), }),
         }
 
@@ -78,7 +78,7 @@ class RegisterFormAdmin(RegisterForm):
 #
 #     class Meta:
 #         model = User
-#         fields = ('phone', 'full_name')
+#         fields = ('phone', 'name')
 #
 #     def clean_password2(self):
 #         password1 = self.cleaned_data.get("password1")
@@ -100,7 +100,7 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('phone', 'full_name', 'password', 'is_active', 'is_admin')
+        fields = ('phone', 'name', 'password', 'is_active', 'is_admin')
 
     def clean_password(self):
         return self.initial["password"]

@@ -8,16 +8,16 @@ from django.contrib.auth.models import Group
 class UserAdmin(BaseUserAdmin):
     form = UserChangeForm
     add_form = RegisterFormAdmin
-    list_display = ('phone', 'full_name', 'is_admin')
+    list_display = ('phone', 'name', 'is_admin')
     list_filter = ('is_admin',)
     fieldsets = (
-        ('Main', {'fields': ('phone', 'full_name', 'password')}),
+        ('Main', {'fields': ('phone', 'name', 'password')}),
         ('Personal info', {'fields': ('is_active',)}),
         ('Permissions', {'fields': ('is_admin',)})
     )
     add_fieldsets = (
         (None, {
-            'fields': ('phone', 'full_name', 'password')
+            'fields': ('phone', 'name', 'password')
         }),
     )
     search_fields = ('phone',)

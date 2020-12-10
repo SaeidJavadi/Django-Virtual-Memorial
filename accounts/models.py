@@ -7,13 +7,13 @@ from accounts.managers import myUserMnager
 ## class manager mishe haminja ham sakht vali dar ye file managers.py misazim
 class User(AbstractBaseUser):
     phone = models.IntegerField(verbose_name=_('Phone Number'), unique=True)
-    full_name = models.CharField(max_length=120, verbose_name=_('Full Name'))
+    name = models.CharField(max_length=120, verbose_name=_('Full Name'))
     is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
 
     objects = myUserMnager()
     USERNAME_FIELD = 'phone'
-    REQUIRED_FIELDS = ['full_name']
+    REQUIRED_FIELDS = ['name']
 
     def __str__(self):
         return f"{self.phone}"
