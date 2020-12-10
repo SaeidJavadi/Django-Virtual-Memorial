@@ -36,6 +36,7 @@ class City(models.Model):
         verbose_name = _('City')
         verbose_name_plural = _('Citys')
         ordering = ('id',)
+        unique_together =('state', 'city')
 
 
 class Deveased(models.Model):
