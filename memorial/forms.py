@@ -20,11 +20,11 @@ class DeveasedForm(forms.ModelForm):
         'arbain_chk', 'ahd_chk', 'aye_chk', 'Sahifeh_chk', 'komil_chk', 'rabana_chk')
         widgets = {
             'state': forms.Select(attrs={'class': 'form-control', 'onChange': 'iranwebsv(this.value);'}),
-            'city': forms.TextInput(attrs={'class': 'form-control'}),
+            'city': forms.Select(attrs={'class': 'form-control'}),
             'picture': forms.FileInput(attrs={'class': 'form-control'}),
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'description': forms.Textarea(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'class': 'form-control','rows':'3'}),
             'address': forms.TextInput(attrs={'class': 'form-control'}),
             'datedied': forms.DateInput(attrs={'class': 'form-control'},)
             # 'quran_chk':forms.CheckboxInput(attrs={'class':'customInput-control-input','type':'checkbox'}),
@@ -33,6 +33,22 @@ class DeveasedForm(forms.ModelForm):
             'title': 'عنوان (مانند شادروان)',
             'address': 'آدرس آرمگاه:',
             'Sahifeh_chk': 'دعای 7 صحیفه سجادیه'
+        }
+        forceInputField = 'این فیلد اجباری است'
+        error_messages = {
+            'state':{
+                'required': forceInputField,
+            },
+            'city':{
+                'required': forceInputField,
+            },
+            'name':{
+                'required': forceInputField,
+            }
+        }
+        help_texts = {
+            'state':'ابتدا استان مورد نظر را انتاب کید',
+            'name':'نام متوفی را وارد کنید'
         }
 
     def __init__(self, *args, **kwargs):

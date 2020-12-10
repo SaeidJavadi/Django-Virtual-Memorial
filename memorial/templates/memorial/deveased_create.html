@@ -3,7 +3,7 @@
 {% load i18n %}
 {% block title %}{% trans 'Add Deveased' %}{% endblock %}
 {% block head %}
-    {#    <link rel="stylesheet" type="text/css" href="{% static 'memorial/css/deveased_create.css' %}">#}
+        <link rel="stylesheet" type="text/css" href="{% static 'memorial/css/deveased_create.css' %}">
     <script language="javascript" src="{% static 'memorial/js/city.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'memorial/customInput/css/component.css' %}"/>
 {% endblock %}
@@ -14,7 +14,7 @@
             <div class="animated rubberBand"
                  style="background: #2c3e50; border-radius: 5px; padding: 15px; color: #ffffff;">
                 <div class="form-group" style="margin-top: 20px">
-                    <form action="" method="post" enctype="multipart/form-data" novalidate>
+                    <form action="" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-md-1"></div>
@@ -33,7 +33,7 @@
                                     {{ form.city.errors }}
                                 </p>
                                 <div style="padding: 5px;">
-                                    <center><img src="{% static 'memorial/pic/rajeon.jpg' %}" alt="20" width="60%"
+                                    <center><img src="{% static 'memorial/pic/rajeon.jpg' %}" alt="تصویر پیش فرض" width="60%"
                                                  height="60%"><br>
                                         <span style="color: #7daf08">تصویر پیش فرض (در صورتی که عکس مرحوم را بارگزاری نکنید)</span>
                                     </center>
