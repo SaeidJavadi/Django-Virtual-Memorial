@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic.edit import ModelFormMixin
+from accounts.models import User
 from memorial.forms import Search, DeveasedForm
 from memorial.models import Deveased
 from django.contrib.auth.decorators import login_required
@@ -34,6 +35,14 @@ class DeveasedCreate(LoginRequiredMixin, CreateView):
         messages.success(self.request, self.success_message)
         return super(ModelFormMixin, self).form_valid(form)
 
-    # def form_invalid(self, form):
-    #     messages.error(self.request, self.error_message)
-    #     return super().form_invalid(form)
+    def form_invalid(self, form):
+        messages.error(self.request, self.error_message)
+        return super().form_invalid(form)
+
+
+@login_required
+def list(request):
+    user = User.objects.get(phone=request.user.phone)
+    dead = Deveased.objects.filter(user=user).order_by('-updated')
+    allObj = dead.count()
+    return render(request, 'memorial/deveased_list.html', {'objects': dead, 'allObj': allObj})

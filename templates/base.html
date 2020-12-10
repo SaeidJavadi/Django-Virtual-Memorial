@@ -13,10 +13,13 @@
     <link rel="stylesheet" href="{% static 'root/css/basebody.css' %}"/>
     {% include 'partials/navbar.html' %}
 </head>
+
 <body dir="ltr" class="bkg">
 {% include 'partials/messages.html' %}
-{% block body %}
-{% endblock body %}
+<div class="container-fluid">
+    {% block body %}
+    {% endblock body %}
+</div>
 <br>
 
 <script src="{% static 'root/bs/js/jquery-3.5.1.min.js' %}"></script>

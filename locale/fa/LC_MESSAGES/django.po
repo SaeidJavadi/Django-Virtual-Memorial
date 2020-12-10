@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-09 19:16+0330\n"
+"POT-Creation-Date: 2020-12-10 20:49+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,17 +18,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: Islamic/urls.py:26
+#: Islamic/urls.py:30
 msgid "Administrator"
 msgstr "مدیریت"
 
-#: Islamic/urls.py:27
+#: Islamic/urls.py:31
 #, fuzzy
 #| msgid "Admin Panel"
 msgid "Administrator Panel"
 msgstr "پنل مدیریت"
 
-#: Islamic/urls.py:28
+#: Islamic/urls.py:32
 msgid "Welcome to the admin panel"
 msgstr "به پنل مدیریت خوش آمدید"
 

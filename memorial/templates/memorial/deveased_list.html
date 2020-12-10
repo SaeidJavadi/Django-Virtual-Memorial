@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load jformat %}
+{% load static %}
+{% load i18n %}
+{% block title %}لیست یادبودهای ایجاد شده |{% endblock title %}
+{% block head %} {% endblock head %}
+{% block body %}
+    {% if allObj == 0 %}
+        {% include 'memorial/dash-head.html' %}
+        <div class="row">
+            <div class="col-md-3 col-sm-1"></div>
+            <div class="col-md-6 col-sm-10" style="margin-top: 10px;">
+                <div class="animated rubberBand"
+                     style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
+                    <div style="text-align: center; color: #d9ff00" dir="rtl">
+                        <p>
+                            کاربر گرامی شما هیچ صفحه یاد بودی ایجاد نکرده اید
+                        </p>
+                        <p>
+                            شما به راحتی می توانید با استفاده از کلید افزودن متوفی جدید سفحه یاد بود ایجاد کنید
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-1"></div>
+            <div class="col-md-6 col-sm-10" style="margin-top: 10px;">
+                <div class="animated rubberBand"
+                     style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <a href="{% url 'memorial:add_Deveased' %}" style="text-decoration:none">
+                                <button type="submit"
+                                        class="btn btn-warning btn-block">{% trans "افزودن متوفی جدید" %}</button>
+                            </a>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-1"></div>
+        </div>
+
+    {% else %}
+        {% for marhom in objects %}
+            <div class="row">
+                <div class="col-md-3 col-sm-1"></div>
+                <div class="col-md-6 col-sm-10" style="margin-top: 10px;">
+                    <div class="animated rubberBand"
+                         style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
+                        <div style="text-align: center; color: #faf5bb" dir="rtl">
+                            <div class="row">
+                                <div class="col-md-8" style="text-align: right" dir="rtl">
+                                    <div class="row" >
+                                        <div class="col-md-8">
+                                            {{ marhom.name }}
+                                        </div>
+                                        <div class="col-md-4" >
+                                            تاریخ ایجاد: {{ marhom.created|jformat:"%d-%m-%Y" }}
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            {% if marhom.status == 'active' %}
+                                                وضعیت فعلی: فعال
+                                            {% elif marhom.status == 'inactive' %}
+                                                وضعیت فعلی: غیرفعال
+                                            {% elif marhom.status == 'pending' %}
+                                                وضعیت فعلی: در انتظار بررسی
+                                            {% endif %}
+                                        </div>
+                                        <div class="col-md-5">
+                                            {{ marhom.state }} - {{ marhom.city }}
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <a class="btn btn-primary btn-xs btn-block" href="#" style="color: black">{% trans "Edit" %}</a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a class="btn btn-warning btn-xs btn-block" href="#" style="color: black">{% trans "View" %}</a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a class="btn btn-danger btn-xs btn-block" href="#" style="color: black">{% trans "Delete" %}</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4" style="alignment: center">
+                                    {% if marhom.picture %}
+                                        <img src="{{ marhom.picture.url }}" alt="{{ marhom.name }}" height="100%"
+                                             width="100%">
+                                    {% else %}
+                                        <img src="{% static 'memorial/pic/rajeon.jpg' %}" alt="{{ marhom.name }}"
+                                             height="90%" width="90%">
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-1"></div>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock body %}

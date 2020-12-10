@@ -5,8 +5,7 @@ from django.utils.translation import gettext_lazy as _
 STATUS_CHOICES = (
     ('active', _('active')),
     ('inactive', _('inactive')),
-    ('Pending', _('Pending')),
-    ('ignore', _('ignore')),
+    ('pending', _('Pending')),
 )
 
 
