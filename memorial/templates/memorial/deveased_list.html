@@ -17,7 +17,7 @@
                             کاربر گرامی شما هیچ صفحه یاد بودی ایجاد نکرده اید
                         </p>
                         <p>
-                            شما به راحتی می توانید با استفاده از کلید افزودن متوفی جدید سفحه یاد بود ایجاد کنید
+                            شما به راحتی می توانید با استفاده از کلید افزودن مرحوم جدید سفحه یاد بود ایجاد کنید
                         </p>
                     </div>
                 </div>
@@ -33,9 +33,9 @@
                         <div class="col-md-1"></div>
                         <div class="col-md-10">
                             <a href="{% url 'memorial:add_Deveased' %}" style="text-decoration:none"
-                               data-toggle="tooltip" title="افزودن صفحه یادبود متوفی جدید">
+                               data-toggle="tooltip" title="افزودن صفحه یادبود مرحوم جدید">
                                 <button type="submit"
-                                        class="btn btn-warning btn-block">{% trans "افزودن متوفی جدید" %}</button>
+                                        class="btn btn-warning btn-block">{% trans "افزودن مرحوم جدید" %}</button>
                             </a>
                         </div>
                         <div class="col-md-1"></div>
@@ -87,9 +87,11 @@
                                                title="برای ویرایش صفحه این یادبود کلیک کنید">{% trans "Edit" %}</a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a class="btn btn-warning btn-xs btn-block" href="#"
-                                               style="color: black" data-toggle="tooltip"
-                                               title="برای مشاهده صفحه یادبود کلیک کنید">{% trans "View" %}</a>
+                                            {% if marhom.status == 'active' %}
+                                                <a class="btn btn-warning btn-xs btn-block" href="#"
+                                                   style="color: black" data-toggle="tooltip"
+                                                   title="برای مشاهده صفحه یادبود کلیک کنید">{% trans "View" %}</a>
+                                            {% endif %}
                                         </div>
                                         <div class="col-md-4">
                                             <button class="btn btn-danger btn-xs btn-block" data-toggle="modal"

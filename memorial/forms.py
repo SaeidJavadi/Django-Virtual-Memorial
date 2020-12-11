@@ -48,7 +48,7 @@ class DeveasedForm(forms.ModelForm):
         }
         help_texts = {
             'state':'ابتدا استان مورد نظر را انتخاب کید',
-            'name':'نام متوفی را وارد کنید'
+            'name':'نام مرحوم را وارد کنید'
         }
 
     def __init__(self, *args, **kwargs):

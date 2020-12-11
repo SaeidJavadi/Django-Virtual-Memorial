@@ -186,7 +186,7 @@ msgstr "صلوات"
 
 #: memorial/models.py:205
 msgid "Dead"
-msgstr "متوفی"
+msgstr "مرحوم"
 
 #: memorial/templates/memorial/counter.html:10
 msgid "Total Salavat:"
@@ -210,7 +210,7 @@ msgstr ""
 
 #: memorial/templates/memorial/dashboard.html:32
 #: memorial/templates/memorial/deveased_list.html:38
-msgid "افزودن متوفی جدید"
+msgid "افزودن مرحوم جدید"
 msgstr ""
 
 #: memorial/templates/memorial/dashboard.html:43
@@ -227,7 +227,7 @@ msgstr ""
 
 #: memorial/templates/memorial/deveased_create.html:4
 msgid "Add Deveased"
-msgstr "افزودن متوفی"
+msgstr "افزودن مرحوم"
 
 #: memorial/templates/memorial/deveased_create.html:182
 msgid "Add"
@@ -237,7 +237,7 @@ msgstr "دعای عهد"
 #, fuzzy
 #| msgid "Add Deveased"
 msgid "Edit Deveased"
-msgstr "ویرایش صفحه متوفی"
+msgstr "ویرایش صفحه مرحوم"
 
 #: memorial/templates/memorial/deveased_edit.html:186
 #: memorial/templates/memorial/deveased_list.html:87
