@@ -3,7 +3,7 @@
 {% load i18n %}
 {% block title %}{% trans 'Add Deveased' %}{% endblock %}
 {% block head %}
-        <link rel="stylesheet" type="text/css" href="{% static 'memorial/css/deveased_create.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'memorial/css/deveased_create.css' %}">
     <script language="javascript" src="{% static 'memorial/js/city.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'memorial/customInput/css/component.css' %}"/>
 {% endblock %}
@@ -26,23 +26,20 @@
                                 </p>
                                 <p>
                                     <label for="{{ form.city.id_for_label }}">{{ form.city.label }}:</label>
-                                    <select name="{{ form.city.name }}" id="{{ form.city.id_for_label }}"
-                                            class="form-control" required="">
-                                        <option value="">لطفا ابتدا استان را انتخاب نمایید</option>
-                                    </select>
+                                    {{ form.city }}
                                     {{ form.city.errors }}
                                 </p>
                                 <div style="padding: 5px;">
                                     {% if form.picture %}
-                                        {% for a,img in form.picture  %}
-                                            {{ img }}
-                                            {{ a }}
-                                        {% endfor %}
+                                        <center><img src="{% get_media_prefix %}{{ form.picture.value }}"
+                                                     alt="تصویر پیش فرض" width="60%"
+                                                     height="60%"><br>
+                                        </center>
                                     {% else %}
-                                    <center><img src="{% static 'memorial/pic/rajeon.jpg' %}" alt="تصویر پیش فرض" width="60%"
-                                                 height="60%"><br>
-                                        <span style="color: #7daf08">تصویر پیش فرض (در صورتی که عکس مرحوم را بارگزاری نکنید)</span>
-                                    </center>
+                                        <center><img src="{% static 'memorial/pic/rajeon.jpg' %}" alt="تصویر فعلی"
+                                                     width="60%"
+                                                     height="60%"><br>
+                                        </center>
                                     {% endif %}
                                 </div>
                                 <p>
@@ -80,7 +77,15 @@
                                     {{ form.datedied }}
                                     {{ form.datedied.errors }}
                                 </p>
+
                                 <table class="table table-striped" style="color: #9fcdff">
+                                    <thead>
+                                    <tr>
+                                        <span style="color: #9bf3b1">
+       شما میتوانید با تیک  زدن هر یک از امکانات زیر آن ها را به صفحه یادبود متوفی اضافه کنید.
+                                        </span>
+                                    </tr>
+                                    </thead>
                                     <thead>
                                     <tr>
                                         <th>
@@ -176,11 +181,14 @@
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-md-2"></div>
-                            <div class="col-md-8">
-                                <input type="submit" value="{% trans 'Add' %}" class="btn btn-success btn-block">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-5">
+                                <input type="submit" value="{% trans 'Edit' %}" class="btn btn-success btn-block">
                             </div>
-                            <div class="col-md-2"></div>
+                            <div class="col-md-5">
+                                <input type="submit" value="{% trans 'Cancel' %}" class="btn btn-warning btn-block">
+                            </div>
+                            <div class="col-md-1"></div>
                         </div>
                     </form>
                 </div>

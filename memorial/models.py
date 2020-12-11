@@ -43,7 +43,7 @@ class Deveased(models.Model):
     user = models.ForeignKey('accounts.User', on_delete=models.CASCADE, verbose_name=_('Phone'))
     state = models.ForeignKey(State, on_delete=models.SET_NULL, null=True, verbose_name=_('State'))
     city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True, verbose_name=_('City'))
-    picture = models.ImageField(verbose_name=_('Picture'), null=True, blank=True, upload_to='%Y-%m-%d')
+    picture = models.ImageField(verbose_name=_('Picture'), null=True, blank=True, upload_to='%Y-%m-%d',max_length=200)
     title = models.CharField(max_length=120, verbose_name=_('Title'), null=True, blank=True)
     name = models.CharField(max_length=120, verbose_name=_('Full Name'))
     gender = models.CharField(max_length=7, choices=(('male',_('Male')),('female',_('Female'))), default='male', verbose_name=_('Gender'))

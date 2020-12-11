@@ -3,7 +3,7 @@
 {% load i18n %}
 {% block title %}{% trans 'Add Deveased' %}{% endblock %}
 {% block head %}
-        <link rel="stylesheet" type="text/css" href="{% static 'memorial/css/deveased_create.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'memorial/css/deveased_create.css' %}">
     <script language="javascript" src="{% static 'memorial/js/city.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'memorial/customInput/css/component.css' %}"/>
 {% endblock %}
@@ -33,7 +33,8 @@
                                     {{ form.city.errors }}
                                 </p>
                                 <div style="padding: 5px;">
-                                    <center><img src="{% static 'memorial/pic/rajeon.jpg' %}" alt="تصویر پیش فرض" width="60%"
+                                    <center><img src="{% static 'memorial/pic/rajeon.jpg' %}" alt="تصویر پیش فرض"
+                                                 width="60%"
                                                  height="60%"><br>
                                         <span style="color: #7daf08">تصویر پیش فرض (در صورتی که عکس مرحوم را بارگزاری نکنید)</span>
                                     </center>
@@ -74,6 +75,13 @@
                                     {{ form.datedied.errors }}
                                 </p>
                                 <table class="table table-striped" style="color: #9fcdff">
+                                    <thead>
+                                    <tr>
+                                        <span style="color: #9bf3b1">
+       شما میتوانید با تیک  زدن هر یک از امکانات زیر آن ها را به صفحه یادبود متوفی اضافه کنید.
+                                        </span>
+                                    </tr>
+                                    </thead>
                                     <thead>
                                     <tr>
                                         <th>

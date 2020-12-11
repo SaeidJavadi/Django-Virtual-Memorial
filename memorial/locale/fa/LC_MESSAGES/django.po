@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-10 20:49+0330\n"
+"POT-Creation-Date: 2020-12-11 17:11+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,164 +26,165 @@ msgstr "مرحومین"
 msgid "Deveased Code"
 msgstr "کد مرحوم"
 
-#: memorial/models.py:6
+#: memorial/models.py:7
 msgid "active"
 msgstr "فعال"
 
-#: memorial/models.py:7
+#: memorial/models.py:8
 msgid "inactive"
 msgstr "غیر فعال"
 
-#: memorial/models.py:8
+#: memorial/models.py:9
 msgid "Pending"
 msgstr "در انتظار"
 
-#: memorial/models.py:13 memorial/models.py:20 memorial/models.py:27
-#: memorial/models.py:43
+#: memorial/models.py:14 memorial/models.py:21 memorial/models.py:28
+#: memorial/models.py:44
 msgid "State"
 msgstr "استان"
 
-#: memorial/models.py:14 memorial/models.py:29 memorial/models.py:63
-#: memorial/models.py:202
+#: memorial/models.py:15 memorial/models.py:30 memorial/models.py:64
+#: memorial/models.py:206
 msgid "Status"
 msgstr "وضعیت"
 
-#: memorial/models.py:21
+#: memorial/models.py:22
 msgid "States"
 msgstr "استان ها"
 
-#: memorial/models.py:26
+#: memorial/models.py:27
 msgid "ID"
 msgstr "کد"
 
-#: memorial/models.py:28 memorial/models.py:35 memorial/models.py:44
+#: memorial/models.py:29 memorial/models.py:36 memorial/models.py:45
 msgid "City"
 msgstr "شهر"
 
-#: memorial/models.py:36
+#: memorial/models.py:37
 msgid "Citys"
 msgstr "شهرها"
 
-#: memorial/models.py:42
+#: memorial/models.py:43
 msgid "Phone"
 msgstr "تلفن"
 
-#: memorial/models.py:45
+#: memorial/models.py:46
 msgid "Picture"
 msgstr "تصویر"
 
-#: memorial/models.py:46
+#: memorial/models.py:47
 msgid "Title"
 msgstr "عنوان"
 
-#: memorial/models.py:47
+#: memorial/models.py:48
 msgid "Full Name"
 msgstr "نام و نام خانوادگی"
 
-#: memorial/models.py:48
+#: memorial/models.py:49
 msgid "Male"
 msgstr "مرد"
 
-#: memorial/models.py:48
+#: memorial/models.py:49
 msgid "Female"
 msgstr "زن"
 
-#: memorial/models.py:48
+#: memorial/models.py:49
 msgid "Gender"
 msgstr "جنسیت"
 
-#: memorial/models.py:49
+#: memorial/models.py:50
 msgid "Description"
 msgstr "توضیحات"
 
-#: memorial/models.py:50
+#: memorial/models.py:51
 msgid "Address"
 msgstr "آدرس"
 
-#: memorial/models.py:51 memorial/templates/memorial/deveased_create.html:72
+#: memorial/models.py:52 memorial/templates/memorial/deveased_create.html:73
+#: memorial/templates/memorial/deveased_edit.html:72
 msgid "Date died"
 msgstr "تاریخ فوت"
 
-#: memorial/models.py:52 memorial/models.py:84 memorial/models.py:92
-#: memorial/models.py:93
+#: memorial/models.py:53 memorial/models.py:88 memorial/models.py:96
+#: memorial/models.py:97
 msgid "Fatehe"
 msgstr "فاتحه"
 
-#: memorial/models.py:53 memorial/models.py:208 memorial/models.py:209
-#: memorial/models.py:213 memorial/models.py:220 memorial/models.py:227
-#: memorial/models.py:234 memorial/models.py:241 memorial/models.py:248
-#: memorial/models.py:255 memorial/models.py:262 memorial/models.py:269
-#: memorial/models.py:276 memorial/models.py:283 memorial/models.py:290
-#: memorial/models.py:297 memorial/models.py:304 memorial/models.py:311
-#: memorial/models.py:318 memorial/models.py:325 memorial/models.py:332
-#: memorial/models.py:339 memorial/models.py:346 memorial/models.py:353
-#: memorial/models.py:360 memorial/models.py:367 memorial/models.py:374
-#: memorial/models.py:381 memorial/models.py:388 memorial/models.py:395
-#: memorial/models.py:402 memorial/models.py:409 memorial/models.py:416
+#: memorial/models.py:54 memorial/models.py:212 memorial/models.py:213
+#: memorial/models.py:217 memorial/models.py:224 memorial/models.py:231
+#: memorial/models.py:238 memorial/models.py:245 memorial/models.py:252
+#: memorial/models.py:259 memorial/models.py:266 memorial/models.py:273
+#: memorial/models.py:280 memorial/models.py:287 memorial/models.py:294
+#: memorial/models.py:301 memorial/models.py:308 memorial/models.py:315
+#: memorial/models.py:322 memorial/models.py:329 memorial/models.py:336
+#: memorial/models.py:343 memorial/models.py:350 memorial/models.py:357
+#: memorial/models.py:364 memorial/models.py:371 memorial/models.py:378
+#: memorial/models.py:385 memorial/models.py:392 memorial/models.py:399
+#: memorial/models.py:406 memorial/models.py:413 memorial/models.py:420
 msgid "Quran"
 msgstr "قرآن"
 
-#: memorial/models.py:54 memorial/models.py:105 memorial/models.py:106
+#: memorial/models.py:55 memorial/models.py:109 memorial/models.py:110
 msgid "Ashora"
 msgstr "زیارت عاشورا"
 
-#: memorial/models.py:55 memorial/models.py:110 memorial/models.py:118
-#: memorial/models.py:119
+#: memorial/models.py:56 memorial/models.py:114 memorial/models.py:122
+#: memorial/models.py:123
 msgid "Arbain"
 msgstr "زیارت اربعین"
 
-#: memorial/models.py:56 memorial/models.py:123 memorial/models.py:131
-#: memorial/models.py:132
+#: memorial/models.py:57 memorial/models.py:127 memorial/models.py:135
+#: memorial/models.py:136
 msgid "Ahd"
 msgstr "دعای عهد"
 
-#: memorial/models.py:57 memorial/models.py:136 memorial/models.py:144
-#: memorial/models.py:145
+#: memorial/models.py:58 memorial/models.py:140 memorial/models.py:148
+#: memorial/models.py:149
 msgid "Aye"
 msgstr "آیه الکرسی"
 
-#: memorial/models.py:58 memorial/models.py:149 memorial/models.py:157
-#: memorial/models.py:158
+#: memorial/models.py:59 memorial/models.py:153 memorial/models.py:161
+#: memorial/models.py:162
 msgid "Sahifeh"
 msgstr "صحیفه سجادیه"
 
-#: memorial/models.py:59 memorial/models.py:162 memorial/models.py:170
-#: memorial/models.py:171
+#: memorial/models.py:60 memorial/models.py:166 memorial/models.py:174
+#: memorial/models.py:175
 msgid "Komil"
 msgstr "دعای کمیل"
 
-#: memorial/models.py:60 memorial/models.py:175 memorial/models.py:183
-#: memorial/models.py:184
+#: memorial/models.py:61 memorial/models.py:179 memorial/models.py:187
+#: memorial/models.py:188
 msgid "Rabana"
 msgstr "ربنا"
 
-#: memorial/models.py:61
+#: memorial/models.py:62
 msgid "Created"
 msgstr "زمان ایجاد"
 
-#: memorial/models.py:62
+#: memorial/models.py:63
 msgid "Updated"
 msgstr "زمان بروزرسانی"
 
-#: memorial/models.py:79
+#: memorial/models.py:80
 msgid "Deveased"
 msgstr "مرحوم"
 
-#: memorial/models.py:80
+#: memorial/models.py:81
 msgid "Deveaseds"
 msgstr "مرحومین"
 
-#: memorial/models.py:85 memorial/models.py:98 memorial/models.py:111
-#: memorial/models.py:124 memorial/models.py:137 memorial/models.py:150
-#: memorial/models.py:163 memorial/models.py:176 memorial/models.py:189
+#: memorial/models.py:89 memorial/models.py:102 memorial/models.py:115
+#: memorial/models.py:128 memorial/models.py:141 memorial/models.py:154
+#: memorial/models.py:167 memorial/models.py:180 memorial/models.py:193
 msgid "ip"
 msgstr "آی پی"
 
-#: memorial/models.py:188 memorial/models.py:196 memorial/models.py:197
+#: memorial/models.py:192 memorial/models.py:200 memorial/models.py:201
 msgid "Salavat"
 msgstr "صلوات"
 
-#: memorial/models.py:201
+#: memorial/models.py:205
 msgid "Dead"
 msgstr "متوفی"
 
@@ -208,7 +209,7 @@ msgid "لیست صفحات یادبود من"
 msgstr ""
 
 #: memorial/templates/memorial/dashboard.html:32
-#: memorial/templates/memorial/deveased_list.html:37
+#: memorial/templates/memorial/deveased_list.html:38
 msgid "افزودن متوفی جدید"
 msgstr ""
 
@@ -225,22 +226,28 @@ msgid "کمک و حمایت از ما"
 msgstr ""
 
 #: memorial/templates/memorial/deveased_create.html:4
+#: memorial/templates/memorial/deveased_edit.html:4
 msgid "Add Deveased"
 msgstr "افزودن متوفی"
 
-#: memorial/templates/memorial/deveased_create.html:174
+#: memorial/templates/memorial/deveased_create.html:182
 msgid "Add"
 msgstr "دعای عهد"
 
-#: memorial/templates/memorial/deveased_list.html:83
+#: memorial/templates/memorial/deveased_edit.html:182
+#: memorial/templates/memorial/deveased_list.html:87
 msgid "Edit"
 msgstr "ویرایش"
 
-#: memorial/templates/memorial/deveased_list.html:86
+#: memorial/templates/memorial/deveased_edit.html:183
+msgid "Cancel"
+msgstr "لغو"
+
+#: memorial/templates/memorial/deveased_list.html:92
 msgid "View"
 msgstr "مشاهده"
 
-#: memorial/templates/memorial/deveased_list.html:89
+#: memorial/templates/memorial/deveased_list.html:100
 #, fuzzy
 #| msgid "delete"
 msgid "Delete"
@@ -257,6 +264,14 @@ msgstr ""
 #: memorial/templates/memorial/search.html:13
 msgid "Search"
 msgstr "جستجو:"
+
+#: memorial/views.py:57
+msgid "item deleted successfully!"
+msgstr "صفحه یادبود با موفقیت حذف شد"
+
+#: memorial/views.py:66
+msgid "updated successfully!!"
+msgstr "با موفقیت بروزرسانی شد"
 
 #~ msgid "edit"
 #~ msgstr "ویرایش"

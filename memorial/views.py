@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic.edit import ModelFormMixin
 from accounts.models import User
@@ -65,8 +65,9 @@ def DeveasedEdit(request, id=None):
         form.save()
         messages.success(request, _('updated successfully!!'), extra_tags='alert alert-success')
         # return HttpResponseRedirect(instance.get_absolute_url())
+        return redirect('memorial:list_Deveased')
     context = {
         'form': form,
     }
+    # import ipdb; ipdb.set_trace()
     return render(request, 'memorial/deveased_edit.html', context)
-
