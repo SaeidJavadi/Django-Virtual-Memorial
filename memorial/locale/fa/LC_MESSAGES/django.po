@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-11 18:39+0330\n"
+"POT-Creation-Date: 2020-12-11 18:57+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,7 +36,7 @@ msgstr "غیر فعال"
 
 #: memorial/models.py:9
 msgid "Pending"
-msgstr "در انتظار"
+msgstr "در حال بررسی"
 
 #: memorial/models.py:14 memorial/models.py:21 memorial/models.py:28
 #: memorial/models.py:44
@@ -268,11 +268,11 @@ msgstr ""
 msgid "Search"
 msgstr "جستجو:"
 
-#: memorial/views.py:57
+#: memorial/views.py:65
 msgid "item deleted successfully!"
 msgstr "صفحه یادبود با موفقیت حذف شد"
 
-#: memorial/views.py:66
+#: memorial/views.py:74
 msgid "updated successfully!!"
 msgstr "با موفقیت بروزرسانی شد"
 

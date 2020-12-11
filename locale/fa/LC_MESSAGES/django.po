@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-11 18:39+0330\n"
+"POT-Creation-Date: 2020-12-11 18:57+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,6 +51,14 @@ msgstr "صفحه اصلی"
 #: templates/partials/navbar.html:59
 msgid "Admin Panel"
 msgstr "پنل مدیریت"
+
+#: templates/partials/pagination.html:10
+msgid "Previous"
+msgstr "قبلی"
+
+#: templates/partials/pagination.html:28
+msgid "Next"
+msgstr "بعدی"
 
 #~ msgid "Option-1"
 #~ msgstr "صفحه-1"

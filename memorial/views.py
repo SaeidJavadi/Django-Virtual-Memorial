@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic.edit import ModelFormMixin
@@ -47,7 +47,15 @@ def list(request):
     user = User.objects.get(phone=request.user.phone)
     dead = Deveased.objects.filter(user=user).order_by('-updated')
     allObj = dead.count()
-    return render(request, 'memorial/deveased_list.html', {'objects': dead, 'allObj': allObj})
+    paginator = Paginator(dead, 5)
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+    return render(request, 'memorial/deveased_list.html', {'objects': posts, 'allObj': allObj})
 
 
 @login_required
