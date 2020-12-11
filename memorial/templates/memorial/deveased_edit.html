@@ -33,12 +33,12 @@
                                     {% if form.picture %}
                                         <center><img src="{% get_media_prefix %}{{ form.picture.value }}"
                                                      alt="تصویر پیش فرض" width="60%"
-                                                     height="60%"><br>
+                                                     height="60%" class="rounded"><br>
                                         </center>
                                     {% else %}
                                         <center><img src="{% static 'memorial/pic/rajeon.jpg' %}" alt="تصویر فعلی"
                                                      width="60%"
-                                                     height="60%"><br>
+                                                     height="60%" class="rounded"><br>
                                         </center>
                                     {% endif %}
                                 </div>
