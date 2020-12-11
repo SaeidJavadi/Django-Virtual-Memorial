@@ -63,6 +63,11 @@
                                     {{ form.name.errors }}
                                 </p>
                                 <p>
+                                    <label for="{{ form.gender.id_for_label }}">{{ form.gender.label }}:</label>
+                                    {{ form.gender }}
+                                    {{ form.gender.errors }}
+                                </p>
+                                <p>
                                     <label for="{{ form.description.id_for_label }}">{{ form.description.label }}:</label>
                                     {{ form.description }}
                                     {{ form.description.errors }}

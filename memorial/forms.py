@@ -15,16 +15,18 @@ class DeveasedForm(forms.ModelForm):
     class Meta:
         model = Deveased
         fields = (
-        'state', 'city', 'picture', 'title', 'name', 'description', 'address', 'datedied', 'quran_chk', 'fatehe_chk',
-        'ashora_chk',
-        'arbain_chk', 'ahd_chk', 'aye_chk', 'Sahifeh_chk', 'komil_chk', 'rabana_chk')
+            'state', 'city', 'picture', 'title', 'name', 'gender', 'description', 'address', 'datedied', 'quran_chk',
+            'fatehe_chk',
+            'ashora_chk',
+            'arbain_chk', 'ahd_chk', 'aye_chk', 'Sahifeh_chk', 'komil_chk', 'rabana_chk')
         widgets = {
             'state': forms.Select(attrs={'class': 'form-control', 'onChange': 'iranwebsv(this.value);'}),
             'city': forms.Select(attrs={'class': 'form-control'}),
             'picture': forms.FileInput(attrs={'class': 'form-control'}),
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'description': forms.Textarea(attrs={'class': 'form-control','rows':'3'}),
+            'gender': forms.Select(),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'rows': '3'}),
             'address': forms.TextInput(attrs={'class': 'form-control'}),
             'datedied': forms.DateInput(attrs={'class': 'form-control'}),
             # 'quran_chk':forms.CheckboxInput(attrs={'class':'customInput-control-input','type':'checkbox'}),
@@ -36,19 +38,19 @@ class DeveasedForm(forms.ModelForm):
         }
         forceInputField = 'این فیلد اجباری است'
         error_messages = {
-            'state':{
+            'state': {
                 'required': forceInputField,
             },
-            'city':{
+            'city': {
                 'required': forceInputField,
             },
-            'name':{
+            'name': {
                 'required': forceInputField,
             }
         }
         help_texts = {
-            'state':'ابتدا استان مورد نظر را انتخاب کید',
-            'name':'نام مرحوم را وارد کنید'
+            'state': 'ابتدا استان مورد نظر را انتخاب کید',
+            'name': 'نام مرحوم را وارد کنید'
         }
 
     def __init__(self, *args, **kwargs):

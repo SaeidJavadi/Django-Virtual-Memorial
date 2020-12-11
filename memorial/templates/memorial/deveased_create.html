@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
-{% block title %}{% trans 'Add Deveased' %}{% endblock %}
+{% block title %}{% trans 'Add Deveased' %} |{% endblock %}
 {% block head %}
     <link rel="stylesheet" type="text/css" href="{% static 'memorial/css/deveased_create.css' %}">
     <script language="javascript" src="{% static 'memorial/js/city.js' %}"></script>
@@ -58,6 +58,11 @@
                                     <label for="{{ form.name.id_for_label }}">{{ form.name.label }}:</label>
                                     {{ form.name }}
                                     {{ form.name.errors }}
+                                </p>
+                                <p>
+                                    <label for="{{ form.gender.id_for_label }}">{{ form.gender.label }}:</label>
+                                    {{ form.gender }}
+                                    {{ form.gender.errors }}
                                 </p>
                                 <p>
                                     <label for="{{ form.description.id_for_label }}">{{ form.description.label }}:</label>

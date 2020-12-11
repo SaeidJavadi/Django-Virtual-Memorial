@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-11 17:24+0330\n"
+"POT-Creation-Date: 2020-12-11 18:39+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -100,8 +100,8 @@ msgstr "توضیحات"
 msgid "Address"
 msgstr "آدرس"
 
-#: memorial/models.py:52 memorial/templates/memorial/deveased_create.html:73
-#: memorial/templates/memorial/deveased_edit.html:76
+#: memorial/models.py:52 memorial/templates/memorial/deveased_create.html:78
+#: memorial/templates/memorial/deveased_edit.html:81
 msgid "Date died"
 msgstr "تاریخ فوت"
 
@@ -229,30 +229,28 @@ msgstr ""
 msgid "Add Deveased"
 msgstr "افزودن مرحوم"
 
-#: memorial/templates/memorial/deveased_create.html:182
+#: memorial/templates/memorial/deveased_create.html:187
 msgid "Add"
 msgstr "دعای عهد"
 
 #: memorial/templates/memorial/deveased_edit.html:4
-#, fuzzy
-#| msgid "Add Deveased"
 msgid "Edit Deveased"
 msgstr "ویرایش صفحه مرحوم"
 
-#: memorial/templates/memorial/deveased_edit.html:186
+#: memorial/templates/memorial/deveased_edit.html:191
 #: memorial/templates/memorial/deveased_list.html:87
 msgid "Edit"
 msgstr "ویرایش"
 
-#: memorial/templates/memorial/deveased_edit.html:189
+#: memorial/templates/memorial/deveased_edit.html:194
 msgid "Cancel"
 msgstr "لغو"
 
-#: memorial/templates/memorial/deveased_list.html:92
+#: memorial/templates/memorial/deveased_list.html:93
 msgid "View"
 msgstr "مشاهده"
 
-#: memorial/templates/memorial/deveased_list.html:100
+#: memorial/templates/memorial/deveased_list.html:102
 #, fuzzy
 #| msgid "delete"
 msgid "Delete"
