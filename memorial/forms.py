@@ -19,14 +19,14 @@ class DeveasedForm(forms.ModelForm):
         'ashora_chk',
         'arbain_chk', 'ahd_chk', 'aye_chk', 'Sahifeh_chk', 'komil_chk', 'rabana_chk')
         widgets = {
-            'state': forms.Select(attrs={'class': 'form-control', 'onChange': 'iranwebsv(this.value);'}),
-            'city': forms.Select(attrs={'class': 'form-control'}),
-            'picture': forms.FileInput(attrs={'class': 'form-control'}),
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'description': forms.Textarea(attrs={'class': 'form-control','rows':'3'}),
-            'address': forms.TextInput(attrs={'class': 'form-control'}),
-            'datedied': forms.DateInput(attrs={'class': 'form-control'},)
+            # 'state': forms.Select(attrs={'class': 'form-control', 'onChange': 'iranwebsv(this.value);'}),
+            # 'city': forms.Select(attrs={'class': 'form-control'}),
+            # 'picture': forms.FileInput(attrs={'class': 'form-control'}),
+            # 'title': forms.TextInput(attrs={'class': 'form-control'}),
+            # 'name': forms.TextInput(attrs={'class': 'form-control'}),
+            # 'description': forms.Textarea(attrs={'class': 'form-control','rows':'3'}),
+            # 'address': forms.TextInput(attrs={'class': 'form-control'}),
+            # 'datedied': forms.DateInput(attrs={'class': 'form-control'},)
             # 'quran_chk':forms.CheckboxInput(attrs={'class':'customInput-control-input','type':'checkbox'}),
         }
         labels = {
@@ -47,7 +47,7 @@ class DeveasedForm(forms.ModelForm):
             }
         }
         help_texts = {
-            'state':'ابتدا استان مورد نظر را انتاب کید',
+            'state':'ابتدا استان مورد نظر را انتخاب کید',
             'name':'نام متوفی را وارد کنید'
         }
 

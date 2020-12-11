@@ -1,5 +1,6 @@
 import jdatetime
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 STATUS_CHOICES = (
@@ -78,6 +79,9 @@ class Deveased(models.Model):
     class Meta:
         verbose_name = _('Deveased')
         verbose_name_plural = _('Deveaseds')
+
+    # def get_absolute_url(self):
+    #     return reverse('memorial:detail', kwargs={'id': self.id})
 
 
 class Fatehe(models.Model):

@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic.edit import ModelFormMixin
 from accounts.models import User
@@ -8,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
+from django.utils.translation import gettext_lazy as _
 
 
 def home(request):
@@ -46,3 +48,25 @@ def list(request):
     dead = Deveased.objects.filter(user=user).order_by('-updated')
     allObj = dead.count()
     return render(request, 'memorial/deveased_list.html', {'objects': dead, 'allObj': allObj})
+
+
+@login_required
+def delete(request, id=None):
+    dead = get_object_or_404(Deveased, pk=id)
+    if dead.delete():
+        messages.success(request, _('item deleted successfully!'), extra_tags='alert alert-warning')
+    return render(request, 'memorial/delete.html', {'marhom': dead})
+
+
+def DeveasedEdit(request, id=None):
+    instance = get_object_or_404(Deveased, id=id)
+    form = DeveasedForm(request.POST or None, request.FILES or None, instance=instance)
+    if form.is_valid():
+        form.save()
+        messages.success(request, _('updated successfully!!'), extra_tags='alert alert-success')
+        # return HttpResponseRedirect(instance.get_absolute_url())
+    context = {
+        'form': form,
+    }
+    return render(request, 'memorial/deveased_edit.html', context)
+

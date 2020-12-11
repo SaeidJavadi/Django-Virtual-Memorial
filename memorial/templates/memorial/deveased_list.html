@@ -32,7 +32,8 @@
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-10">
-                            <a href="{% url 'memorial:add_Deveased' %}" style="text-decoration:none">
+                            <a href="{% url 'memorial:add_Deveased' %}" style="text-decoration:none"
+                               data-toggle="tooltip" title="افزودن صفحه یادبود متوفی جدید">
                                 <button type="submit"
                                         class="btn btn-warning btn-block">{% trans "افزودن متوفی جدید" %}</button>
                             </a>
@@ -54,11 +55,11 @@
                         <div style="text-align: center; color: #faf5bb" dir="rtl">
                             <div class="row">
                                 <div class="col-md-8" style="text-align: right" dir="rtl">
-                                    <div class="row" >
+                                    <div class="row">
                                         <div class="col-md-8">
                                             {{ marhom.name }}
                                         </div>
-                                        <div class="col-md-4" >
+                                        <div class="col-md-4">
                                             تاریخ ایجاد: {{ marhom.created|jformat:"%d-%m-%Y" }}
                                         </div>
                                     </div>
@@ -80,13 +81,23 @@
                                     <br>
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <a class="btn btn-primary btn-xs btn-block" href="#" style="color: black">{% trans "Edit" %}</a>
+                                            <a class="btn btn-primary btn-xs btn-block"
+                                               href="{% url 'memorial:edit_Deveased' id=marhom.id %}"
+                                               style="color: black" data-toggle="tooltip"
+                                               title="برای ویرایش صفحه این یادبود کلیک کنید">{% trans "Edit" %}</a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a class="btn btn-warning btn-xs btn-block" href="#" style="color: black">{% trans "View" %}</a>
+                                            <a class="btn btn-warning btn-xs btn-block" href="#"
+                                               style="color: black" data-toggle="tooltip"
+                                               title="برای مشاهده صفحه یادبود کلیک کنید">{% trans "View" %}</a>
                                         </div>
                                         <div class="col-md-4">
-                                            <a class="btn btn-danger btn-xs btn-block" href="#" style="color: black">{% trans "Delete" %}</a>
+                                            <button class="btn btn-danger btn-xs btn-block" data-toggle="modal"
+                                                    data-target="#myModal" id="{{ marhom.id }}"
+                                                    value="{{ marhom.name }}"
+                                                    style="color: black" onClick="reply_click(this.id,this.value)"
+                                                    data-toggle="tooltip"
+                                                    title="برای حذف این صفحه یادبود کلیک کنید">{% trans "Delete" %}</button>
                                         </div>
 
                                     </div>
@@ -108,4 +119,7 @@
             </div>
         {% endfor %}
     {% endif %}
+
+    {% include 'memorial/del_model.html' %}
+
 {% endblock body %}

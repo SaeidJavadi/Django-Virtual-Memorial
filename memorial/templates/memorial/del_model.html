@@ -1,0 +1,43 @@
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #2a2d32;color: white">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div class="col-xl-2">
+                    <button type="button" class="close" data-dismiss="modal" style="color: red">
+                        &times;
+                    </button>
+                </div>
+                <div class="col-xl-10"><h4 class="modal-title" style="text-align: right">حذف صفحه یادبود</h4></div>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" style="text-align: right">
+                آیا می خواهید صفحه یادبود <span id="mname" style="color: #ff00f4;font-weight: bold"></span> را حذف کنید؟
+                <script>
+                    function reply_click(clicked_id, clicked_value) {
+                        var marhom_id = clicked_id;
+                        var marhom_name = clicked_value;
+                        document.getElementById("mname").innerHTML = marhom_name;
+                        var a = document.getElementById('del');
+                        a.href = "/delete/"+ marhom_id
+                    }
+                </script>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-xl-6">
+                        <button type="button" class="btn btn-success btn-block" data-dismiss="modal">خیر</button>
+                    </div>
+                    <div class="col-xl-6">
+                        <a href="#" id="del" type="button" class="btn btn-danger btn-block" >بله</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

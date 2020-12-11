@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans 'Add Deveased' %}{% endblock %}
+{% block head %}
+        <link rel="stylesheet" type="text/css" href="{% static 'memorial/css/deveased_create.css' %}">
+    <script language="javascript" src="{% static 'memorial/js/city.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'memorial/customInput/css/component.css' %}"/>
+{% endblock %}
+{% block body %}
+    <div class="row" dir="rtl" style="text-align: right">
+        <div class="col-md-3 col-sm-1"></div>
+        <div class="col-md-6 col-sm-10" style="margin-top: 10px;">
+            <div class="animated rubberBand"
+                 style="background: #2c3e50; border-radius: 5px; padding: 15px; color: #ffffff;">
+                <div class="form-group" style="margin-top: 20px">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <p>
+                                    <label for="{{ form.state.id_for_label }}">{{ form.state.label }}:</label>
+                                    {{ form.state }}
+                                    {{ form.state.errors }}
+                                </p>
+                                <p>
+                                    <label for="{{ form.city.id_for_label }}">{{ form.city.label }}:</label>
+                                    <select name="{{ form.city.name }}" id="{{ form.city.id_for_label }}"
+                                            class="form-control" required="">
+                                        <option value="">لطفا ابتدا استان را انتخاب نمایید</option>
+                                    </select>
+                                    {{ form.city.errors }}
+                                </p>
+                                <div style="padding: 5px;">
+                                    {% if form.picture %}
+                                        {% for a,img in form.picture  %}
+                                            {{ img }}
+                                            {{ a }}
+                                        {% endfor %}
+                                    {% else %}
+                                    <center><img src="{% static 'memorial/pic/rajeon.jpg' %}" alt="تصویر پیش فرض" width="60%"
+                                                 height="60%"><br>
+                                        <span style="color: #7daf08">تصویر پیش فرض (در صورتی که عکس مرحوم را بارگزاری نکنید)</span>
+                                    </center>
+                                    {% endif %}
+                                </div>
+                                <p>
+                                    <label>{{ form.picture.label }}:</label><br>
+                                    <input type="file" name="{{ form.picture.name }}"
+                                           id="{{ form.picture.id_for_label }}"
+                                           class="inputfile inputfile-1" style="display:none"
+                                           accept="image/*"/>
+                                    <label for="{{ form.picture.id_for_label }}"> <span>بارگزاری تصویر</span></label>
+                                    {{ form.picture.errors }}
+                                </p>
+                                <p>
+
+                                    <label for="{{ form.title.id_for_label }}">{{ form.title.label }}:</label>
+                                    {{ form.title }}
+                                    {{ form.title.errors }}
+                                </p>
+                                <p>
+                                    <label for="{{ form.name.id_for_label }}">{{ form.name.label }}:</label>
+                                    {{ form.name }}
+                                    {{ form.name.errors }}
+                                </p>
+                                <p>
+                                    <label for="{{ form.description.id_for_label }}">{{ form.description.label }}:</label>
+                                    {{ form.description }}
+                                    {{ form.description.errors }}
+                                </p>
+                                <p>
+                                    <label for="{{ form.address.id_for_label }}">{{ form.address.label }}</label>
+                                    {{ form.address }}
+                                    {{ form.address.errors }}
+                                </p>
+                                <p>
+                                    <label for="{{ form.datedied.id_for_label }}">{% trans 'Date died' %}: </label>
+                                    {{ form.datedied }}
+                                    {{ form.datedied.errors }}
+                                </p>
+                                <table class="table table-striped" style="color: #9fcdff">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.fatehe_chk.id_for_label }}"
+                                                       name="{{ form.fatehe_chk.name }}" checked>
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.fatehe_chk.id_for_label }}">{{ form.fatehe_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.quran_chk.id_for_label }}"
+                                                       name="{{ form.quran_chk.name }}">
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.quran_chk.id_for_label }}">{{ form.quran_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.ashora_chk.id_for_label }}"
+                                                       name="{{ form.ashora_chk.name }}">
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.ashora_chk.id_for_label }}">{{ form.ashora_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.arbain_chk.id_for_label }}"
+                                                       name="{{ form.arbain_chk.name }}">
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.arbain_chk.id_for_label }}">{{ form.arbain_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.ahd_chk.id_for_label }}"
+                                                       name="{{ form.ahd_chk.name }}">
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.ahd_chk.id_for_label }}">{{ form.ahd_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.aye_chk.id_for_label }}"
+                                                       name="{{ form.aye_chk.name }}">
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.aye_chk.id_for_label }}">{{ form.aye_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.Sahifeh_chk.id_for_label }}"
+                                                       name="{{ form.Sahifeh_chk.name }}">
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.Sahifeh_chk.id_for_label }}">{{ form.Sahifeh_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.komil_chk.id_for_label }}"
+                                                       name="{{ form.komil_chk.name }}">
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.komil_chk.id_for_label }}">{{ form.komil_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.rabana_chk.id_for_label }}"
+                                                       name="{{ form.rabana_chk.name }}">
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.rabana_chk.id_for_label }}">{{ form.rabana_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <input type="submit" value="{% trans 'Add' %}" class="btn btn-success btn-block">
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-1"></div>
+    </div>
+    <script src="{% static 'memorial/customInput/js/custom-file-input.js' %}"></script>
+{% endblock %}
