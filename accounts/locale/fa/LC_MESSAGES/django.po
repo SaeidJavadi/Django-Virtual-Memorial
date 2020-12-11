@@ -123,8 +123,6 @@ msgid "Forget Your Password?"
 msgstr "رمز عبور را فراموش کرده اید؟"
 
 #: accounts/views.py:57
-#, fuzzy
-#| msgid "The value entered is invalid"
 msgid "The code entered is incorrect"
 msgstr "مقدار وارد شده معتبر نیست"
 

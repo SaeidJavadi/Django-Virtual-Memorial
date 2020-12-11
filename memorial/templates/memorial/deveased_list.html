@@ -56,26 +56,27 @@
                             <div class="row">
                                 <div class="col-md-8" style="text-align: right" dir="rtl">
                                     <div class="row">
-                                        <div class="col-md-8">
-                                            {{ marhom.name }}
+                                        <div class="col-md-7">
+                                            <span style="color: #7f82ef">نام: </span><span style="color: #34fc66">{{ marhom.name }}</span>
                                         </div>
-                                        <div class="col-md-4">
-                                            تاریخ ایجاد: {{ marhom.created|jformat:"%d-%m-%Y" }}
+                                        <div class="col-md-5">
+                                            <span style="color: #7f82ef">کد مرحوم: </span><span style="color: #34fc66">{{ marhom.id }}</span>
                                         </div>
                                     </div>
                                     <br>
                                     <div class="row">
                                         <div class="col-md-7">
-                                            {% if marhom.status == 'active' %}
-                                                وضعیت فعلی: فعال
-                                            {% elif marhom.status == 'inactive' %}
-                                                وضعیت فعلی: غیرفعال
-                                            {% elif marhom.status == 'pending' %}
-                                                وضعیت فعلی: در انتظار بررسی
-                                            {% endif %}
+                                            <span style="color: #7f82ef">تاریخ ایجاد: </span><span style="color: #34fc66">{{ marhom.created|jformat:"%d-%m-%Y" }}</span>
                                         </div>
                                         <div class="col-md-5">
-                                            {{ marhom.state }} - {{ marhom.city }}
+                                            <span style="color: #7f82ef">وضعیت: </span>
+                                            {% if marhom.status == 'active' %}
+                                               <span style="color: #34fc66">فعال</span>
+                                            {% elif marhom.status == 'inactive' %}
+                                              <span style="color: #ff0a22">غیرفعال</span>
+                                            {% elif marhom.status == 'pending' %}
+                                              <span style="color: #ffc514">در انتظار بررسی</span>
+                                            {% endif %}
                                         </div>
                                     </div>
                                     <br>
@@ -107,10 +108,10 @@
                                 <div class="col-md-4" style="alignment: center">
                                     {% if marhom.picture %}
                                         <img src="{{ marhom.picture.url }}" alt="{{ marhom.name }}" height="100%"
-                                             width="100%">
+                                             width="100%" class="rounded">
                                     {% else %}
                                         <img src="{% static 'memorial/pic/rajeon.jpg' %}" alt="{{ marhom.name }}"
-                                             height="90%" width="90%">
+                                             height="100%" width="100%" class="rounded">
                                     {% endif %}
                                 </div>
                             </div>

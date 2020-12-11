@@ -48,7 +48,7 @@ def RegisterPage(request):
             password = form.cleaned_data['password']
             if password == code:
                 user = User.objects.create_user(phone=form.cleaned_data['phone'],
-                                                full_name=form.cleaned_data['full_name'],
+                                                name=form.cleaned_data['name'],
                                                 password=password)
                 user.save()
                 login(request, user)
