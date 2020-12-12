@@ -34,7 +34,8 @@ class DeveasedForm(forms.ModelForm):
         labels = {
             'title': 'عنوان (مانند شادروان)',
             'address': 'آدرس آرمگاه:',
-            'Sahifeh_chk': 'دعای 7 صحیفه سجادیه'
+            'Sahifeh_chk': 'دعای 7 صحیفه سجادیه',
+            'description':'توضیحات مندرج در ذیل صفحه'
         }
         forceInputField = 'این فیلد اجباری است'
         error_messages = {

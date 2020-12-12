@@ -89,7 +89,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             {% if marhom.status == 'active' %}
-                                                <a class="btn btn-warning btn-xs btn-block" href="#"
+                                                <a class="btn btn-warning btn-xs btn-block" target="_blank" href="{% url 'memorial:view_Deveased' pk=marhom.id %}"
                                                    style="color: black" data-toggle="tooltip"
                                                    title="برای مشاهده صفحه یادبود کلیک کنید">{% trans "View" %}</a>
                                             {% endif %}
