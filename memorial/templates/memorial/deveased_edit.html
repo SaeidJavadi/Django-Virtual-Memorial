@@ -191,7 +191,9 @@
                                 <input type="submit" value="{% trans 'Edit' %}" class="btn btn-success btn-block">
                             </div>
                             <div class="col-md-5">
-                                <input type="submit" value="{% trans 'Cancel' %}" class="btn btn-warning btn-block">
+                                <a href="{% url 'memorial:list_Deveased' %}" style="text-decoration: None">
+                                    <input type="submit" value="{% trans 'Cancel' %}" class="btn btn-warning btn-block">
+                                </a>
                             </div>
                             <div class="col-md-1"></div>
                         </div>
