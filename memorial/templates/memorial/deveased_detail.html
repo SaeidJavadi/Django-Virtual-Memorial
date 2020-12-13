@@ -18,11 +18,16 @@
     <meta name="author" content="توسعه فناوری و ارتباطات گیلان"/>
     <meta property="og:title" content="{{ deveased.title }} {{ deveased.name }}">
     <meta property="og:description" content="{{ deveased.description }}">
-    <meta property="og:image" content="{{ deveased.picture.url }}">
+
+    {% thumbnail deveased.picture "250x250" as im %}
+        <meta property="og:image" content="{{ im.url }}">
+    {% endthumbnail %}
+
     <meta property="og:url" content="{{ Site }}/{{ deveased.id }}">
 
     <link rel="stylesheet" href="{% static 'root/bs/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'root/css/basebody.css' %}"/>
+    <link rel="stylesheet" href="{% static 'memorial/css/detail.css' %}"/>
 
     <title>{{ deveased.title }} {{ deveased.name }}</title>
 </head>
@@ -44,23 +49,65 @@
                 <div class="row">
                     <div class="col-xl-1 col-sm-1"></div>
                     <div class="col-xl-10 col-sm-10 rounded border border-secondar"
-                         style="text-align: center; background-color:  #423f3e ; padding: 15px 0 20px 0">
+                         style="text-align: center; background-color:  #423f3e ; padding: 15px 0 20px 0;font-weight: bold;">
                         {{ deveased.title }} {{ deveased.name }}
                     </div>
                     <div class="col-xl-1 col-sm-1"></div>
                 </div>
+                <br>
                 <div class="row">
-                    <div class="col-xl-1 col-sm-1"></div>
-                    <div class="col-xl-10 col-sm-10" style="padding: 15px 15px 15px 15px">
-                        {% thumbnail deveased.picture.url "100x100" crop="center" as im %}
-                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" alt=""
+                    <div class="col-xl-12 col-sm-12" style="padding: 15px 15px 15px 15px">
+                        {% if deveased.picture %}
+                        <img src="{{ deveased.picture.url }}" width="100%" height="100%" alt="{{ deveased.name }}"
+                             class="rounded"
+                             style="display: block; margin-left: auto; margin-right: auto; width: 60%;overflow: auto">
+                        {% else %}
+                            <img src="{% static 'memorial/pic/rajeon.jpg' %}" width="400px" height="400px" alt="{{ deveased.name }}"
                                  class="rounded"
                                  style="display: block; margin-left: auto; margin-right: auto; width: 60%;overflow: auto">
-                        {% endthumbnail %}
-
-                        <img src="{{ deveased.picture.url }}" width="80%" height="80%" alt="" class="rounded"
-                             style="display: block; margin-left: auto; margin-right: auto; width: 60%;overflow: auto">
-
+                        {% endif %}
+                        <hr style="  border: 1px solid green; border-radius: 2px;">
+                    </div>
+                </div>
+                <br>
+                {% if deveased.description or deveased.address %}
+                    <div class="row">
+                        <div class="col-xl-1 col-sm-1"></div>
+                        <div class="col-xl-10 col-sm-10" dir="rtl" style="text-align: right;color: white">
+                            <div class="animated rubberBand border"
+                                 style="background: #000000 ; border-radius: 5px; padding: 15px; color: #ffffff;">
+                                <p>{{ deveased.description }}</p>
+                                <p>
+                                    <span style="color: #91bc02">آدرس آرمگاه: </span>{{ deveased.address }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-1 col-sm-1"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 col-sm-12">
+                            <hr style="border: 1px solid green; border-radius: 2px;">
+                        </div>
+                    </div>
+                {% endif %}
+                {#                <div class="row">#}
+                {#                    <div class="col-xl-12 col-sm-12">#}
+                {#                        <hr style="border: 1px dashed green; border-radius: 2px;">#}
+                {#                    </div>#}
+                {#                </div>#}
+                {#                <div class="row">#}
+                {#                    <div class="col-xl-1 col-sm-1"></div>#}
+                {#                    <div class="col-xl-10 col-sm-10" dir="rtl" style="text-align: right;color: white">#}
+                {##}
+                {#                    </div>#}
+                {#                    <div class="col-xl-1 col-sm-1"></div>#}
+                {#                </div>#}
+                <div class="row">
+                    <div class="col-xl-1 col-sm-1"></div>
+                    <div class="col-xl-10 col-sm-10">
+                        <button type="submit" class="btn btn-success btn-block">صلوات</button>
+                        <br>
+                        <button type="submit" class="btn btn-success btn-block">فاتحه</button>
                     </div>
                     <div class="col-xl-1 col-sm-1"></div>
                 </div>
