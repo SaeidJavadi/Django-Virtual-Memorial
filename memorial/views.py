@@ -80,5 +80,6 @@ def DeveasedEdit(request, id=None):
     # import ipdb; ipdb.set_trace()
     return render(request, 'memorial/deveased_edit.html', context)
 
+
 class DeadDetailView(DetailView):
     model = Deveased
