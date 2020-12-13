@@ -30,7 +30,7 @@
                                     {{ form.city.errors }}
                                 </p>
                                 <div style="padding: 5px;">
-                                    {% if form.picture %}
+                                    {% if form.picture.value  %}
                                         <center><img src="{% get_media_prefix %}{{ form.picture.value }}"
                                                      alt="تصویر پیش فرض" width="60%"
                                                      height="60%" class="rounded"><br>
@@ -192,7 +192,7 @@
                             </div>
                             <div class="col-md-5">
                                 <a href="{% url 'memorial:list_Deveased' %}" style="text-decoration: None">
-                                    <input type="submit" value="{% trans 'Cancel' %}" class="btn btn-warning btn-block">
+                                    <button type="button" value="" class="btn btn-warning btn-block">{% trans 'Cancel' %}</button>
                                 </a>
                             </div>
                             <div class="col-md-1"></div>
