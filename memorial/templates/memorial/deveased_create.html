@@ -101,6 +101,15 @@
                                         <th>
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.salavat_chk.id_for_label }}"
+                                                       name="{{ form.salavat_chk.name }}" checked>
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.salavat_chk.id_for_label }}">{{ form.salavat_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
                                                        id="{{ form.quran_chk.id_for_label }}"
                                                        name="{{ form.quran_chk.name }}">
                                                 <label class="custom-control-label" type="checkbox"

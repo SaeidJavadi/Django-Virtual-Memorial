@@ -58,11 +58,12 @@
                 <div class="row">
                     <div class="col-xl-12 col-sm-12" style="padding: 15px 15px 15px 15px">
                         {% if deveased.picture %}
-                        <img src="{{ deveased.picture.url }}" width="100%" height="100%" alt="{{ deveased.name }}"
-                             class="rounded"
-                             style="display: block; margin-left: auto; margin-right: auto; width: 60%;overflow: auto">
+                            <img src="{{ deveased.picture.url }}" width="100%" height="100%" alt="{{ deveased.name }}"
+                                 class="rounded"
+                                 style="display: block; margin-left: auto; margin-right: auto; width: 60%;overflow: auto">
                         {% else %}
-                            <img src="{% static 'memorial/pic/rajeon.jpg' %}" width="400px" height="400px" alt="{{ deveased.name }}"
+                            <img src="{% static 'memorial/pic/rajeon.jpg' %}" width="400px" height="400px"
+                                 alt="{{ deveased.name }}"
                                  class="rounded"
                                  style="display: block; margin-left: auto; margin-right: auto; width: 60%;overflow: auto">
                         {% endif %}
@@ -90,31 +91,40 @@
                         </div>
                     </div>
                 {% endif %}
-                {#                <div class="row">#}
-                {#                    <div class="col-xl-12 col-sm-12">#}
-                {#                        <hr style="border: 1px dashed green; border-radius: 2px;">#}
-                {#                    </div>#}
-                {#                </div>#}
-                {#                <div class="row">#}
-                {#                    <div class="col-xl-1 col-sm-1"></div>#}
-                {#                    <div class="col-xl-10 col-sm-10" dir="rtl" style="text-align: right;color: white">#}
-                {##}
-                {#                    </div>#}
-                {#                    <div class="col-xl-1 col-sm-1"></div>#}
-                {#                </div>#}
                 <div class="row">
                     <div class="col-xl-1 col-sm-1"></div>
-                    <div class="col-xl-10 col-sm-10">
-                        <button type="submit" class="btn btn-success btn-block">صلوات</button>
-                        <br>
-                        <button type="submit" class="btn btn-success btn-block">فاتحه</button>
-                    </div>
+                    {% if deveased.salavat_chk %}
+                        <div class="col-xl-5 col-sm-5">
+                            <button type="submit" class="btn btn-success btn-block">صلوات</button>
+                        </div>
+                    {% endif %}
+                    {% if deveased.fatehe_chk %}
+                        <div class="col-xl-5 col-sm-5">
+                            <button type="submit" class="btn btn-info btn-block">فاتحه</button>
+                        </div>
+                    {% endif %}
+                    <div class="col-xl-1 col-sm-1"></div>
+                </div><br>
+                <div class="row">
+                    <div class="col-xl-1 col-sm-1"></div>
+                    {% if deveased.ashora_chk %}
+                        <div class="col-xl-5 col-sm-5">
+                            <button type="submit" class="btn btn-primary btn-block">زیارت عاشورا</button>
+                        </div>
+                    {% endif %}
+                    {% if deveased.arbain_chk %}
+                        <div class="col-xl-5 col-sm-5">
+                            <button type="submit" class="btn btn-primary btn-block">زیارت اربعین</button>
+                        </div>
+                    {% endif %}
                     <div class="col-xl-1 col-sm-1"></div>
                 </div>
             </div>
-            <div class="col-xl-2 col-sm-2"></div>
+
+
         </div>
     </div>
+</div>
 </div>
 
 <script src="{% static 'root/bs/js/jquery-3.5.1.min.js' %}"></script>

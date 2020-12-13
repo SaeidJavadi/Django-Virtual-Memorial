@@ -16,7 +16,7 @@ class DeveasedForm(forms.ModelForm):
         model = Deveased
         fields = (
             'state', 'city', 'picture', 'title', 'name', 'gender', 'description', 'address', 'datedied', 'quran_chk',
-            'fatehe_chk',
+            'fatehe_chk','salavat_chk',
             'ashora_chk',
             'arbain_chk', 'ahd_chk', 'aye_chk', 'Sahifeh_chk', 'komil_chk', 'rabana_chk')
         widgets = {

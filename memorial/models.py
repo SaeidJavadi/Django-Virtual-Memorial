@@ -51,6 +51,7 @@ class Deveased(models.Model):
     address = models.TextField(verbose_name=_('Address'), null=True, blank=True)
     datedied = models.DateField(verbose_name=_('Date died'), null=True, blank=True)
     fatehe_chk = models.BooleanField(verbose_name=_('Fatehe'), default=True)
+    salavat_chk = models.BooleanField(verbose_name=_('Salavat'), default=True)
     quran_chk = models.BooleanField(verbose_name=_('Quran'))
     ashora_chk = models.BooleanField(verbose_name=_('Ashora'))
     arbain_chk = models.BooleanField(verbose_name=_('Arbain'))
