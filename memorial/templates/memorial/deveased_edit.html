@@ -97,7 +97,10 @@
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input"
                                                        id="{{ form.fatehe_chk.id_for_label }}"
-                                                       name="{{ form.fatehe_chk.name }}" checked>
+                                                       name="{{ form.fatehe_chk.name }}"
+                                                {% if form.fatehe_chk.value %}
+                                                        checked
+                                                       {% endif %}>
                                                 <label class="custom-control-label" type="checkbox"
                                                        for="{{ form.fatehe_chk.id_for_label }}">{{ form.fatehe_chk.label }}:</label>
                                             </div>
@@ -105,8 +108,23 @@
                                         <th>
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.salavat_chk.id_for_label }}"
+                                                       name="{{ form.salavat_chk.name }}"
+                                                        {% if form.salavat_chk.value %}
+                                                       checked
+                                                        {% endif %}>
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.salavat_chk.id_for_label }}">{{ form.salavat_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
                                                        id="{{ form.quran_chk.id_for_label }}"
-                                                       name="{{ form.quran_chk.name }}">
+                                                       name="{{ form.quran_chk.name }}"
+                                                        {% if form.quran_chk.value %}
+                                                       checked
+                                                        {% endif %}>
                                                 <label class="custom-control-label" type="checkbox"
                                                        for="{{ form.quran_chk.id_for_label }}">{{ form.quran_chk.label }}:</label>
                                             </div>
@@ -115,7 +133,10 @@
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input"
                                                        id="{{ form.ashora_chk.id_for_label }}"
-                                                       name="{{ form.ashora_chk.name }}">
+                                                       name="{{ form.ashora_chk.name }}"
+                                                        {% if form.ashora_chk.value %}
+                                                       checked
+                                                        {% endif %}>
                                                 <label class="custom-control-label" type="checkbox"
                                                        for="{{ form.ashora_chk.id_for_label }}">{{ form.ashora_chk.label }}:</label>
                                             </div>
@@ -126,7 +147,10 @@
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input"
                                                        id="{{ form.arbain_chk.id_for_label }}"
-                                                       name="{{ form.arbain_chk.name }}">
+                                                       name="{{ form.arbain_chk.name }}"
+                                                        {% if form.arbain_chk.value %}
+                                                       checked
+                                                        {% endif %}>
                                                 <label class="custom-control-label" type="checkbox"
                                                        for="{{ form.arbain_chk.id_for_label }}">{{ form.arbain_chk.label }}:</label>
                                             </div>
@@ -135,7 +159,10 @@
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input"
                                                        id="{{ form.ahd_chk.id_for_label }}"
-                                                       name="{{ form.ahd_chk.name }}">
+                                                       name="{{ form.ahd_chk.name }}"
+                                                        {% if form.ahd_chk.value %}
+                                                       checked
+                                                        {% endif %}>
                                                 <label class="custom-control-label" type="checkbox"
                                                        for="{{ form.ahd_chk.id_for_label }}">{{ form.ahd_chk.label }}:</label>
                                             </div>
@@ -144,7 +171,10 @@
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input"
                                                        id="{{ form.aye_chk.id_for_label }}"
-                                                       name="{{ form.aye_chk.name }}">
+                                                       name="{{ form.aye_chk.name }}"
+                                                        {% if form.aye_chk.value %}
+                                                       checked
+                                                        {% endif %}>
                                                 <label class="custom-control-label" type="checkbox"
                                                        for="{{ form.aye_chk.id_for_label }}">{{ form.aye_chk.label }}:</label>
                                             </div>
@@ -155,7 +185,10 @@
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input"
                                                        id="{{ form.Sahifeh_chk.id_for_label }}"
-                                                       name="{{ form.Sahifeh_chk.name }}">
+                                                       name="{{ form.Sahifeh_chk.name }}"
+                                                        {% if form.Sahifeh_chk.value %}
+                                                       checked
+                                                        {% endif %}>
                                                 <label class="custom-control-label" type="checkbox"
                                                        for="{{ form.Sahifeh_chk.id_for_label }}">{{ form.Sahifeh_chk.label }}:</label>
                                             </div>
@@ -164,7 +197,10 @@
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input"
                                                        id="{{ form.komil_chk.id_for_label }}"
-                                                       name="{{ form.komil_chk.name }}">
+                                                       name="{{ form.komil_chk.name }}"
+                                                        {% if form.komil_chk.value %}
+                                                       checked
+                                                        {% endif %}>
                                                 <label class="custom-control-label" type="checkbox"
                                                        for="{{ form.komil_chk.id_for_label }}">{{ form.komil_chk.label }}:</label>
                                             </div>
@@ -173,7 +209,10 @@
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input"
                                                        id="{{ form.rabana_chk.id_for_label }}"
-                                                       name="{{ form.rabana_chk.name }}">
+                                                       name="{{ form.rabana_chk.name }}"
+                                                        {% if form.rabana_chk.value %}
+                                                       checked
+                                                        {% endif %}>
                                                 <label class="custom-control-label" type="checkbox"
                                                        for="{{ form.rabana_chk.id_for_label }}">{{ form.rabana_chk.label }}:</label>
                                             </div>
