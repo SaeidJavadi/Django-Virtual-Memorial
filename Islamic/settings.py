@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'memorial.apps.MemorialConfig',
     'accounts.apps.AccountsConfig',
 
-    'django_jalali'
+    # install Library
+    'django_jalali',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
