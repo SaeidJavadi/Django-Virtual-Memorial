@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
@@ -10,6 +12,7 @@ from django.views.generic import ListView, DetailView, CreateView, DeleteView, U
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
+from django.http import JsonResponse
 
 
 def home(request):
@@ -94,7 +97,7 @@ def DeadView(request, pk):
         btns['f'] = fatehe_count
     if marhom.salavat_chk:
         salavat_count = Salavat.objects.all().filter(salavat=marhom).count()
-        btns['q'] = salavat_count
+        btns['s'] = salavat_count
     if marhom.arbain_chk:
         arbain_count = Arbain.objects.all().filter(arbain=marhom).count()
         btns['ar'] = arbain_count
@@ -104,4 +107,32 @@ def DeadView(request, pk):
     btnCount = len(btns)
     print(btns)
     context['btnCount'] = btnCount
+    context['btns'] = btns
     return render(request, 'memorial/deveased_detail.html', context)
+
+
+def fatehe(request):
+    return None
+
+
+def salavat(request):
+    if request.method == 'POST':
+        ip = request.META['REMOTE_ADDR']
+        marhom_id = request.POST['marhom_id']
+        marhom = Deveased.objects.get(id=marhom_id)
+        slvt = Salavat.objects.create(salavat=marhom, ip=ip)
+        if slvt:
+            salavat_count = Salavat.objects.all().filter(salavat=marhom).count()
+            response = {
+                'status': 'ok',
+                'count': salavat_count,
+            }
+            return JsonResponse(response)
+
+
+def arbain(request):
+    return None
+
+
+def ashora(request):
+    return None

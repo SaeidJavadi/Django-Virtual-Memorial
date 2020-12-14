@@ -19,6 +19,10 @@ class QuranAdmin(admin.ModelAdmin):
 class FateheAdmin(admin.ModelAdmin):
     list_display = ('ip', 'fatehe', 'created')
 
+@admin.register(Salavat)
+class SalavatAdmin(admin.ModelAdmin):
+    list_display = ('ip', 'salavat', 'created')
+
 
 @admin.register(Ashora)
 class AshoraAdmin(admin.ModelAdmin):

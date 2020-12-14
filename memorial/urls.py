@@ -2,7 +2,7 @@ from django.urls import path
 from memorial import views
 
 app_name = 'memorial'
-urlpatterns= [
+urlpatterns = [
     path('', views.home, name='home'),
     path('Dashboard', views.dashboard, name='dashboard'),
     path('add1', views.DeveasedCreate.as_view(), name='add_Deveased'),
@@ -11,4 +11,8 @@ urlpatterns= [
     path('delete/<int:id>/', views.delete, name='del_Deveased'),
     # path('<int:pk>/', views.DeadDetailView.as_view(), name='view_Deveased'),
     path('<int:pk>/', views.DeadView, name='view_Deveased'),
+    path('fatehe/', views.fatehe, name="fatehe"),
+    path('salavat/', views.salavat, name="salavat"),
+    path('arbain/', views.arbain, name="arbain"),
+    path('ashora/', views.ashora, name="ashora"),
 ]

@@ -75,7 +75,7 @@ class Deveased(models.Model):
         return jd_datetime.strftime('%A, %d %B %y %H:%M:%S')
 
     def __str__(self):
-        return f"{self.id}-{self.name}"
+        return f"{self.id} - {self.name}"
 
     class Meta:
         verbose_name = _('Deveased')
@@ -91,7 +91,7 @@ class Fatehe(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.id}-{self.fatehe.name}"
+        return f"{self.fatehe.id} - {self.fatehe.name}"
 
     class Meta:
         verbose_name = _('Fatehe')
@@ -104,7 +104,7 @@ class Ashora(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.id}-{self.ashora.name}"
+        return f"{self.ashora.id} - {self.ashora.name}"
 
     class Meta:
         verbose_name = _('Ashora')
@@ -117,7 +117,7 @@ class Arbain(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.id}-{self.arbain.name}"
+        return f"{self.arbain.id} - {self.arbain.name}"
 
     class Meta:
         verbose_name = _('Arbain')
@@ -130,7 +130,7 @@ class Ahd(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.id}-{self.ahd.name}"
+        return f"{self.ahd.id} - {self.ahd.name}"
 
     class Meta:
         verbose_name = _('Ahd')
@@ -143,7 +143,7 @@ class Aye(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.id}-{self.aye.name}"
+        return f"{self.aye.id} - {self.aye.name}"
 
     class Meta:
         verbose_name = _('Aye')
@@ -156,7 +156,7 @@ class Sahifeh(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.id}-{self.sahifeh.name}"
+        return f"{self.sahifeh.id} - {self.sahifeh.name}"
 
     class Meta:
         verbose_name = _('Sahifeh')
@@ -169,7 +169,7 @@ class Komil(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.id}-{self.komil.name}"
+        return f"{self.komil.id} - {self.komil.name}"
 
     class Meta:
         verbose_name = _('Komil')
@@ -182,7 +182,7 @@ class Rabana(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.id}-{self.rabana.name}"
+        return f"{self.rabana.id} - {self.rabana.name}"
 
     class Meta:
         verbose_name = _('Rabana')
@@ -195,7 +195,7 @@ class Salavat(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.id}-{self.salavat.name}"
+        return f"{self.salavat.id} - {self.salavat.name}"
 
     class Meta:
         verbose_name = _('Salavat')
@@ -207,7 +207,7 @@ class Quran(models.Model):
     status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
 
     def __str__(self):
-        return f"{self.id}-{self.dead.name}"
+        return f"{self.dead.id} - {self.dead.name}"
 
     class Meta:
         verbose_name = _('Quran')
