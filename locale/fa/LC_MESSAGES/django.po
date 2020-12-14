@@ -23,8 +23,6 @@ msgid "Administrator"
 msgstr "مدیریت"
 
 #: Islamic/urls.py:31
-#, fuzzy
-#| msgid "Admin Panel"
 msgid "Administrator Panel"
 msgstr "پنل مدیریت"
 

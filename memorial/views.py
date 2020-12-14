@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import ModelFormMixin
 from accounts.models import User
 from memorial.forms import Search, DeveasedForm
-from memorial.models import Deveased
+from memorial.models import *
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -86,8 +86,22 @@ def DeveasedEdit(request, id=None):
 
 def DeadView(request, pk):
     marhom = get_object_or_404(Deveased, id=pk)
-
     context = {}
+    btns = {}
     context['deveased'] = marhom
-
+    if marhom.fatehe_chk:
+        fatehe_count = Fatehe.objects.all().filter(fatehe=marhom).count()
+        btns['f'] = fatehe_count
+    if marhom.salavat_chk:
+        salavat_count = Salavat.objects.all().filter(salavat=marhom).count()
+        btns['q'] = salavat_count
+    if marhom.arbain_chk:
+        arbain_count = Arbain.objects.all().filter(arbain=marhom).count()
+        btns['ar'] = arbain_count
+    if marhom.ashora_chk:
+        ashora_count = Ashora.objects.all().filter(ashora=marhom).count()
+        btns['as'] = ashora_count
+    btnCount = len(btns)
+    print(btns)
+    context['btnCount'] = btnCount
     return render(request, 'memorial/deveased_detail.html', context)

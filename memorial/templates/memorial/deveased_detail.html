@@ -50,13 +50,14 @@
                     <div class="col-xl-1 col-sm-1"></div>
                     <div class="col-xl-10 col-sm-10 rounded border border-secondar"
                          style="text-align: center; background-color:  #423f3e ; padding: 15px 0 20px 0;font-weight: bold;">
-                        {{ deveased.title }} {{ deveased.name }}
+                        {{ deveased.title }} {% if deveased.gender == 'male' %} آقای {% else %}
+                        خانوم {% endif %}{{ deveased.name }}
                     </div>
                     <div class="col-xl-1 col-sm-1"></div>
                 </div>
                 <br>
                 <div class="row">
-                    <div class="col-xl-12 col-sm-12" style="padding: 15px 15px 15px 15px">
+                    <div class="col-xl-12 col-sm-12" style="padding:15px 15px 15px 15px">
                         {% if deveased.picture %}
                             <img src="{{ deveased.picture.url }}" width="100%" height="100%" alt="{{ deveased.name }}"
                                  class="rounded"
@@ -67,7 +68,7 @@
                                  class="rounded"
                                  style="display: block; margin-left: auto; margin-right: auto; width: 60%;overflow: auto">
                         {% endif %}
-                        <hr style="border:1px solid green; border-radius:2px;">
+                        <hr style="border:1px solid green;border-radius:2px;">
                     </div>
                 </div>
                 <br>
@@ -91,42 +92,65 @@
                         </div>
                     </div>
                 {% endif %}
-                <div class="row">
-                    <div class="col-xl-1 col-sm-1"></div>
-                    {% if deveased.salavat_chk %}
-                        <div class="col-xl-5 col-sm-5">
-                            <button type="submit" class="btn btn-primary btn-block">صلوات</button>
+                {% if btnCount != 0 %}
+                    {% if btnCount > 2 %}
+                        <div class="row">
+                        <div class="col-xl-1 col-sm-1"></div>
+                        {% if deveased.salavat_chk %}
+                            {% if deveased.fatehe_chk %}
+                                <div class="col-xl-5 col-sm-5">
+                            {% else %}
+                                <div class="col-xl-10 col-sm-10">
+                            {% endif %}
+                        <button type="submit" class="btn btn-primary btn-block">صلوات</button>
                         </div>
-                    {% endif %}
-                    {% if deveased.fatehe_chk %}
-                        <div class="col-xl-5 col-sm-5">
-                            <button type="submit" class="btn btn-primary btn-block">فاتحه</button>
+                        {% endif %}
+                        {% if deveased.fatehe_chk %}
+                            {% if deveased.salavat_chk %}
+                                <div class="col-xl-5 col-sm-5">
+                            {% else %}
+                                <div class="col-xl-10 col-sm-10">
+                            {% endif %}
+                        <button type="submit" class="btn btn-primary btn-block">فاتحه</button>
                         </div>
-                    {% endif %}
+                        {% endif %}
                     <div class="col-xl-1 col-sm-1"></div>
+                    </div>
+                        <br>
+                        <div class="row">
+                        <div class="col-xl-1 col-sm-1"></div>
+                        {% if deveased.ashora_chk %}
+                            {% if deveased.arbain_chk %}
+                                <div class="col-xl-5 col-sm-5">
+                            {% else %}
+                                <div class="col-xl-10 col-sm-10">
+                            {% endif %}
+                        <button type="submit" class="btn btn-success btn-block">زیارت عاشورا</button>
+                        </div>
+                        {% endif %}
+                        {% if deveased.arbain_chk %}
+                            {% if deveased.ashora_chk %}
+                                <div class="col-xl-5 col-sm-5">
+                            {% else %}
+                                <div class="col-xl-10 col-sm-10">
+                            {% endif %}
+                        <button type="submit" class="btn btn-success btn-block">زیارت اربعین</button>
+                        </div>
+                        {% endif %}
+                    <div class="col-xl-1 col-sm-1"></div>
+                    </div>
+                    {% endif %}
+                {% endif %}
                 </div>
-                <br>
-                <div class="row">
-                    <div class="col-xl-1 col-sm-1"></div>
-                    {% if deveased.ashora_chk %}
-                        <div class="col-xl-5 col-sm-5">
-                            <button type="submit" class="btn btn-success btn-block">زیارت عاشورا</button>
-                        </div>
-                    {% endif %}
-                    {% if deveased.arbain_chk %}
-                        <div class="col-xl-5 col-sm-5">
-                            <button type="submit" class="btn btn-success btn-block">زیارت اربعین</button>
-                        </div>
-                    {% endif %}
-                    <div class="col-xl-1 col-sm-1"></div>
+
+
+                </div>
+                </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>
-
 
 <script src="{% static 'root/bs/js/jquery-3.5.1.min.js' %}"></script>
 <script src="{% static 'root/bs/js/popper.min.js' %}"></script>
