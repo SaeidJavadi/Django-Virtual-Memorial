@@ -3,5 +3,5 @@ __pycache__/
 .idea/
 tmp/
 media/*.jpg
-*png
+media/*.png
 *.html.py
