@@ -81,5 +81,13 @@ def DeveasedEdit(request, id=None):
     return render(request, 'memorial/deveased_edit.html', context)
 
 
-class DeadDetailView(DetailView):
-    model = Deveased
+# class DeadDetailView(DetailView):
+#     model = Deveased
+
+def DeadView(request, pk):
+    marhom = get_object_or_404(Deveased, id=pk)
+
+    context = {}
+    context['deveased'] = marhom
+
+    return render(request, 'memorial/deveased_detail.html', context)
