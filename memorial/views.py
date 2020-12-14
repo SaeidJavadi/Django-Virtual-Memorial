@@ -111,28 +111,28 @@ def DeadView(request, pk):
     return render(request, 'memorial/deveased_detail.html', context)
 
 
-def fatehe(request):
-    return None
-
-
-def salavat(request):
+def vote(request):
     if request.method == 'POST':
+        count = 0
+        vote = None
         ip = request.META['REMOTE_ADDR']
         marhom_id = request.POST['marhom_id']
         marhom = Deveased.objects.get(id=marhom_id)
-        slvt = Salavat.objects.create(salavat=marhom, ip=ip)
-        if slvt:
-            salavat_count = Salavat.objects.all().filter(salavat=marhom).count()
+        if request.POST['btn'] == 'f':
+            vote = Fatehe.objects.create(fatehe=marhom, ip=ip)
+            count = Fatehe.objects.all().filter(fatehe=marhom).count()
+        elif request.POST['btn'] == 's':
+            vote = Salavat.objects.create(salavat=marhom, ip=ip)
+            count = Salavat.objects.all().filter(salavat=marhom).count()
+        elif request.POST['btn'] == 'ar':
+            vote = Arbain.objects.create(arbain=marhom, ip=ip)
+            count = Arbain.objects.all().filter(arbain=marhom).count()
+        elif request.POST['btn'] == 'as':
+            vote = Ashora.objects.create(ashora=marhom, ip=ip)
+            count = Ashora.objects.all().filter(ashora=marhom).count()
+        if vote:
             response = {
                 'status': 'ok',
-                'count': salavat_count,
+                'count': count,
             }
             return JsonResponse(response)
-
-
-def arbain(request):
-    return None
-
-
-def ashora(request):
-    return None

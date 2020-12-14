@@ -31,7 +31,7 @@
 
     <title>{{ deveased.title }} {{ deveased.name }}</title>
 </head>
-<body dir="ltr" class="bkg">
+<body dir="ltr" class="bkg" style="margin-top: 20px">
 <div class="container-fluid">
     <div class="row">
         <div class="col-xl-2 col-sm-2"></div>
@@ -103,8 +103,8 @@
                                 <div class="col-xl-10 col-sm-10">
                             {% endif %}
                         <button type="submit" id="salavat-btn" data-id="{{ deveased.id }}"
-                                class="btn btn-primary btn-block">صلوات (<span style="color: #00ff30; font-weight: bold"
-                                                                               id="salavat-count">{{ btns.s }}</span>)
+                                class="btn btn-primary btn-block">صلوات ( <span style="color: #00ff30; font-weight: bold"
+                                                                               id="salavat-count">{{ btns.s }}</span> )
                         </button>
                         </div>
                         {% endif %}
@@ -114,8 +114,8 @@
                             {% else %}
                                 <div class="col-xl-10 col-sm-10">
                             {% endif %}
-                        <button type="submit" id="fatehe-btn" class="btn btn-primary btn-block">فاتحه (<span
-                                style="color: #00ff30; font-weight: bold" id="fatehe-count">{{ btns.f }}</span>)
+                        <button type="submit" id="fatehe-btn" data-id="{{ deveased.id }}" class="btn btn-primary btn-block">فاتحه ( <span
+                                style="color: #00ff30; font-weight: bold" id="fatehe-count">{{ btns.f }}</span> )
                         </button>
                         </div>
                         {% endif %}
@@ -130,8 +130,8 @@
                             {% else %}
                                 <div class="col-xl-10 col-sm-10">
                             {% endif %}
-                        <button type="submit" id="ashora-btn" class="btn btn-success btn-block">زیارت عاشورا (<span
-                                style="color: #3c1600; font-weight: bold" id="ashora-count">{{ btns.as }}</span>)
+                        <button type="submit" id="ashora-btn" data-id="{{ deveased.id }}" class="btn btn-success btn-block"> زیارت عاشورا ( <span
+                                style="color: #3c1600; font-weight: bold" id="ashora-count">{{ btns.as }}</span> )
                         </button>
                         </div>
                         {% endif %}
@@ -141,8 +141,8 @@
                             {% else %}
                                 <div class="col-xl-10 col-sm-10">
                             {% endif %}
-                        <button type="submit" id="arbain-btn" class="btn btn-success btn-block">زیارت اربعین (<span
-                                style="color: #3c1600; font-weight: bold" id="arbain-count">{{ btns.ar }}</span>)
+                        <button type="submit" id="arbain-btn" data-id="{{ deveased.id }}" class="btn btn-success btn-block"> زیارت اربعین ( <span
+                                style="color: #3c1600; font-weight: bold" id="arbain-count">{{ btns.ar }}</span> )
                         </button>
                         </div>
                         {% endif %}
@@ -152,7 +152,7 @@
 
 
                     <br>
-                    <p dir="rtl" style="text-align: center;color:#98fff5;font-weight: bold">لطفا بعد از نثار صلوات و فاتحه بر روی دکمه های مربوطه کلیک کنید. </p>
+                    <p dir="rtl" style="text-align: center;color:#98fff5;font-weight: bold">لطفا بعد از نثار صلوات و فاتحه و زیارت ها بر روی دکمه های مربوطه کلیک کنید. </p>
                     <div class="row">
                         <div class="col-xl-12 col-sm-12">
                             <hr style="border: 1px solid green; border-radius: 2px;">

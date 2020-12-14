@@ -11,8 +11,5 @@ urlpatterns = [
     path('delete/<int:id>/', views.delete, name='del_Deveased'),
     # path('<int:pk>/', views.DeadDetailView.as_view(), name='view_Deveased'),
     path('<int:pk>/', views.DeadView, name='view_Deveased'),
-    path('fatehe/', views.fatehe, name="fatehe"),
-    path('salavat/', views.salavat, name="salavat"),
-    path('arbain/', views.arbain, name="arbain"),
-    path('ashora/', views.ashora, name="ashora"),
+    path('vote/', views.vote, name="vote"),
 ]
