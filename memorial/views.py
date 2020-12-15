@@ -103,7 +103,7 @@ def DeadView(request, pk):
         btns['ar'] = arbain_count
     if marhom.ashora_chk:
         ashora_count = Ashora.objects.all().filter(ashora=marhom).count()
-        btns['as'] = ashora_count
+        btns['ash'] = ashora_count
     btnCount = len(btns)
     print(btns)
     context['btnCount'] = btnCount
@@ -127,7 +127,7 @@ def vote(request):
         elif request.POST['btn'] == 'ar':
             vote = Arbain.objects.create(arbain=marhom, ip=ip)
             count = Arbain.objects.all().filter(arbain=marhom).count()
-        elif request.POST['btn'] == 'as':
+        elif request.POST['btn'] == 'ash':
             vote = Ashora.objects.create(ashora=marhom, ip=ip)
             count = Ashora.objects.all().filter(ashora=marhom).count()
         if vote:

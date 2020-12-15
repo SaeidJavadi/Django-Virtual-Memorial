@@ -192,7 +192,7 @@ $('#ashora-btn').click(function () {
         method: 'POST',
         data: {
             'marhom_id': marhom_id,
-            'btn':'as'
+            'btn':'ash'
         },
         success: function (data) {
             if (data['status'] === 'ok') {
