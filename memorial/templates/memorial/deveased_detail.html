@@ -38,6 +38,7 @@
         <div class="col-xl-8 col-sm-8">
             <div class="animated rubberBand border"
                  style="background: #000000 ; border-radius: 5px; padding: 15px; color: #ffffff;">
+                {# marhom title and name #}
                 <div class="row">
                     <div class="col-xl-12 col-sm-12" style=""><img
                             src="{% static 'memorial/pic/ena.jpg' %}" height="90%" width="90%" alt="" class="rounded"
@@ -56,6 +57,8 @@
                     <div class="col-xl-1 col-sm-1"></div>
                 </div>
                 <br>
+                {# marhom title and name #}
+                {# marhom picture #}
                 <div class="row">
                     <div class="col-xl-12 col-sm-12" style="padding:15px 15px 15px 15px">
                         {% if deveased.picture %}
@@ -72,6 +75,8 @@
                     </div>
                 </div>
                 <br>
+                {# marhom picture #}
+                {# description and address #}
                 {% if deveased.description or deveased.address %}
                     <div class="row">
                         <div class="col-xl-1 col-sm-1"></div>
@@ -92,6 +97,8 @@
                         </div>
                     </div>
                 {% endif %}
+                {# description and address #}
+                {# buttons fatehe salavat ashora arbaiin #}
                 {% if btnCount != 0 %}
                     {% if btnCount >= 1 %}
                         {% if btns.s >= 0 or btns.f >= 0 %}
@@ -160,21 +167,33 @@
                         </div>
                             <br>
                         {% endif %}
-                        <p dir="rtl" style="text-align: center;color:#98fff5;font-weight: bold;font-size: 12px">لطفا بعد از نثار صلوات و
+                        <p dir="rtl" style="text-align: center;color:#98fff5;font-weight: bold;font-size: 12px">لطفا بعد
+                            از نثار صلوات و
                             فاتحه و زیارت ها بر روی دکمه های مربوطه کلیک کنید. </p>
                     {% endif %}
+                <div class="row">
+                    <div class="col-xl-12 col-sm-12">
+                        <hr style="border: 1px solid green; border-radius: 2px;">
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                {% endif %}
+                {# buttons fatehe salavat ashora arbaiin #}
+                {# 30 joze gquran #}
+                {% if deveased.quran_chk %}
+                    <div class="row">
+
+                    </div>
                     <div class="row">
                         <div class="col-xl-12 col-sm-12">
                             <hr style="border: 1px solid green; border-radius: 2px;">
                         </div>
                     </div>
                 {% endif %}
-                </div>
-
-
-                </div>
-                </div>
-                </div>
+                {# 30 joze gquran #}
             </div>
         </div>
     </div>
