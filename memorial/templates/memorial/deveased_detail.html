@@ -93,66 +93,77 @@
                     </div>
                 {% endif %}
                 {% if btnCount != 0 %}
-                    {% if btnCount > 2 %}
-                        <div class="row">
-                        <div class="col-xl-1 col-sm-1"></div>
-                        {% if deveased.salavat_chk %}
-                            {% if deveased.fatehe_chk %}
-                                <div class="col-xl-5 col-sm-5">
-                            {% else %}
-                                <div class="col-xl-10 col-sm-10">
-                            {% endif %}
-                        <button type="submit" id="salavat-btn" data-id="{{ deveased.id }}"
-                                class="btn btn-primary btn-block">صلوات ( <span style="color: #00ff30; font-weight: bold"
-                                                                               id="salavat-count">{{ btns.s }}</span> )
-                        </button>
-                        </div>
-                        {% endif %}
-                        {% if deveased.fatehe_chk %}
+                    {% if btnCount >= 1 %}
+                        {% if btns.s or btns.f %}
+                            <div class="row">
+                            <div class="col-xl-1 col-sm-1"></div>
                             {% if deveased.salavat_chk %}
-                                <div class="col-xl-5 col-sm-5">
-                            {% else %}
-                                <div class="col-xl-10 col-sm-10">
+                                {% if deveased.fatehe_chk %}
+                                    <div class="col-xl-5 col-sm-5">
+                                {% else %}
+                                    <div class="col-xl-10 col-sm-10">
+                                {% endif %}
+                            <button type="submit" id="salavat-btn" data-id="{{ deveased.id }}"
+                                    class="btn btn-primary btn-block">صلوات ( <span
+                                    style="color: #00ff30; font-weight: bold"
+                                    id="salavat-count">{{ btns.s }}</span> )
+                            </button>
+                            </div>
                             {% endif %}
-                        <button type="submit" id="fatehe-btn" data-id="{{ deveased.id }}" class="btn btn-primary btn-block"><span class="btn-primary" style="font-size: 70%">قرائت</span> فاتحه ( <span
-                                style="color: #00ff30; font-weight: bold" id="fatehe-count">{{ btns.f }}</span> )
-                        </button>
-                        </div>
-                        {% endif %}
-                    <div class="col-xl-1 col-sm-1"></div>
-                    </div>
-                        <br>
-                        <div class="row">
+                            {% if deveased.fatehe_chk %}
+                                {% if deveased.salavat_chk %}
+                                    <div class="col-xl-5 col-sm-5">
+                                {% else %}
+                                    <div class="col-xl-10 col-sm-10">
+                                {% endif %}
+                            <button type="submit" id="fatehe-btn" data-id="{{ deveased.id }}"
+                                    class="btn btn-primary btn-block"><span class="btn-primary"
+                                                                            style="font-size: 70%">قرائت</span> فاتحه (
+                                <span
+                                        style="color: #00ff30; font-weight: bold" id="fatehe-count">{{ btns.f }}</span>
+                                )
+                            </button>
+                            </div>
+                            {% endif %}
                         <div class="col-xl-1 col-sm-1"></div>
-                        {% if deveased.ashora_chk %}
-                            {% if deveased.arbain_chk %}
-                                <div class="col-xl-5 col-sm-5">
-                            {% else %}
-                                <div class="col-xl-10 col-sm-10">
-                            {% endif %}
-                        <button type="submit" id="ashora-btn" data-id="{{ deveased.id }}" class="btn btn-success btn-block"> زیارت عاشورا ( <span
-                                style="color: #3c1600; font-weight: bold" id="ashora-count">{{ btns.as }}</span> )
-                        </button>
                         </div>
+                            <br>
                         {% endif %}
-                        {% if deveased.arbain_chk %}
+                        {% if btns.ar or btns.as %}
+                            <div class="row">
+                            <div class="col-xl-1 col-sm-1"></div>
                             {% if deveased.ashora_chk %}
-                                <div class="col-xl-5 col-sm-5">
-                            {% else %}
-                                <div class="col-xl-10 col-sm-10">
+                                {% if deveased.arbain_chk %}
+                                    <div class="col-xl-5 col-sm-5">
+                                {% else %}
+                                    <div class="col-xl-10 col-sm-10">
+                                {% endif %}
+                            <button type="submit" id="ashora-btn" data-id="{{ deveased.id }}"
+                                    class="btn btn-success btn-block"> زیارت عاشورا ( <span
+                                    style="color: #3c1600; font-weight: bold" id="ashora-count">{{ btns.as }}</span> )
+                            </button>
+                            </div>
                             {% endif %}
-                        <button type="submit" id="arbain-btn" data-id="{{ deveased.id }}" class="btn btn-success btn-block"> زیارت اربعین ( <span
-                                style="color: #3c1600; font-weight: bold" id="arbain-count">{{ btns.ar }}</span> )
-                        </button>
+                            {% if deveased.arbain_chk %}
+                                {% if deveased.ashora_chk %}
+                                    <div class="col-xl-5 col-sm-5">
+                                {% else %}
+                                    <div class="col-xl-10 col-sm-10">
+                                {% endif %}
+                            <button type="submit" id="arbain-btn" data-id="{{ deveased.id }}"
+                                    class="btn btn-success btn-block"> زیارت اربعین ( <span
+                                    style="color: #3c1600; font-weight: bold" id="arbain-count">{{ btns.ar }}</span> )
+                            </button>
+                            </div>
+                            {% endif %}
+                        <div class="col-xl-1 col-sm-1"></div>
                         </div>
+                            <br>
                         {% endif %}
-                    <div class="col-xl-1 col-sm-1"></div>
-                    </div>
                     {% endif %}
 
-
-                    <br>
-                    <p dir="rtl" style="text-align: center;color:#98fff5;font-weight: bold">لطفا بعد از نثار صلوات و فاتحه و زیارت ها بر روی دکمه های مربوطه کلیک کنید. </p>
+                    <p dir="rtl" style="text-align: center;color:#98fff5;font-weight: bold;font-size: 12px">لطفا بعد از نثار صلوات و
+                        فاتحه و زیارت ها بر روی دکمه های مربوطه کلیک کنید. </p>
                     <div class="row">
                         <div class="col-xl-12 col-sm-12">
                             <hr style="border: 1px solid green; border-radius: 2px;">

@@ -12,7 +12,7 @@ from django.views.generic import ListView, DetailView, CreateView, DeleteView, U
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 
 
 def home(request):
@@ -136,3 +136,5 @@ def vote(request):
                 'count': count,
             }
             return JsonResponse(response)
+    if request.method == 'GET':
+        return HttpResponse('<html><head><title>404</title></head><body><center><h1 style="color:blue;font-width=bold">404</h1><h3 style="color:red;">Not Found Page!</h3></center></body></html>')
