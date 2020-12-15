@@ -1,4 +1,9 @@
-.bkd{
-    background-image: url("../pic/bk_deatil.jpg");
-    background-repeat: no-repeat;
+p {
+    direction: rtl;
+    text-align: right;
+    font-weight: bold;
 }
+/*.bkd{*/
+/*    background-image: url("../pic/bk_deatil.jpg");*/
+/*    background-repeat: no-repeat;*/
+/*}*/

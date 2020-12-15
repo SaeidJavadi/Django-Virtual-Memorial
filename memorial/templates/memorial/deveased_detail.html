@@ -171,29 +171,76 @@
                             از نثار صلوات و
                             فاتحه و زیارت ها بر روی دکمه های مربوطه کلیک کنید. </p>
                     {% endif %}
-                <div class="row">
-                    <div class="col-xl-12 col-sm-12">
-                        <hr style="border: 1px solid green; border-radius: 2px;">
-                    </div>
-                </div>
-                </div>
-                </div>
-                </div>
-                </div>
-                {% endif %}
-                {# buttons fatehe salavat ashora arbaiin #}
-                {# 30 joze gquran #}
-                {% if deveased.quran_chk %}
-                    <div class="row">
-
-                    </div>
                     <div class="row">
                         <div class="col-xl-12 col-sm-12">
                             <hr style="border: 1px solid green; border-radius: 2px;">
                         </div>
                     </div>
                 {% endif %}
+                {# buttons fatehe salavat ashora arbaiin #}
                 {# 30 joze gquran #}
+                {% if deveased.quran_chk %}
+                    <div class="row">
+                        <div class="col-xl-1 col-sm-1"></div>
+                        <div class="col-xl-10 col-sm-10">
+                            <p dir="rtl" style="text-align: right">
+                                تعداد دفعات ختم قران 0 بار
+                                جهت تسریع در ختم قرآن کریم
+                                پیشنهاد میشود حضرتعالی
+                                جزء شماره 1
+                                را قرائت بفرمایید.
+                                لطفا با کلیک بر روی دکمه سبز رنگ مربوط به هر جزء ، آمادگی خود را اعلام کنید
+                            </p>
+                            <p dir="rtl" style="text-align: center">
+                                لطفا با کلیک بر روی دکمه سبز رنگ مربوط به هر جزء ، آمادگی خود را اعلام کنید
+                            </p>
+                        </div>
+                        <div class="col-xl-1 col-sm-1"></div>
+                    </div>
+                    <div>
+                        <fieldset style="border: 1px white solid">
+                            <legend style="border: 2px white solid; text-align: center;">جز یک</legend>
+                            <div class="row" style="padding: 10px 10px 10px 10px">
+                                <div class="col-xl-1 col-sm-1"></div>
+                                <div class="col-xl-10 col-sm-10"
+                                     style="justify-content: center;align-items: center;display: flex">
+                                    <audio controls>
+                                        <source
+                                                src="https://quran-yadbod.s3.ir-thr-at1.arvanstorage.com/j1.mp3"
+                                                type="audio/mpeg">
+                                    </audio>
+                                </div>
+                                <div class="col-xl-1 col-sm-1"></div>
+                            </div>
+                            <div class="row" style="padding: 10px 10px 10px 10px">
+                                <div class="col-xl-1 col-sm-1"></div>
+                                <div class="col-xl-10 col-sm-10">
+                                    <button type="submit" id="ashora-btn" data-id="{{ deveased.id }}"
+                                            class="btn btn-success btn-block"> قرائت جز <span
+                                            style="color: #3c1600; font-weight: bold"
+                                            id="ashora-count">{{ btns.ash }}</span> را من تقبل میکنم. (خوانده شده: 0
+                                        بار)
+                                    </button>
+                                </div>
+                                <div class="col-xl-1 col-sm-1"></div>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    {#                    <div class="row">#}
+                    {#                        <div class="col-xl-12 col-sm-12">#}
+                    {#                            <hr style="border: 1px solid green; border-radius: 2px;">#}
+                    {#                        </div>#}
+                    {#                    </div>#}
+                {% endif %}
+                {# 30 joze gquran #}
+
+
+
+                </div>
+                </div>
+                </div>
+                </div>
             </div>
         </div>
     </div>
