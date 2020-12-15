@@ -35,7 +35,8 @@ class DeveasedForm(forms.ModelForm):
             'title': 'عنوان (مانند شادروان)',
             'address': 'آدرس آرمگاه:',
             'Sahifeh_chk': 'دعای 7 صحیفه سجادیه',
-            'description':'توضیحات مندرج در ذیل صفحه'
+            'description':'توضیحات مندرج در ذیل صفحه',
+            'quran_chk':'ختم قرآن',
         }
         forceInputField = 'این فیلد اجباری است'
         error_messages = {
