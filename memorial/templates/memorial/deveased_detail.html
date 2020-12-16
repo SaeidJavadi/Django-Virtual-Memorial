@@ -185,7 +185,7 @@
                     <div class="col-xl-10 col-sm-10">
                         <p dir="rtl" style="text-align: right">
                             تعداد دفعات ختم قران <span
-                                style="color: #3c1600; font-weight: bold">{{ btns.qr }}</span> بار
+                                style="color: #38ff00; font-weight: bold">{{ btns.q }}</span> بار
                             جهت تسریع در ختم قرآن کریم
                             پیشنهاد میشود حضرتعالی
                             جزء شماره 1
@@ -213,15 +213,16 @@
                         <div class="col-xl-1 col-sm-1"></div>
                     </div>
                     <div class="row" style="padding: 10px 10px 10px 10px">
-                        <div class="col-xl-1 col-sm-1"></div>
-                        <div class="col-xl-10 col-sm-10">
+                        <div class="col-xl-2 col-sm-2"></div>
+                        <div class="col-xl-8 col-sm-8">
                             <button type="submit" id="ashora-btn" data-id="{{ deveased.id }}"
                                     class="btn btn-success btn-block"> قرائت جز <span
-                                    style="color: #3c1600; font-weight: bold">{{ forloop.counter }}</span> را من تقبل میکنم. (خوانده شده: 0
+                                    style="color: #3c1600; font-weight: bold">{{ forloop.counter }}</span> را من تقبل میکنم. (خوانده شده:
+                                <span style="color: #ff4700">{{ joz.j }}</span>
                                 بار)
                             </button>
                         </div>
-                        <div class="col-xl-1 col-sm-1"></div>
+                        <div class="col-xl-2 col-sm-2"></div>
                     </div>
                     {% endfor %}
                 </div>

@@ -210,7 +210,6 @@ class Salavat(models.Model):
 class Quran(models.Model):
     dead = models.ForeignKey(Deveased, on_delete=models.CASCADE, verbose_name=_('Dead'), related_name='deadquran')
     khatm = models.IntegerField(default=0, verbose_name=_('Khatm'))
-    status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

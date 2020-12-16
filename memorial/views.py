@@ -1,5 +1,3 @@
-from pprint import pprint
-
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
@@ -91,6 +89,7 @@ def DeadView(request, pk):
     marhom = get_object_or_404(Deveased, id=pk)
     context = {}
     btns = {}
+    joz = {}
     context['deveased'] = marhom
     if marhom.fatehe_chk:
         fatehe_count = Fatehe.objects.all().filter(fatehe=marhom).count()
@@ -106,14 +105,47 @@ def DeadView(request, pk):
         btns['ash'] = ashora_count
     if marhom.quran_chk:
         quran_count = Quran.objects.all().filter(dead=marhom).count()
-        btns['qr'] = quran_count
-        j1_count = Joz1.objects.all().filter(dead=marhom).count()
+        if quran_count == 0:
+            quran_dead = Quran.objects.create(dead=marhom)
+        else:
+            quran_dead = Quran.objects.get(dead=marhom)
+        btns['q'] = quran_count
+        joz['j1'] = quran_dead.j1.all().count()
+        joz['j2'] = quran_dead.j2.all().count()
+        joz['j3'] = quran_dead.j3.all().count()
+        joz['j4'] = quran_dead.j4.all().count()
+        joz['j5'] = quran_dead.j5.all().count()
+        joz['j6'] = quran_dead.j6.all().count()
+        joz['j7'] = quran_dead.j7.all().count()
+        joz['j8'] = quran_dead.j8.all().count()
+        joz['j9'] = quran_dead.j9.all().count()
+        joz['j10'] = quran_dead.j10.all().count()
+        joz['j11'] = quran_dead.j11.all().count()
+        joz['j12'] = quran_dead.j12.all().count()
+        joz['j13'] = quran_dead.j13.all().count()
+        joz['j14'] = quran_dead.j14.all().count()
+        joz['j15'] = quran_dead.j15.all().count()
+        joz['j16'] = quran_dead.j16.all().count()
+        joz['j17'] = quran_dead.j17.all().count()
+        joz['j18'] = quran_dead.j18.all().count()
+        joz['j19'] = quran_dead.j19.all().count()
+        joz['j20'] = quran_dead.j20.all().count()
+        joz['j21'] = quran_dead.j21.all().count()
+        joz['j22'] = quran_dead.j22.all().count()
+        joz['j23'] = quran_dead.j23.all().count()
+        joz['j24'] = quran_dead.j24.all().count()
+        joz['j25'] = quran_dead.j25.all().count()
+        joz['j26'] = quran_dead.j26.all().count()
+        joz['j27'] = quran_dead.j27.all().count()
+        joz['j28'] = quran_dead.j28.all().count()
+        joz['j29'] = quran_dead.j29.all().count()
+        joz['j30'] = quran_dead.j30.all().count()
 
     btnCount = len(btns)
-    print(btns)
     context['btnCount'] = btnCount
     context['btns'] = btns
-    context['joz'] = range(1,31)
+    context['joz'] = joz
+    print(joz)
     return render(request, 'memorial/deveased_detail.html', context)
 
 
