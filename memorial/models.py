@@ -204,7 +204,9 @@ class Salavat(models.Model):
 
 class Quran(models.Model):
     dead = models.ForeignKey(Deveased, on_delete=models.CASCADE, verbose_name=_('Dead'))
+    khatm = models.IntegerField(default=0, verbose_name=_('Khatm'))
     status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
+    created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.dead.id} - {self.dead.name}"
@@ -215,7 +217,7 @@ class Quran(models.Model):
 
 
 class Joz1(models.Model):
-    quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'))
+    quran = models.ForeignKey(Quran, on_delete=models.CASCADE, verbose_name=_('Quran'), related_name=())
 
     def __str__(self):
         return f"{self.quran.dead.id}-{self.quran.dead.name}"

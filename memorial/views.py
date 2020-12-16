@@ -104,10 +104,16 @@ def DeadView(request, pk):
     if marhom.ashora_chk:
         ashora_count = Ashora.objects.all().filter(ashora=marhom).count()
         btns['ash'] = ashora_count
+    if marhom.quran_chk:
+        quran_count = Quran.objects.all().filter(dead=marhom).count()
+        btns['qr'] = quran_count
+        j1_count = Joz1.objects.all().filter(dead=marhom).count()
+
     btnCount = len(btns)
     print(btns)
     context['btnCount'] = btnCount
     context['btns'] = btns
+    context['joz'] = range(1,31)
     return render(request, 'memorial/deveased_detail.html', context)
 
 
