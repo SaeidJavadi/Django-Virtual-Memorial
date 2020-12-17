@@ -17,47 +17,47 @@ class QuranAdmin(admin.ModelAdmin):
 
 @admin.register(Fatehe)
 class FateheAdmin(admin.ModelAdmin):
-    list_display = ('ip', 'fatehe', 'created')
+    list_display = ('ip', 'dead', 'created')
 
 @admin.register(Salavat)
 class SalavatAdmin(admin.ModelAdmin):
-    list_display = ('ip', 'salavat', 'created')
+    list_display = ('ip', 'dead', 'created')
 
 
 @admin.register(Ashora)
 class AshoraAdmin(admin.ModelAdmin):
-    list_display = ('ip', 'ashora', 'created')
+    list_display = ('ip', 'dead', 'created')
 
 
 @admin.register(Arbain)
 class ArbainAdmin(admin.ModelAdmin):
-    list_display = ('ip', 'arbain', 'created')
+    list_display = ('ip', 'dead', 'created')
 
-
-@admin.register(Ahd)
-class AhdAdmin(admin.ModelAdmin):
-    list_display = ('ip', 'ahd', 'created')
-
-
-@admin.register(Aye)
-class AyeAdmin(admin.ModelAdmin):
-    list_display = ('ip', 'aye', 'created')
-
-
-@admin.register(Sahifeh)
-class SahifehAdmin(admin.ModelAdmin):
-    list_display = ('ip', 'sahifeh', 'created')
-
-
-@admin.register(Komil)
-class KomilhAdmin(admin.ModelAdmin):
-    list_display = ('ip', 'komil', 'created')
-
-
-@admin.register(Rabana)
-class RabanahAdmin(admin.ModelAdmin):
-    list_display = ('ip', 'rabana', 'created')
-
+#
+# @admin.register(Ahd)
+# class AhdAdmin(admin.ModelAdmin):
+#     list_display = ('ip', 'dead', 'created')
+#
+#
+# @admin.register(Aye)
+# class AyeAdmin(admin.ModelAdmin):
+#     list_display = ('ip', 'dead', 'created')
+#
+#
+# @admin.register(Sahifeh)
+# class SahifehAdmin(admin.ModelAdmin):
+#     list_display = ('ip', 'dead', 'created')
+#
+#
+# @admin.register(Komil)
+# class KomilhAdmin(admin.ModelAdmin):
+#     list_display = ('ip', 'dead', 'created')
+#
+#
+# @admin.register(Rabana)
+# class RabanahAdmin(admin.ModelAdmin):
+#     list_display = ('ip', 'dead', 'created')
+#
 
 @admin.register(State)
 class StateAdmin(admin.ModelAdmin):
