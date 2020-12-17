@@ -89,63 +89,41 @@ def DeadView(request, pk):
     marhom = get_object_or_404(Deveased, id=pk)
     context = {}
     btns = {}
-    joz = {}
     context['deveased'] = marhom
     if marhom.fatehe_chk:
-        fatehe_count = Fatehe.objects.all().filter(fatehe=marhom).count()
+        fatehe_count = Fatehe.objects.all().filter(dead=marhom).count()
         btns['f'] = fatehe_count
     if marhom.salavat_chk:
-        salavat_count = Salavat.objects.all().filter(salavat=marhom).count()
+        salavat_count = Salavat.objects.all().filter(dead=marhom).count()
         btns['s'] = salavat_count
     if marhom.arbain_chk:
-        arbain_count = Arbain.objects.all().filter(arbain=marhom).count()
+        arbain_count = Arbain.objects.all().filter(dead=marhom).count()
         btns['ar'] = arbain_count
     if marhom.ashora_chk:
-        ashora_count = Ashora.objects.all().filter(ashora=marhom).count()
+        ashora_count = Ashora.objects.all().filter(dead=marhom).count()
         btns['ash'] = ashora_count
     if marhom.quran_chk:
-        quran_count = Quran.objects.all().filter(dead=marhom).count()
-        if quran_count == 0:
-            quran_dead = Quran.objects.create(dead=marhom)
-        else:
+        try:
+            quran_count = Quran.objects.all().get(dead=marhom).khatm
             quran_dead = Quran.objects.get(dead=marhom)
+        except:
+            quran_dead = Quran.objects.create(dead=marhom)
+            quran_count = quran_dead.khatm
         btns['q'] = quran_count
-        joz['j1'] = quran_dead.j1.all().count()
-        joz['j2'] = quran_dead.j2.all().count()
-        joz['j3'] = quran_dead.j3.all().count()
-        joz['j4'] = quran_dead.j4.all().count()
-        joz['j5'] = quran_dead.j5.all().count()
-        joz['j6'] = quran_dead.j6.all().count()
-        joz['j7'] = quran_dead.j7.all().count()
-        joz['j8'] = quran_dead.j8.all().count()
-        joz['j9'] = quran_dead.j9.all().count()
-        joz['j10'] = quran_dead.j10.all().count()
-        joz['j11'] = quran_dead.j11.all().count()
-        joz['j12'] = quran_dead.j12.all().count()
-        joz['j13'] = quran_dead.j13.all().count()
-        joz['j14'] = quran_dead.j14.all().count()
-        joz['j15'] = quran_dead.j15.all().count()
-        joz['j16'] = quran_dead.j16.all().count()
-        joz['j17'] = quran_dead.j17.all().count()
-        joz['j18'] = quran_dead.j18.all().count()
-        joz['j19'] = quran_dead.j19.all().count()
-        joz['j20'] = quran_dead.j20.all().count()
-        joz['j21'] = quran_dead.j21.all().count()
-        joz['j22'] = quran_dead.j22.all().count()
-        joz['j23'] = quran_dead.j23.all().count()
-        joz['j24'] = quran_dead.j24.all().count()
-        joz['j25'] = quran_dead.j25.all().count()
-        joz['j26'] = quran_dead.j26.all().count()
-        joz['j27'] = quran_dead.j27.all().count()
-        joz['j28'] = quran_dead.j28.all().count()
-        joz['j29'] = quran_dead.j29.all().count()
-        joz['j30'] = quran_dead.j30.all().count()
+        btns['joz'] = (quran_dead.j1.all().count(), quran_dead.j2.all().count(), quran_dead.j3.all().count(),
+                       quran_dead.j4.all().count(), quran_dead.j5.all().count(), quran_dead.j6.all().count(),
+                       quran_dead.j7.all().count(), quran_dead.j8.all().count(), quran_dead.j9.all().count(),
+                       quran_dead.j10.all().count(), quran_dead.j11.all().count(), quran_dead.j12.all().count(),
+                       quran_dead.j13.all().count(), quran_dead.j14.all().count(), quran_dead.j15.all().count(),
+                       quran_dead.j16.all().count(), quran_dead.j17.all().count(), quran_dead.j18.all().count(),
+                       quran_dead.j19.all().count(), quran_dead.j20.all().count(), quran_dead.j21.all().count(),
+                       quran_dead.j22.all().count(), quran_dead.j23.all().count(), quran_dead.j24.all().count(),
+                       quran_dead.j25.all().count(), quran_dead.j26.all().count(), quran_dead.j27.all().count(),
+                       quran_dead.j28.all().count(), quran_dead.j29.all().count(), quran_dead.j30.all().count())
 
     btnCount = len(btns)
     context['btnCount'] = btnCount
     context['btns'] = btns
-    context['joz'] = joz
-    print(joz)
     return render(request, 'memorial/deveased_detail.html', context)
 
 
@@ -157,17 +135,17 @@ def vote(request):
         marhom_id = request.POST['marhom_id']
         marhom = Deveased.objects.get(id=marhom_id)
         if request.POST['btn'] == 'f':
-            vote = Fatehe.objects.create(fatehe=marhom, ip=ip)
-            count = Fatehe.objects.all().filter(fatehe=marhom).count()
+            vote = Fatehe.objects.create(dead=marhom, ip=ip)
+            count = Fatehe.objects.all().filter(dead=marhom).count()
         elif request.POST['btn'] == 's':
-            vote = Salavat.objects.create(salavat=marhom, ip=ip)
-            count = Salavat.objects.all().filter(salavat=marhom).count()
+            vote = Salavat.objects.create(dead=marhom, ip=ip)
+            count = Salavat.objects.all().filter(dead=marhom).count()
         elif request.POST['btn'] == 'ar':
-            vote = Arbain.objects.create(arbain=marhom, ip=ip)
-            count = Arbain.objects.all().filter(arbain=marhom).count()
+            vote = Arbain.objects.create(dead=marhom, ip=ip)
+            count = Arbain.objects.all().filter(dead=marhom).count()
         elif request.POST['btn'] == 'ash':
-            vote = Ashora.objects.create(ashora=marhom, ip=ip)
-            count = Ashora.objects.all().filter(ashora=marhom).count()
+            vote = Ashora.objects.create(dead=marhom, ip=ip)
+            count = Ashora.objects.all().filter(dead=marhom).count()
         if vote:
             response = {
                 'status': 'ok',
@@ -175,4 +153,5 @@ def vote(request):
             }
             return JsonResponse(response)
     if request.method == 'GET':
-        return HttpResponse('<html><head><title>404</title></head><body><center><h1 style="color:blue;font-width=bold">404</h1><h3 style="color:red;">Not Found Page!</h3></center></body></html>')
+        return HttpResponse(
+            '<html><head><title>404</title></head><body><center><h1 style="color:blue;font-width=bold">404</h1><h3 style="color:red;">Not Found Page!</h3></center></body></html>')
