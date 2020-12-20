@@ -146,6 +146,11 @@ def vote(request):
         elif request.POST['btn'] == 'ash':
             vote = Ashora.objects.create(dead=marhom, ip=ip)
             count = Ashora.objects.all().filter(dead=marhom).count()
+        elif request.POST['btn'] == 'j1':
+            khtmQuran = marhom.deadquran.all()
+            vote = Joz1.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz1.objects.all().filter(dead=khtmQuran).count()
+            print(count)
         if vote:
             response = {
                 'status': 'ok',
