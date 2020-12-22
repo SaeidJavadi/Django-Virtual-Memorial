@@ -136,9 +136,13 @@ def vote(request):
         marhom = Deveased.objects.get(id=marhom_id)
         try:
             if request.POST['quran']:
-                print('Quran OK')
+                quran = marhom.deadquran
+                jozs = []
+                for i in range(1,31):
+                    print('ok')
+                    print(quran.j[i])
         except:
-            pass
+            print('Error!')
         if request.POST['btn'] == 'f':
             vote = Fatehe.objects.create(dead=marhom, ip=ip)
             count = Fatehe.objects.all().filter(dead=marhom).count()
