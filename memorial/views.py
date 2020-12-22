@@ -134,6 +134,11 @@ def vote(request):
         ip = request.META['REMOTE_ADDR']
         marhom_id = request.POST['marhom_id']
         marhom = Deveased.objects.get(id=marhom_id)
+        try:
+            if request.POST['quran']:
+                print('Quran OK')
+        except:
+            pass
         if request.POST['btn'] == 'f':
             vote = Fatehe.objects.create(dead=marhom, ip=ip)
             count = Fatehe.objects.all().filter(dead=marhom).count()
@@ -150,12 +155,129 @@ def vote(request):
             khtmQuran = marhom.deadquran
             vote = Joz1.objects.create(quran=khtmQuran, ip=ip)
             count = Joz1.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j2':
+            khtmQuran = marhom.deadquran
+            vote = Joz2.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz2.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j3':
+            khtmQuran = marhom.deadquran
+            vote = Joz3.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz3.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j4':
+            khtmQuran = marhom.deadquran
+            vote = Joz4.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz4.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j5':
+            khtmQuran = marhom.deadquran
+            vote = Joz5.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz5.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j6':
+            khtmQuran = marhom.deadquran
+            vote = Joz6.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz6.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j7':
+            khtmQuran = marhom.deadquran
+            vote = Joz7.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz7.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j8':
+            khtmQuran = marhom.deadquran
+            vote = Joz8.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz8.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j9':
+            khtmQuran = marhom.deadquran
+            vote = Joz9.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz9.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j10':
+            khtmQuran = marhom.deadquran
+            vote = Joz10.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz10.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j11':
+            khtmQuran = marhom.deadquran
+            vote = Joz11.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz11.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j12':
+            khtmQuran = marhom.deadquran
+            vote = Joz12.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz12.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j13':
+            khtmQuran = marhom.deadquran
+            vote = Joz13.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz13.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j14':
+            khtmQuran = marhom.deadquran
+            vote = Joz14.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz14.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j15':
+            khtmQuran = marhom.deadquran
+            vote = Joz15.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz15.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j16':
+            khtmQuran = marhom.deadquran
+            vote = Joz16.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz16.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j17':
+            khtmQuran = marhom.deadquran
+            vote = Joz17.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz17.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j18':
+            khtmQuran = marhom.deadquran
+            vote = Joz18.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz18.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j19':
+            khtmQuran = marhom.deadquran
+            vote = Joz19.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz19.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j20':
+            khtmQuran = marhom.deadquran
+            vote = Joz20.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz20.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j21':
+            khtmQuran = marhom.deadquran
+            vote = Joz21.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz21.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j22':
+            khtmQuran = marhom.deadquran
+            vote = Joz22.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz22.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j23':
+            khtmQuran = marhom.deadquran
+            vote = Joz23.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz23.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j24':
+            khtmQuran = marhom.deadquran
+            vote = Joz24.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz24.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j25':
+            khtmQuran = marhom.deadquran
+            vote = Joz25.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz25.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j26':
+            khtmQuran = marhom.deadquran
+            vote = Joz26.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz26.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j27':
+            khtmQuran = marhom.deadquran
+            vote = Joz27.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz27.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j28':
+            khtmQuran = marhom.deadquran
+            vote = Joz28.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz28.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j29':
+            khtmQuran = marhom.deadquran
+            vote = Joz29.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz29.objects.all().filter(quran=khtmQuran).count()
+        elif request.POST['btn'] == 'j30':
+            khtmQuran = marhom.deadquran
+            vote = Joz30.objects.create(quran=khtmQuran, ip=ip)
+            count = Joz30.objects.all().filter(quran=khtmQuran).count()
+
         if vote:
-            response = {
-                'status': 'ok',
-                'count': count,
-            }
-            return JsonResponse(response)
+                response = {
+                    'status': 'ok',
+                    'count': count,
+                }
+                return JsonResponse(response)
     if request.method == 'GET':
         return HttpResponse(
             '<html><head><title>404</title></head><body><center><h1 style="color:blue;font-width=bold">404</h1><h3 style="color:red;">Not Found Page!</h3></center></body></html>')
