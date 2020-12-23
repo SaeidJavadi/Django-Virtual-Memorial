@@ -250,6 +250,10 @@ $('#btn-joz1').click(function () {
             if (data['status'] === 'ok') {
                 $('#joz1-count').text(data['count'])
             }
+            if(data['quranStatus'] === 1){
+                $('#khatmcount').text(data['khatm'])
+                $('#offer').text(data['offer'])
+            }
         }
     });
 });

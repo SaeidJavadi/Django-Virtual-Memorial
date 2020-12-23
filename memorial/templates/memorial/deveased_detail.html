@@ -180,58 +180,59 @@
                 {# buttons fatehe salavat ashora arbaiin #}
                 {# 30 joze gquran #}
                 {% if deveased.quran_chk %}
-                <div class="row">
-                    <div class="col-xl-1 col-sm-1"></div>
-                    <div class="col-xl-10 col-sm-10">
-                        <p dir="rtl" style="text-align: right">
-                            تعداد دفعات ختم قران <span
-                                style="color: #38ff00; font-weight: bold">{{ btns.q }}</span> بار
-                            جهت تسریع در ختم قرآن کریم
-                            پیشنهاد میشود حضرتعالی
-                            جزء شماره <span style="color: #9fcdff">2</span>
-                            را قرائت بفرمایید.
-                        </p>
-                        <p dir="rtl" style="text-align: center">
-                            لطفا با کلیک بر روی دکمه سبز رنگ مربوط به هر جزء ، آمادگی خود را اعلام کنید
-                        </p>
-                    </div>
-                    <div class="col-xl-1 col-sm-1"></div>
-                </div>
-                <div>
-                    {%  for jz in btns.joz %}
-                    <div class="row" style="padding: 10px 10px 10px 10px">
+                    <div class="row">
                         <div class="col-xl-1 col-sm-1"></div>
-                        <div class="col-xl-10 col-sm-10"
-                             style="justify-content: center;align-items: center;display: flex">
-                            <audio controls title="جز {{ forloop.counter }}">
-                                <source
-{#                                        src="https://s1.mosalman.net/ghoran/tartil/joze/parhizgar/parhizgar{{ forloop.counter }}.mp3"#}
-                                        src="http://file.idars.ir/iporse/quran/j{{ forloop.counter }}.mp3"
-                                        type="audio/mpeg">
-                            </audio>
+                        <div class="col-xl-10 col-sm-10">
+                            <p dir="rtl" style="text-align: right">
+                                تعداد دفعات ختم قران <span
+                                    style="color: #38ff00; font-weight: bold" id="khatmcount">{{ btns.q }}</span> بار
+                                جهت تسریع در ختم قرآن کریم
+                                پیشنهاد میشود حضرتعالی
+                                جزء شماره <span style="color: #9fcdff" id="offer">1</span>
+                                را قرائت بفرمایید.
+                            </p>
+                            <p dir="rtl" style="text-align: center">
+                                لطفا با کلیک بر روی دکمه سبز رنگ مربوط به هر جزء ، آمادگی خود را اعلام کنید
+                            </p>
                         </div>
                         <div class="col-xl-1 col-sm-1"></div>
                     </div>
-                    <div class="row" style="padding: 10px 10px 10px 10px">
-                        <div class="col-xl-2 col-sm-2"></div>
-                        <div class="col-xl-8 col-sm-8">
-                            <button type="submit" id="btn-joz{{ forloop.counter }}" data-id="{{ deveased.id }}"
-                                    class="btn btn-success btn-block"> قرائت جز <span
-                                    style="color: #3c1600; font-weight: bold">{{ forloop.counter }}</span> را من تقبل میکنم. (خوانده شده:
-                                <span id="joz{{ forloop.counter }}-count" style="color: #ff4700">{{ jz }}</span>
-                                بار)
-                            </button>
-                        </div>
-                        <div class="col-xl-2 col-sm-2"></div>
+                    <div>
+                        {% for jz in btns.joz %}
+                            <div class="row" style="padding: 10px 10px 10px 10px">
+                                <div class="col-xl-1 col-sm-1"></div>
+                                <div class="col-xl-10 col-sm-10"
+                                     style="justify-content: center;align-items: center;display: flex">
+                                    <audio controls title="جز {{ forloop.counter }}">
+                                        <source
+                                                {#                                        src="https://s1.mosalman.net/ghoran/tartil/joze/parhizgar/parhizgar{{ forloop.counter }}.mp3"#}
+                                                src="http://file.idars.ir/iporse/quran/j{{ forloop.counter }}.mp3"
+                                                type="audio/mpeg">
+                                    </audio>
+                                </div>
+                                <div class="col-xl-1 col-sm-1"></div>
+                            </div>
+                            <div class="row" style="padding: 10px 10px 10px 10px">
+                                <div class="col-xl-2 col-sm-2"></div>
+                                <div class="col-xl-8 col-sm-8">
+                                    <button type="submit" id="btn-joz{{ forloop.counter }}" data-id="{{ deveased.id }}"
+                                            class="btn btn-success btn-block"> قرائت جز <span
+                                            style="color: #3c1600; font-weight: bold">{{ forloop.counter }}</span> را من
+                                        تقبل میکنم. (خوانده شده:
+                                        <span id="joz{{ forloop.counter }}-count" style="color: #ff4700">{{ jz }}</span>
+                                        بار)
+                                    </button>
+                                </div>
+                                <div class="col-xl-2 col-sm-2"></div>
+                            </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                </div>
 
-                {#                    <div class="row">#}
-                {#                        <div class="col-xl-12 col-sm-12">#}
-                {#                            <hr style="border: 1px solid green; border-radius: 2px;">#}
-                {#                        </div>#}
-                {#                    </div>#}
+                    {#                    <div class="row">#}
+                    {#                        <div class="col-xl-12 col-sm-12">#}
+                    {#                            <hr style="border: 1px solid green; border-radius: 2px;">#}
+                    {#                        </div>#}
+                    {#                    </div>#}
                 {% endif %}
                 {# 30 joze gquran #}
 

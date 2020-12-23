@@ -120,7 +120,6 @@ def DeadView(request, pk):
                        quran_dead.j22.all().count(), quran_dead.j23.all().count(), quran_dead.j24.all().count(),
                        quran_dead.j25.all().count(), quran_dead.j26.all().count(), quran_dead.j27.all().count(),
                        quran_dead.j28.all().count(), quran_dead.j29.all().count(), quran_dead.j30.all().count())
-
     btnCount = len(btns)
     context['btnCount'] = btnCount
     context['btns'] = btns
@@ -131,6 +130,8 @@ def vote(request):
     if request.method == 'POST':
         count = 0
         khatmCount = 0
+        offer = 1
+        quranStatus = 0
         vote = None
         ip = request.META['REMOTE_ADDR']
         marhom_id = request.POST['marhom_id']
@@ -149,173 +150,209 @@ def vote(request):
             vote = Ashora.objects.create(dead=marhom, ip=ip)
             count = Ashora.objects.all().filter(dead=marhom).count()
         elif request.POST['btn'] == 'j1':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz1.objects.create(quran=khtmQuran, ip=ip)
             count = Joz1.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j2':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz2.objects.create(quran=khtmQuran, ip=ip)
             count = Joz2.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j3':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz3.objects.create(quran=khtmQuran, ip=ip)
             count = Joz3.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j4':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz4.objects.create(quran=khtmQuran, ip=ip)
             count = Joz4.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j5':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz5.objects.create(quran=khtmQuran, ip=ip)
             count = Joz5.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j6':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz6.objects.create(quran=khtmQuran, ip=ip)
             count = Joz6.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j7':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz7.objects.create(quran=khtmQuran, ip=ip)
             count = Joz7.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j8':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz8.objects.create(quran=khtmQuran, ip=ip)
             count = Joz8.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j9':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz9.objects.create(quran=khtmQuran, ip=ip)
             count = Joz9.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j10':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz10.objects.create(quran=khtmQuran, ip=ip)
             count = Joz10.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j11':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz11.objects.create(quran=khtmQuran, ip=ip)
             count = Joz11.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j12':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz12.objects.create(quran=khtmQuran, ip=ip)
             count = Joz12.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j13':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz13.objects.create(quran=khtmQuran, ip=ip)
             count = Joz13.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j14':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz14.objects.create(quran=khtmQuran, ip=ip)
             count = Joz14.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j15':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz15.objects.create(quran=khtmQuran, ip=ip)
             count = Joz15.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j16':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz16.objects.create(quran=khtmQuran, ip=ip)
             count = Joz16.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j17':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz17.objects.create(quran=khtmQuran, ip=ip)
             count = Joz17.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j18':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz18.objects.create(quran=khtmQuran, ip=ip)
             count = Joz18.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j19':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz19.objects.create(quran=khtmQuran, ip=ip)
             count = Joz19.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j20':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz20.objects.create(quran=khtmQuran, ip=ip)
             count = Joz20.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j21':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz21.objects.create(quran=khtmQuran, ip=ip)
             count = Joz21.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j22':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz22.objects.create(quran=khtmQuran, ip=ip)
             count = Joz22.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j23':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz23.objects.create(quran=khtmQuran, ip=ip)
             count = Joz23.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j24':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz24.objects.create(quran=khtmQuran, ip=ip)
             count = Joz24.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j25':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz25.objects.create(quran=khtmQuran, ip=ip)
             count = Joz25.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j26':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz26.objects.create(quran=khtmQuran, ip=ip)
             count = Joz26.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j27':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz27.objects.create(quran=khtmQuran, ip=ip)
             count = Joz27.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j28':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz28.objects.create(quran=khtmQuran, ip=ip)
             count = Joz28.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j29':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz29.objects.create(quran=khtmQuran, ip=ip)
             count = Joz29.objects.all().filter(quran=khtmQuran).count()
         elif request.POST['btn'] == 'j30':
+            quranStatus = 1
             khtmQuran = marhom.deadquran
             vote = Joz30.objects.create(quran=khtmQuran, ip=ip)
             count = Joz30.objects.all().filter(quran=khtmQuran).count()
 
 
         try:
-            if request.POST['quran']:
-                quran = marhom.deadquran
-                jozs = {}
-                jozs['j1'] = quran.j1.count()
-                jozs['j2'] = quran.j2.count()
-                jozs['j3'] = quran.j3.count()
-                jozs['j4'] = quran.j4.count()
-                jozs['j5'] = quran.j5.count()
-                jozs['j6'] = quran.j6.count()
-                jozs['j7'] = quran.j7.count()
-                jozs['j8'] = quran.j8.count()
-                jozs['j9'] = quran.j9.count()
-                jozs['j10'] = quran.j10.count()
-                jozs['j11'] = quran.j11.count()
-                jozs['j12'] = quran.j12.count()
-                jozs['j13'] = quran.j13.count()
-                jozs['j14'] = quran.j14.count()
-                jozs['j15'] = quran.j15.count()
-                jozs['j16'] = quran.j16.count()
-                jozs['j17'] = quran.j17.count()
-                jozs['j18'] = quran.j18.count()
-                jozs['j19'] = quran.j19.count()
-                jozs['j20'] = quran.j20.count()
-                jozs['j21'] = quran.j21.count()
-                jozs['j22'] = quran.j22.count()
-                jozs['j23'] = quran.j23.count()
-                jozs['j24'] = quran.j24.count()
-                jozs['j25'] = quran.j25.count()
-                jozs['j26'] = quran.j26.count()
-                jozs['j27'] = quran.j27.count()
-                jozs['j28'] = quran.j28.count()
-                jozs['j29'] = quran.j29.count()
-                jozs['j30'] = quran.j30.count()
-                # max_j = sorted(jozs, key=(lambda key:jozs[key]), reverse=True)
-                min_j = sorted(jozs, key=(lambda key:jozs[key]))
-                print(min_j)
-                offer = min_j[0]
-                KhatmCount = jozs.get(offer)
-                print(KhatmCount)
+            quran = marhom.deadquran
+            jozs = {}
+            jozs['j1'] = quran.j1.count()
+            jozs['j2'] = quran.j2.count()
+            jozs['j3'] = quran.j3.count()
+            jozs['j4'] = quran.j4.count()
+            jozs['j5'] = quran.j5.count()
+            jozs['j6'] = quran.j6.count()
+            jozs['j7'] = quran.j7.count()
+            jozs['j8'] = quran.j8.count()
+            jozs['j9'] = quran.j9.count()
+            jozs['j10'] = quran.j10.count()
+            jozs['j11'] = quran.j11.count()
+            jozs['j12'] = quran.j12.count()
+            jozs['j13'] = quran.j13.count()
+            jozs['j14'] = quran.j14.count()
+            jozs['j15'] = quran.j15.count()
+            jozs['j16'] = quran.j16.count()
+            jozs['j17'] = quran.j17.count()
+            jozs['j18'] = quran.j18.count()
+            jozs['j19'] = quran.j19.count()
+            jozs['j20'] = quran.j20.count()
+            jozs['j21'] = quran.j21.count()
+            jozs['j22'] = quran.j22.count()
+            jozs['j23'] = quran.j23.count()
+            jozs['j24'] = quran.j24.count()
+            jozs['j25'] = quran.j25.count()
+            jozs['j26'] = quran.j26.count()
+            jozs['j27'] = quran.j27.count()
+            jozs['j28'] = quran.j28.count()
+            jozs['j29'] = quran.j29.count()
+            jozs['j30'] = quran.j30.count()
+            # max_j = sorted(jozs, key=(lambda key:jozs[key]), reverse=True)
+            min_j = sorted(jozs, key=(lambda key:jozs[key]))
+            print(min_j)
+            offer = min_j[0]
+            khatmCount = jozs.get(offer)
+            offer = int(offer.replace('j',''))
+
+            print(type(offer), offer)
+            print(type(khatmCount), khatmCount)
+
         except:
             print('Error!')
         if vote:
                 response = {
                     'status': 'ok',
                     'count': count,
+                    'quranStatus':quranStatus,
+                    'offer':offer,
+                    'khatm':khatmCount
                 }
                 return JsonResponse(response)
     if request.method == 'GET':
