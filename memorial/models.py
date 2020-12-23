@@ -209,7 +209,6 @@ class Salavat(models.Model):
 
 class Quran(models.Model):
     dead = models.OneToOneField(Deveased, on_delete=models.CASCADE, verbose_name=_('Dead'), related_name='deadquran', unique=True)
-    khatm = models.IntegerField(default=0, verbose_name=_('Khatm'))
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
