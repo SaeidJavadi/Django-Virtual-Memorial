@@ -62,9 +62,11 @@ class Deveased(models.Model):
     arbain_chk = models.BooleanField(verbose_name=_('Arbain'))
     ahd_chk = models.BooleanField(verbose_name=_('Ahd'))
     aye_chk = models.BooleanField(verbose_name=_('Aye'))
-    Sahifeh_chk = models.BooleanField(verbose_name=_('Sahifeh'))
+    sahifeh_chk = models.BooleanField(verbose_name=_('Sahifeh'))
     komil_chk = models.BooleanField(verbose_name=_('Komil'))
-    rabana_chk = models.BooleanField(verbose_name=_('Rabana'))
+    rahman_chk = models.BooleanField(verbose_name=_('Rahman'))
+    yasin_chk = models.BooleanField(verbose_name=_('Yasin'))
+    molk_chk = models.BooleanField(verbose_name=_('Molk'))
     created = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
     updated = models.DateTimeField(auto_now=True, verbose_name=_('Updated'))
     status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
@@ -96,7 +98,7 @@ class Fatehe(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.fatehe.id} - {self.fatehe.name}"
+        return f"{self.dead.id} - {self.dead.name}"
 
     class Meta:
         verbose_name = _('Fatehe')
@@ -109,7 +111,7 @@ class Ashora(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.ashora.id} - {self.ashora.name}"
+        return f"{self.dead.id} - {self.dead.name}"
 
     class Meta:
         verbose_name = _('Ashora')
@@ -122,7 +124,7 @@ class Arbain(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.arbain.id} - {self.arbain.name}"
+        return f"{self.dead.id} - {self.dead.name}"
 
     class Meta:
         verbose_name = _('Arbain')
@@ -135,7 +137,7 @@ class Ahd(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.ahd.id} - {self.ahd.name}"
+        return f"{self.dead.id} - {self.dead.name}"
 
     class Meta:
         verbose_name = _('Ahd')
@@ -148,7 +150,7 @@ class Aye(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.aye.id} - {self.aye.name}"
+        return f"{self.dead.id} - {self.dead.name}"
 
     class Meta:
         verbose_name = _('Aye')
@@ -161,7 +163,7 @@ class Sahifeh(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.sahifeh.id} - {self.sahifeh.name}"
+        return f"{self.dead.id} - {self.dead.name}"
 
     class Meta:
         verbose_name = _('Sahifeh')
@@ -174,24 +176,50 @@ class Komil(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.komil.id} - {self.komil.name}"
+        return f"{self.dead.id} - {self.dead.name}"
 
     class Meta:
         verbose_name = _('Komil')
         verbose_name_plural = _('Komil')
 
 
-class Rabana(models.Model):
-    dead = models.ForeignKey(Deveased, on_delete=models.CASCADE, verbose_name=_('Rabana'), related_name='rdead')
+class Rahman(models.Model):
+    dead = models.ForeignKey(Deveased, on_delete=models.CASCADE, verbose_name=_('Rahman'), related_name='rdead')
     ip = models.CharField(max_length=20, verbose_name=_('ip'), null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.rabana.id} - {self.rabana.name}"
+        return f"{self.dead.id} - {self.dead.name}"
 
     class Meta:
-        verbose_name = _('Rabana')
-        verbose_name_plural = _('Rabana')
+        verbose_name = _('Rahman')
+        verbose_name_plural = _('Rahman')
+
+
+class Yasin(models.Model):
+    dead = models.ForeignKey(Deveased, on_delete=models.CASCADE, verbose_name=_('Yasin'), related_name='yadead')
+    ip = models.CharField(max_length=20, verbose_name=_('ip'), null=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.dead.id} - {self.dead.name}"
+
+    class Meta:
+        verbose_name = _('Yasin')
+        verbose_name_plural = _('Yasin')
+
+
+class Molk(models.Model):
+    dead = models.ForeignKey(Deveased, on_delete=models.CASCADE, verbose_name=_('Molk'), related_name='modead')
+    ip = models.CharField(max_length=20, verbose_name=_('ip'), null=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.dead.id} - {self.dead.name}"
+
+    class Meta:
+        verbose_name = _('Molk')
+        verbose_name_plural = _('Molk')
 
 
 class Salavat(models.Model):
@@ -200,7 +228,7 @@ class Salavat(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.salavat.id} - {self.salavat.name}"
+        return f"{self.dead.id} - {self.dead.name}"
 
     class Meta:
         verbose_name = _('Salavat')
@@ -208,7 +236,8 @@ class Salavat(models.Model):
 
 
 class Quran(models.Model):
-    dead = models.OneToOneField(Deveased, on_delete=models.CASCADE, verbose_name=_('Dead'), related_name='deadquran', unique=True)
+    dead = models.OneToOneField(Deveased, on_delete=models.CASCADE, verbose_name=_('Dead'), related_name='deadquran',
+                                unique=True)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

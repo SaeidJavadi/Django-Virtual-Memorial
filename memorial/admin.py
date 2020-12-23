@@ -54,8 +54,8 @@ class ArbainAdmin(admin.ModelAdmin):
 #     list_display = ('ip', 'dead', 'created')
 #
 #
-# @admin.register(Rabana)
-# class RabanahAdmin(admin.ModelAdmin):
+# @admin.register(Rahman)
+# class RahmanhAdmin(admin.ModelAdmin):
 #     list_display = ('ip', 'dead', 'created')
 #
 

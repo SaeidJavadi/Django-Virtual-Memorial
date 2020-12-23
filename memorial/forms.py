@@ -18,7 +18,7 @@ class DeveasedForm(forms.ModelForm):
             'state', 'city', 'picture', 'title', 'name', 'gender', 'description', 'address', 'datedied', 'quran_chk',
             'fatehe_chk','salavat_chk',
             'ashora_chk',
-            'arbain_chk', 'ahd_chk', 'aye_chk', 'Sahifeh_chk', 'komil_chk', 'rabana_chk')
+            'arbain_chk', 'ahd_chk', 'aye_chk', 'sahifeh_chk', 'komil_chk', 'rahman_chk','yasin_chk', 'molk_chk')
         widgets = {
             'state': forms.Select(attrs={'class': 'form-control', 'onChange': 'iranwebsv(this.value);'}),
             'city': forms.Select(attrs={'class': 'form-control'}),
@@ -34,7 +34,7 @@ class DeveasedForm(forms.ModelForm):
         labels = {
             'title': 'عنوان (مانند شادروان)',
             'address': 'آدرس آرمگاه:',
-            'Sahifeh_chk': 'دعای 7 صحیفه سجادیه',
+            'sahifeh_chk': 'دعای 7 صحیفه سجادیه',
             'description':'توضیحات مندرج در ذیل صفحه',
             'quran_chk':'ختم قرآن',
         }

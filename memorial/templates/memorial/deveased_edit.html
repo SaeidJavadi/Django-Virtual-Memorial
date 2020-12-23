@@ -184,13 +184,13 @@
                                         <th>
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input"
-                                                       id="{{ form.Sahifeh_chk.id_for_label }}"
-                                                       name="{{ form.Sahifeh_chk.name }}"
-                                                        {% if form.Sahifeh_chk.value %}
+                                                       id="{{ form.sahifeh_chk.id_for_label }}"
+                                                       name="{{ form.sahifeh_chk.name }}"
+                                                        {% if form.sahifeh_chk.value %}
                                                        checked
                                                         {% endif %}>
                                                 <label class="custom-control-label" type="checkbox"
-                                                       for="{{ form.Sahifeh_chk.id_for_label }}">{{ form.Sahifeh_chk.label }}:</label>
+                                                       for="{{ form.sahifeh_chk.id_for_label }}">{{ form.sahifeh_chk.label }}:</label>
                                             </div>
                                         </th>
                                         <th>
@@ -208,13 +208,37 @@
                                         <th>
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input"
-                                                       id="{{ form.rabana_chk.id_for_label }}"
-                                                       name="{{ form.rabana_chk.name }}"
-                                                        {% if form.rabana_chk.value %}
+                                                       id="{{ form.rahman_chk.id_for_label }}"
+                                                       name="{{ form.rahman_chk.name }}"
+                                                        {% if form.rahman_chk.value %}
                                                        checked
                                                         {% endif %}>
                                                 <label class="custom-control-label" type="checkbox"
-                                                       for="{{ form.rabana_chk.id_for_label }}">{{ form.rabana_chk.label }}:</label>
+                                                       for="{{ form.rahman_chk.id_for_label }}">{{ form.rahman_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.yasin_chk.id_for_label }}"
+                                                       name="{{ form.yasin_chk.name }}"
+                                                        {% if form.yasin_chk.value %}
+                                                       checked
+                                                        {% endif %}>
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.yasin_chk.id_for_label }}">{{ form.yasin_chk.label }}:</label>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input"
+                                                       id="{{ form.molk_chk.id_for_label }}"
+                                                       name="{{ form.molk_chk.name }}"
+                                                        {% if form.molk_chk.value %}
+                                                       checked
+                                                        {% endif %}>
+                                                <label class="custom-control-label" type="checkbox"
+                                                       for="{{ form.molk_chk.id_for_label }}">{{ form.molk_chk.label }}:</label>
                                             </div>
                                         </th>
                                     </tr>

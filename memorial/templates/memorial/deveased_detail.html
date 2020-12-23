@@ -182,16 +182,17 @@
                 {% if deveased.quran_chk %}
                     <div class="row">
                         <div class="col-xl-1 col-sm-1"></div>
-                        <div class="col-xl-10 col-sm-10">
-                            <p dir="rtl" style="text-align: right">
+                        <div class="col-xl-10 col-sm-10 border border-warning" style="border-radius: 10px">
+                            <p dir="rtl" style="text-align: center;padding: 10px 10px 0 10px">
                                 تعداد دفعات ختم قران <span
-                                    style="color: #38ff00; font-weight: bold" id="khatm-count">{{ btns.q }}</span> بار
-                                جهت تسریع در ختم قرآن کریم
+                                    style="color: #38ff00; font-weight: bold;font-size: 20px" id="khatm-count"> {{ btns.q }} </span>
+                                بارمی باشد</p>
+                            <p style="text-align: center;"> جهت تسریع در ختم قرآن کریم
                                 پیشنهاد میشود حضرتعالی
-                                جزء شماره <span style="color: #9fcdff" id="offer">{{ offer }}</span>
+                                جزء شماره <span style="color: #ff0046;font-size: 20px; font-weight: bold" id="offer"> {{ offer }} </span>
                                 را قرائت بفرمایید.
                             </p>
-                            <p dir="rtl" style="text-align: center">
+                            <p dir="rtl" style="text-align: center; font-size: 13px;color: #7abaff;font-weight: bold;padding: 10px 10px 0 10px">
                                 لطفا با کلیک بر روی دکمه سبز رنگ مربوط به هر جزء ، آمادگی خود را اعلام کنید
                             </p>
                         </div>
@@ -235,7 +236,228 @@
                     {#                    </div>#}
                 {% endif %}
                 {# 30 joze gquran #}
+                {# hr Line #}
+                {% if deveased.komil_chk or deveased.ahd_chk or deveased.aye_chk or deveased.arbain_chk or deveased.ashora_chk or deveased.rahman_chk or deveased.yasin_chk or deveased.molk_chk %}
+                    <div class="row">
+                        <div class="col-xl-12 col-sm-12">
+                            <hr style="border: 1px solid green; border-radius: 2px;">
+                        </div>
+                    </div>
+                {% endif %}
+                {# hr Line #}
+                {# rahman #}
+                {% if deveased.rahman_chk %}
+                    <div class="row">
+                        <div class="col-xl-2 col-sm-2"></div>
+                        <div class="col-xl-8 col-sm-8" dir="rtl" style="text-align: right;color: white">
+                            <div class="animated rubberBand"
+                                 style="background: #000000 ; border-radius: 5px; padding: 15px; color: #ffffff;">
+                                <p style="text-align: center">سوره الرحمن :</p>
+                                <div style="justify-content: center;align-items: center;display: flex">
+                                    <audio controls title="سوره الرحمن">
+                                        <source
+                                                src="http://file.idars.ir/iporse/soore_arrahman.mp3"
+                                                type="audio/mpeg">
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-sm-2"></div>
+                    </div>
+                {% endif %}
+                {# rahman #}
+                {# Yasin #}
+                {% if deveased.yasin_chk %}
+                    <div class="row">
+                        <div class="col-xl-2 col-sm-2"></div>
+                        <div class="col-xl-8 col-sm-8" dir="rtl" style="text-align: right;color: white">
+                            <div class="animated rubberBand"
+                                 style="background: #000000 ; border-radius: 5px; padding: 15px; color: #ffffff;">
+                                <p style="text-align: center">سوره یاسین :</p>
+                                <div style="justify-content: center;align-items: center;display: flex">
+                                    <audio controls title="سوره یاسین">
+                                        <source
+                                                src="http://file.idars.ir/iporse/soore_yasin.mp3"
+                                                type="audio/mpeg">
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-sm-2"></div>
+                    </div>
+                {% endif %}
+                {# Yasin #}
+                {# molk #}
+                {% if deveased.molk_chk %}
+                    <div class="row">
+                        <div class="col-xl-2 col-sm-2"></div>
+                        <div class="col-xl-8 col-sm-8" dir="rtl" style="text-align: right;color: white">
+                            <div class="animated rubberBand"
+                                 style="background: #000000 ; border-radius: 5px; padding: 15px; color: #ffffff;">
+                                <p style="text-align: center">سوره ملک :</p>
+                                <div style="justify-content: center;align-items: center;display: flex">
+                                    <audio controls title="سوره ملک">
+                                        <source
+                                                src="http://file.idars.ir/iporse/soore_molk.mp3"
+                                                type="audio/mpeg">
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-sm-2"></div>
+                    </div>
+                {% endif %}
+                {# molk #}
+                {# doa komil #}
+                {% if deveased.komil_chk %}
+                    <div class="row">
+                        <div class="col-xl-2 col-sm-2"></div>
+                        <div class="col-xl-8 col-sm-8" dir="rtl" style="text-align: right;color: white">
+                            <div class="animated rubberBand"
+                                 style="background: #000000 ; border-radius: 5px; padding: 15px; color: #ffffff;">
+                                <p style="text-align: center">دعای کمیل:</p>
+                                <div style="justify-content: center;align-items: center;display: flex">
+                                    <audio controls title="دعای کمیل">
+                                        <source
+                                                src="http://file.idars.ir/iporse/doa_komeil.mp3"
+                                                type="audio/mpeg">
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-sm-2"></div>
+                    </div>
+                {% endif %}
+                {# doa komil #}
+                {# doa ahad #}
+                {% if deveased.ahd_chk %}
+                    <div class="row">
+                        <div class="col-xl-2 col-sm-2"></div>
+                        <div class="col-xl-8 col-sm-8" dir="rtl" style="text-align: right;color: white">
+                            <div class="animated rubberBand"
+                                 style="background: #000000 ; border-radius: 5px; padding: 15px; color: #ffffff;">
+                                <p style="text-align: center">دعای عهد:</p>
+                                <div style="justify-content: center;align-items: center;display: flex">
+                                    <audio controls title="دعای عهد">
+                                        <source
+                                                src="http://file.idars.ir/iporse/doa_ahd.mp3"
+                                                type="audio/mpeg">
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-sm-2"></div>
+                    </div>
+                {% endif %}
+                {# doa ahad #}
+                {# doa aye  #}
+                {% if deveased.aye_chk %}
+                    <div class="row">
+                        <div class="col-xl-2 col-sm-2"></div>
+                        <div class="col-xl-8 col-sm-8" dir="rtl" style="text-align: right;color: white">
+                            <div class="animated rubberBand"
+                                 style="background: #000000 ; border-radius: 5px; padding: 15px; color: #ffffff;">
+                                <p style="text-align: center">آیت الکرسی:</p>
+                                <div style="justify-content: center;align-items: center;display: flex">
+                                    <audio controls title="آیت الکرسی">
+                                        <source
+                                                src="http://file.idars.ir/iporse/aiatolkorsi.mp3"
+                                                type="audio/mpeg">
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-sm-2"></div>
+                    </div>
+                {% endif %}
+                {# doa aye  #}
+                {# ziarat ashora #}
+                {% if deveased.ashora_chk %}
+                    <div class="row">
+                        <div class="col-xl-2 col-sm-2"></div>
+                        <div class="col-xl-8 col-sm-8" dir="rtl" style="text-align: right;color: white">
+                            <div class="animated rubberBand"
+                                 style="background: #000000 ; border-radius: 5px; padding: 15px; color: #ffffff;">
+                                <p style="text-align: center">زیارت عاشورا:</p>
+                                <div style="justify-content: center;align-items: center;display: flex">
+                                    <audio controls title="زیارت عاشورا">
+                                        <source
+                                                src="http://file.idars.ir/iporse/ziarat_ashoora_fani.mp3"
+                                                type="audio/mpeg">
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-sm-2"></div>
+                    </div>
+                {% endif %}
+                {# ziarat ashora #}
+                {# ziarat arbaein #}
+                {% if deveased.arbain_chk %}
+                    <div class="row">
+                        <div class="col-xl-2 col-sm-2"></div>
+                        <div class="col-xl-8 col-sm-8" dir="rtl" style="text-align: right;color: white">
+                            <div class="animated rubberBand"
+                                 style="background: #000000 ; border-radius: 5px; padding: 15px; color: #ffffff;">
+                                <p style="text-align: center">زیارت اربعین:</p>
+                                <div style="justify-content: center;align-items: center;display: flex">
+                                    <audio controls title="زیارت اربعین">
+                                        <source
+                                                src="http://file.idars.ir/iporse/ziarat_arbaien_mirdamad.mp3"
+                                                type="audio/mpeg">
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-sm-2"></div>
+                    </div>
+                {% endif %}
+                {# ziarat arbaein #}
+                {# Doaie Sahifie Sajadie #}
+                {% if deveased.sahifeh_chk %}
+                    <div class="row">
+                        <div class="col-xl-2 col-sm-2"></div>
+                        <div class="col-xl-8 col-sm-8" dir="rtl" style="text-align: right;color: white">
+                            <div class="animated rubberBand"
+                                 style="background: #000000 ; border-radius: 5px; padding: 15px; color: #ffffff;">
+                                <p style="text-align: center">دعای هفتم صحیفه سجادیه :</p>
+                                <div style="justify-content: center;align-items: center;display: flex">
+                                    <video title="دعای هفتم صحیفه سجادیه" class="img-responsive" controls=""
+                                           width="80%">
+                                        <source
+                                                src="http://file.idars.ir/iporse/7sajadie.mp4"
+                                                type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-sm-2"></div>
+                    </div>
+                {% endif %}
+                {# Doaie Sahifie Sajadie #}
+                {# Deveased Share Link #}
+                <div class="row">
+                    <div class="col-xl-12 col-sm-12">
+                        <hr style="border: 1px solid green; border-radius: 2px;">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-2 col-sm-2"></div>
+                    <div class="col-xl-8 col-sm-8" dir="rtl" style="text-align: right;color: white">
+                        <div class="animated rubberBand border border-info"
+                             style="background: #000000 ;border-color: #4acdff; border-radius: 5px; padding: 15px; color: #ffffff;">
+                            <p style="text-align: center">با نگه داشتن انگشت خود بر روی لینک زرد رنگ زیر و زدن گزینه -
+                                Share Link - میتوانید آن در شبکه های اجتماعی منتشر کنید</p>
+                            <div style="justify-content: center;align-items: center;display: flex">
+                                <a id="ShareLink"
+                                   href="http://{{ SITE_ADDRESS }}/{{ deveased.id }}">{{ SITE_ADDRESS }}/{{ deveased.id }}</a>
+                            </div>
+                        </div>
 
+                    </div>
+                    <div class="col-xl-2 col-sm-2"></div>
+                </div>
+                {# Deveased Share Link #}
 
 
                 </div>
@@ -252,6 +474,6 @@
 <script src="{% static 'root/bs/js/popper.min.js' %}"></script>
 <script src="{% static 'root/bs/js/bootstrap.min.js' %}"></script>
 <br>
-{% include 'partials/footer.html' %}
 </body>
+{% include 'partials/footer.html' %}
 </html>
