@@ -251,7 +251,7 @@ $('#btn-joz1').click(function () {
                 $('#joz1-count').text(data['count'])
             }
             if(data['quranStatus'] === 1){
-                $('#khatmcount').text(data['khatm'])
+                $('#khatm-count').text(data['khatm'])
                 $('#offer').text(data['offer'])
             }
         }
@@ -306,6 +306,10 @@ $('#btn-joz2').click(function () {
             if (data['status'] === 'ok') {
                 $('#joz2-count').text(data['count'])
             }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
+            }
         }
     });
 });
@@ -357,6 +361,10 @@ $('#btn-joz3').click(function () {
         success: function (data) {
             if (data['status'] === 'ok') {
                 $('#joz3-count').text(data['count'])
+            }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
             }
         }
     });
@@ -410,6 +418,10 @@ $('#btn-joz4').click(function () {
             if (data['status'] === 'ok') {
                 $('#joz4-count').text(data['count'])
             }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
+            }
         }
     });
 });
@@ -461,6 +473,10 @@ $('#btn-joz5').click(function () {
         success: function (data) {
             if (data['status'] === 'ok') {
                 $('#joz5-count').text(data['count'])
+            }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
             }
         }
     });
@@ -514,6 +530,10 @@ $('#btn-joz6').click(function () {
             if (data['status'] === 'ok') {
                 $('#joz6-count').text(data['count'])
             }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
+            }
         }
     });
 });
@@ -565,6 +585,10 @@ $('#btn-joz7').click(function () {
         success: function (data) {
             if (data['status'] === 'ok') {
                 $('#joz7-count').text(data['count'])
+            }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
             }
         }
     });
@@ -618,6 +642,10 @@ $('#btn-joz8').click(function () {
             if (data['status'] === 'ok') {
                 $('#joz8-count').text(data['count'])
             }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
+            }
         }
     });
 });
@@ -669,6 +697,10 @@ $('#btn-joz9').click(function () {
         success: function (data) {
             if (data['status'] === 'ok') {
                 $('#joz9-count').text(data['count'])
+            }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
             }
         }
     });
@@ -722,6 +754,10 @@ $('#btn-joz10').click(function () {
             if (data['status'] === 'ok') {
                 $('#joz10-count').text(data['count'])
             }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
+            }
         }
     });
 });
@@ -773,6 +809,10 @@ $('#btn-joz11').click(function () {
         success: function (data) {
             if (data['status'] === 'ok') {
                 $('#joz11-count').text(data['count'])
+            }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
             }
         }
     });
@@ -826,6 +866,10 @@ $('#btn-joz12').click(function () {
             if (data['status'] === 'ok') {
                 $('#joz12-count').text(data['count'])
             }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
+            }
         }
     });
 });
@@ -877,6 +921,10 @@ $('#btn-joz13').click(function () {
         success: function (data) {
             if (data['status'] === 'ok') {
                 $('#joz13-count').text(data['count'])
+            }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
             }
         }
     });
@@ -930,6 +978,10 @@ $('#btn-joz14').click(function () {
             if (data['status'] === 'ok') {
                 $('#joz14-count').text(data['count'])
             }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
+            }
         }
     });
 });
@@ -981,6 +1033,10 @@ $('#btn-joz15').click(function () {
         success: function (data) {
             if (data['status'] === 'ok') {
                 $('#joz15-count').text(data['count'])
+            }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
             }
         }
     });
@@ -1034,6 +1090,10 @@ $('#btn-joz16').click(function () {
             if (data['status'] === 'ok') {
                 $('#joz16-count').text(data['count'])
             }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
+            }
         }
     });
 });
@@ -1085,6 +1145,10 @@ $('#btn-joz17').click(function () {
         success: function (data) {
             if (data['status'] === 'ok') {
                 $('#joz17-count').text(data['count'])
+            }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
             }
         }
     });
@@ -1138,6 +1202,10 @@ $('#btn-joz18').click(function () {
             if (data['status'] === 'ok') {
                 $('#joz18-count').text(data['count'])
             }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
+            }
         }
     });
 });
@@ -1189,6 +1257,10 @@ $('#btn-joz19').click(function () {
         success: function (data) {
             if (data['status'] === 'ok') {
                 $('#joz19-count').text(data['count'])
+            }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
             }
         }
     });
@@ -1242,6 +1314,10 @@ $('#btn-joz20').click(function () {
             if (data['status'] === 'ok') {
                 $('#joz20-count').text(data['count'])
             }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
+            }
         }
     });
 });
@@ -1293,6 +1369,10 @@ $('#btn-joz21').click(function () {
         success: function (data) {
             if (data['status'] === 'ok') {
                 $('#joz21-count').text(data['count'])
+            }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
             }
         }
     });
@@ -1346,6 +1426,10 @@ $('#btn-joz22').click(function () {
             if (data['status'] === 'ok') {
                 $('#joz22-count').text(data['count'])
             }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
+            }
         }
     });
 });
@@ -1397,6 +1481,10 @@ $('#btn-joz23').click(function () {
         success: function (data) {
             if (data['status'] === 'ok') {
                 $('#joz23-count').text(data['count'])
+            }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
             }
         }
     });
@@ -1450,6 +1538,10 @@ $('#btn-joz24').click(function () {
             if (data['status'] === 'ok') {
                 $('#joz24-count').text(data['count'])
             }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
+            }
         }
     });
 });
@@ -1501,6 +1593,10 @@ $('#btn-joz25').click(function () {
         success: function (data) {
             if (data['status'] === 'ok') {
                 $('#joz25-count').text(data['count'])
+            }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
             }
         }
     });
@@ -1554,6 +1650,10 @@ $('#btn-joz26').click(function () {
             if (data['status'] === 'ok') {
                 $('#joz26-count').text(data['count'])
             }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
+            }
         }
     });
 });
@@ -1605,6 +1705,10 @@ $('#btn-joz27').click(function () {
         success: function (data) {
             if (data['status'] === 'ok') {
                 $('#joz27-count').text(data['count'])
+            }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
             }
         }
     });
@@ -1658,6 +1762,10 @@ $('#btn-joz28').click(function () {
             if (data['status'] === 'ok') {
                 $('#joz28-count').text(data['count'])
             }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
+            }
         }
     });
 });
@@ -1710,6 +1818,10 @@ $('#btn-joz29').click(function () {
             if (data['status'] === 'ok') {
                 $('#joz29-count').text(data['count'])
             }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
+            }
         }
     });
 });
@@ -1761,6 +1873,10 @@ $('#btn-joz30').click(function () {
         success: function (data) {
             if (data['status'] === 'ok') {
                 $('#joz30-count').text(data['count'])
+            }
+            if(data['quranStatus'] === 1){
+                $('#khatm-count').text(data['khatm'])
+                $('#offer').text(data['offer'])
             }
         }
     });

@@ -11,6 +11,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from django.http import JsonResponse, HttpResponse
+from memorial.tasks import quranCount
 
 
 def home(request):
@@ -104,12 +105,9 @@ def DeadView(request, pk):
         btns['ash'] = ashora_count
     if marhom.quran_chk:
         try:
-            quran_count = Quran.objects.all().get(dead=marhom).khatm
             quran_dead = Quran.objects.get(dead=marhom)
         except:
             quran_dead = Quran.objects.create(dead=marhom)
-            quran_count = quran_dead.khatm
-        btns['q'] = quran_count
         btns['joz'] = (quran_dead.j1.all().count(), quran_dead.j2.all().count(), quran_dead.j3.all().count(),
                        quran_dead.j4.all().count(), quran_dead.j5.all().count(), quran_dead.j6.all().count(),
                        quran_dead.j7.all().count(), quran_dead.j8.all().count(), quran_dead.j9.all().count(),
@@ -122,7 +120,10 @@ def DeadView(request, pk):
                        quran_dead.j28.all().count(), quran_dead.j29.all().count(), quran_dead.j30.all().count())
     btnCount = len(btns)
     context['btnCount'] = btnCount
+    khatmCount, offer = quranCount(marhom)
+    btns['q'] = khatmCount
     context['btns'] = btns
+    context['offer'] = offer
     return render(request, 'memorial/deveased_detail.html', context)
 
 
@@ -300,61 +301,19 @@ def vote(request):
             vote = Joz30.objects.create(quran=khtmQuran, ip=ip)
             count = Joz30.objects.all().filter(quran=khtmQuran).count()
 
-
         try:
-            quran = marhom.deadquran
-            jozs = {}
-            jozs['j1'] = quran.j1.count()
-            jozs['j2'] = quran.j2.count()
-            jozs['j3'] = quran.j3.count()
-            jozs['j4'] = quran.j4.count()
-            jozs['j5'] = quran.j5.count()
-            jozs['j6'] = quran.j6.count()
-            jozs['j7'] = quran.j7.count()
-            jozs['j8'] = quran.j8.count()
-            jozs['j9'] = quran.j9.count()
-            jozs['j10'] = quran.j10.count()
-            jozs['j11'] = quran.j11.count()
-            jozs['j12'] = quran.j12.count()
-            jozs['j13'] = quran.j13.count()
-            jozs['j14'] = quran.j14.count()
-            jozs['j15'] = quran.j15.count()
-            jozs['j16'] = quran.j16.count()
-            jozs['j17'] = quran.j17.count()
-            jozs['j18'] = quran.j18.count()
-            jozs['j19'] = quran.j19.count()
-            jozs['j20'] = quran.j20.count()
-            jozs['j21'] = quran.j21.count()
-            jozs['j22'] = quran.j22.count()
-            jozs['j23'] = quran.j23.count()
-            jozs['j24'] = quran.j24.count()
-            jozs['j25'] = quran.j25.count()
-            jozs['j26'] = quran.j26.count()
-            jozs['j27'] = quran.j27.count()
-            jozs['j28'] = quran.j28.count()
-            jozs['j29'] = quran.j29.count()
-            jozs['j30'] = quran.j30.count()
-            # max_j = sorted(jozs, key=(lambda key:jozs[key]), reverse=True)
-            min_j = sorted(jozs, key=(lambda key:jozs[key]))
-            print(min_j)
-            offer = min_j[0]
-            khatmCount = jozs.get(offer)
-            offer = int(offer.replace('j',''))
-
-            print(type(offer), offer)
-            print(type(khatmCount), khatmCount)
-
+            khatmCount, offer = quranCount(marhom)
         except:
             print('Error!')
         if vote:
-                response = {
-                    'status': 'ok',
-                    'count': count,
-                    'quranStatus':quranStatus,
-                    'offer':offer,
-                    'khatm':khatmCount
-                }
-                return JsonResponse(response)
+            response = {
+                'status': 'ok',
+                'count': count,
+                'quranStatus': quranStatus,
+                'offer': offer,
+                'khatm': khatmCount
+            }
+            return JsonResponse(response)
     if request.method == 'GET':
         return HttpResponse(
             '<html><head><title>404</title></head><body><center><h1 style="color:blue;font-width=bold">404</h1><h3 style="color:red;">Not Found Page!</h3></center></body></html>')
