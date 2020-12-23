@@ -41,6 +41,7 @@ class City(models.Model):
 
 
 class Deveased(models.Model):
+    id = models.IntegerField(auto_created=True, primary_key=True, serialize=False, verbose_name=_('ID'), editable=True)
     user = models.ForeignKey('accounts.User', on_delete=models.CASCADE, verbose_name=_('Phone'),
                              related_name='userdeads')
     state = models.ForeignKey(State, on_delete=models.SET_NULL, null=True, verbose_name=_('State'),

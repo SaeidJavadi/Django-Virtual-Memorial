@@ -57,25 +57,28 @@
                                 <div class="col-md-8" style="text-align: right" dir="rtl">
                                     <div class="row">
                                         <div class="col-md-7">
-                                            <span style="color: #7f82ef">نام: </span><span style="color: #34fc66">{{ marhom.name }}</span>
+                                            <span style="color: #7f82ef">نام: </span><span
+                                                style="color: #34fc66">{{ marhom.name }}</span>
                                         </div>
                                         <div class="col-md-5">
-                                            <span style="color: #7f82ef">کد مرحوم: </span><span style="color: #34fc66">{{ marhom.id }}</span>
+                                            <span style="color: #7f82ef">کد مرحوم: </span><span
+                                                style="color: #34fc66">{{ marhom.id }}</span>
                                         </div>
                                     </div>
                                     <br>
                                     <div class="row">
                                         <div class="col-md-7">
-                                            <span style="color: #7f82ef">تاریخ ایجاد: </span><span style="color: #34fc66">{{ marhom.created|jformat:"%d-%m-%Y" }}</span>
+                                            <span style="color: #7f82ef">تاریخ ایجاد: </span><span
+                                                style="color: #34fc66">{{ marhom.created|jformat:"%d-%m-%Y" }}</span>
                                         </div>
                                         <div class="col-md-5">
                                             <span style="color: #7f82ef">وضعیت: </span>
                                             {% if marhom.status == 'active' %}
-                                               <span style="color: #34fc66">فعال</span>
+                                                <span style="color: #34fc66">فعال</span>
                                             {% elif marhom.status == 'inactive' %}
-                                              <span style="color: #ff0a22">غیرفعال</span>
+                                                <span style="color: #ff0a22">غیرفعال</span>
                                             {% elif marhom.status == 'pending' %}
-                                              <span style="color: #ffc514">در انتظار بررسی</span>
+                                                <span style="color: #ffc514">در انتظار بررسی</span>
                                             {% endif %}
                                         </div>
                                     </div>
@@ -89,7 +92,8 @@
                                         </div>
                                         <div class="col-md-4">
                                             {% if marhom.status == 'active' %}
-                                                <a class="btn btn-warning btn-xs btn-block" target="_blank" href="{% url 'memorial:view_Deveased' pk=marhom.id %}"
+                                                <a class="btn btn-warning btn-xs btn-block" target="_blank"
+                                                   href="{% url 'memorial:view_Deveased' pk=marhom.id %}"
                                                    style="color: black" data-toggle="tooltip"
                                                    title="برای مشاهده صفحه یادبود کلیک کنید">{% trans "View" %}</a>
                                             {% endif %}
@@ -125,5 +129,7 @@
 
     {% include 'memorial/del_model.html' %}
     <br>
-    {% include 'partials/pagination.html' %}
+    {% if allObj > 5 %}
+        {% include 'partials/pagination.html' %}
+    {% endif %}
 {% endblock body %}
