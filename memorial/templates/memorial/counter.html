@@ -7,14 +7,19 @@
              style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
             <div>
                 <div class="row">
-                    <div class="col-md-4" dir="rtl"><p class="totalshow">{% trans 'Total Salavat:' %}</p>
+                    <div class="col-xl-2 col-sm-2"></div>
+                    <div class="col-md-4" dir="rtl">
+                        <p class="totalshow">{% trans 'Total Salavat:' %}<br>
+                            <span>{{ data.salavat }}</span>
+                        </p>
                     </div>
 
-                    <div class="col-md-4" dir="rtl"><p class="totalshow">{% trans 'Total Fatehe:' %}</p>
+                    <div class="col-md-4" dir="rtl">
+                        <p class="totalshow">{% trans 'Total Fatehe:' %}<br>
+                            <span>{{ data.fatehe }}</span>
+                        </p>
                     </div>
-
-                    <div class="col-md-4" dir="rtl"><p class="totalshow">{% trans 'Total Khatm:' %}</p>
-                    </div>
+                    <div class="col-xl-2 col-sm-2"></div>
                 </div>
             </div>
         </div>

@@ -16,7 +16,14 @@ from memorial.tasks import quranCount
 
 def home(request):
     form = Search()
-    return render(request, 'memorial/home.html', {'form': form})
+    data = {}
+    fatehe = Fatehe.objects.all().count()
+    salavat = Salavat.objects.all().count()
+    states = State.objects.all()
+    data['fatehe'] = fatehe
+    data['salavat'] = salavat
+    data['states'] = states
+    return render(request, 'memorial/home.html', {'form': form, 'data':data})
 
 
 @login_required
