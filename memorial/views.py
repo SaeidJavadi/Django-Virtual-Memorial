@@ -20,9 +20,11 @@ def home(request):
     fatehe = Fatehe.objects.all().count()
     salavat = Salavat.objects.all().count()
     states = State.objects.all()
+    stateCount = states.count()
     data['fatehe'] = fatehe
     data['salavat'] = salavat
     data['states'] = states
+    data['stateCount'] = stateCount
     return render(request, 'memorial/home.html', {'form': form, 'data':data})
 
 

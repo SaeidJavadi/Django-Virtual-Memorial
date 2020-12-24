@@ -8,26 +8,14 @@
              style="background: #2c3e50; border-radius: 5px;  color: #ffffff;">
             <div class="row" style="padding:20px 0 0 0">
                 {% for state in data.states %}
-                    {% if forloop.counter|divisibleby:2 %}
                     <div class="col-md-6">
                         <a href="#">
                             <button type="button" class="btn btn-outline-success"
-                                    style="padding: 20px 100px 20px 100px">{% trans 'استان 1' %}</button>
+                                    style="padding: 20px 100px 20px 100px">{{ state.state }}</button>
                         </a>
                     </div>
-                    <div class="col-md-6>">
-                        <a href="#" class="col-md-6">
-                            <button type="button" class="btn btn-outline-success"
-                                    style="padding: 20px 100px 20px 100px">{% trans 'استان 2' %}</button>
-                        </a>
-                    </div>
-                        {% else %}
-                        <div class="row">
-                        <div class="col-xl-2 col-sm-2"></div>
-                        <div class="col-xl-8 col-sm-8">os</div>
-                        <div class="col-xl-2 col-sm-2"></div>
-                        </div>
-                    {% endif %}
+                    <br>
+
                 {% endfor %}
             </div>
             <br>
