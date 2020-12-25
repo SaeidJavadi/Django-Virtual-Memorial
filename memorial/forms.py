@@ -8,6 +8,9 @@ searchD = {'class': 'form-control', 'placeholder': _('Deveased Code'), 'dir': 'r
 
 
 class Search(forms.Form):
+    searchD['type']='tel'
+    searchD['min']='0'
+    searchD['id']='inputSearch'
     search = forms.CharField(max_length=200, label='', widget=forms.TextInput(attrs=searchD), )
 
 
