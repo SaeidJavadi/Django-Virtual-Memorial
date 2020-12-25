@@ -21,11 +21,18 @@ def home(request):
     salavat = Salavat.objects.all().count()
     states = State.objects.all()
     stateCount = states.count()
+    StateList = []
+    for i in range(0, stateCount, 2):
+        row = []
+        row.append(states[i])
+        if i < stateCount - 1:
+            row.append(states[i + 1])
+        StateList.append(row)
     data['fatehe'] = fatehe
     data['salavat'] = salavat
-    data['states'] = states
-    data['stateCount'] = stateCount
-    return render(request, 'memorial/home.html', {'form': form, 'data':data})
+    data['states'] = StateList
+    # data['stateCount'] = stateCount
+    return render(request, 'memorial/home.html', {'form': form, 'data': data})
 
 
 @login_required
@@ -326,3 +333,13 @@ def vote(request):
     if request.method == 'GET':
         return HttpResponse(
             '<html><head><title>404</title></head><body><center><h1 style="color:blue;font-width=bold">404</h1><h3 style="color:red;">Not Found Page!</h3></center></body></html>')
+
+
+def state(request, pk):
+    state = State.objects.get(id=pk)
+    stateName = state.state
+    cityCount = state.citystate.all().count()
+    print(cityCount)
+    citys = {}
+    citys['stateName'] = stateName
+    return render(request,'memorial/state.html', {'citys':citys})

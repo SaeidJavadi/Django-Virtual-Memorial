@@ -12,4 +12,5 @@ urlpatterns = [
     # path('<int:pk>/', views.DeadDetailView.as_view(), name='view_Deveased'),
     path('<int:pk>/', views.DeadView, name='view_Deveased'),
     path('vote/', views.vote, name="vote"),
+    path('state/<int:pk>/', views.state, name='state'),
 ]
