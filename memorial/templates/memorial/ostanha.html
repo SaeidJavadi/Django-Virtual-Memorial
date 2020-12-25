@@ -11,14 +11,14 @@
                     <div class="col-xl-5 col-sm-5">
                         <a href="{% url 'memorial:state' state.0.id %}" style="text-decoration:none">
                             <button type="button" class="btn btn-outline-success btn-block" style="color: #d9ff00;font-weight: bold"
-                            >{{ state.0.state }} : {{ state.0.statedeads.all.count }}</button>
+                            >{{ state.0.state }} : <span style="color: #c82333">{{ state.0.statedeads.all.count }}</span></button>
                         </a>
                     </div>
                     <div class="col-xl-5 col-sm-5">
                         {% if state.1 %}
                             <a href="{% url 'memorial:state' state.1.id %}" style="text-decoration:none">
                                 <button type="button" class="btn btn-outline-success btn-block" style="color: #d9ff00;font-weight: bold"
-                                >{{ state.1.state }} : {{ state.1.statedeads.all.count }}</button>
+                                >{{ state.1.state }} : <span style="color: #c82333">{{ state.1.statedeads.all.count }}</span></button>
                             </a>
                         {% endif %}
                     </div>

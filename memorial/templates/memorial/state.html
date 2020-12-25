@@ -29,14 +29,14 @@
                         <div class="col-xl-5 col-sm-5">
                             <a href="{% url 'memorial:city' citys.0.id %}" style="text-decoration:none">
                                 <button type="button" class="btn btn-outline-success btn-block" style="color: #d9ff00;font-weight: bold"
-                                >{{ citys.0.city }} : {{ citys.0.citydeads.all.count }}</button>
+                                >{{ citys.0.city }} : <span style="color: #c82333">{{ citys.0.citydeads.all.count }}</span></button>
                             </a>
                         </div>
                         <div class="col-xl-5 col-sm-5">
                             {% if citys.1 %}
                                 <a href="{% url 'memorial:city' citys.1.id %}" style="text-decoration:none">
                                     <button type="button" class="btn btn-outline-success btn-block" style="color: #d9ff00;font-weight: bold"
-                                    >{{ citys.1.city }} : {{ citys.1.citydeads.all.count }}</button>
+                                    >{{ citys.1.city }} : <span style="color: #c82333">{{ citys.1.citydeads.all.count }}</span></button>
                                 </a>
                             {% endif %}
                         </div>
