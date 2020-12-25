@@ -131,12 +131,12 @@ def DeadView(request, pk):
                        quran_dead.j22.all().count(), quran_dead.j23.all().count(), quran_dead.j24.all().count(),
                        quran_dead.j25.all().count(), quran_dead.j26.all().count(), quran_dead.j27.all().count(),
                        quran_dead.j28.all().count(), quran_dead.j29.all().count(), quran_dead.j30.all().count())
+        khatmCount, offer = quranCount(marhom)
+        btns['q'] = khatmCount
+        context['offer'] = offer
     btnCount = len(btns)
     context['btnCount'] = btnCount
-    khatmCount, offer = quranCount(marhom)
-    btns['q'] = khatmCount
     context['btns'] = btns
-    context['offer'] = offer
     return render(request, 'memorial/deveased_detail.html', context)
 
 
