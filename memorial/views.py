@@ -344,8 +344,24 @@ def state(request, pk):
         if i < cityCount - 1:
             row.append(CITYs[i + 1])
         CityList.append(row)
-    print(CityList)
     citys = {}
     citys['stateName'] = stateName
     citys['citylist'] = CityList
     return render(request, 'memorial/state.html', {'citys': citys})
+
+
+def city(request, pk):
+    city = City.objects.get(id=pk)
+    cityName = city.city
+    deads = city.citydeads.all().order_by('-created')
+    deadCount = deads.count()
+    paginator = Paginator(deads, 5)
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
+    return render(request, 'memorial/city.html', {'objects': posts, 'allObj':deadCount,'cn':cityName })

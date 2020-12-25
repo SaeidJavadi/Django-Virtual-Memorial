@@ -13,4 +13,5 @@ urlpatterns = [
     path('<int:pk>/', views.DeadView, name='view_Deveased'),
     path('vote/', views.vote, name="vote"),
     path('state/<int:pk>/', views.state, name='state'),
+    path('city/<int:pk>/', views.city, name='city'),
 ]

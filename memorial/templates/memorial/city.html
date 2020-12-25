@@ -2,7 +2,7 @@
 {% load jformat %}
 {% load static %}
 {% load i18n %}
-{% block title %}لیست یادبودهای ایجاد شده |{% endblock title %}
+{% block title %}لیست یادبودهای شهر {{ cn }} |{% endblock title %}
 {% block head %} {% endblock head %}
 {% block body %}
     {% if allObj == 0 %}
@@ -14,10 +14,11 @@
                      style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
                     <div style="text-align: center; color: #d9ff00" dir="rtl">
                         <p>
-                            کاربر گرامی شما هیچ صفحه یاد بودی ایجاد نکرده اید
+                            کاربر گرامی برای شهر {{ cn }} هیچ صفحه یاد بودی وجود ندارد
                         </p>
-                        <p>
-                            شما به راحتی می توانید با استفاده از کلید افزودن مرحوم جدید سفحه یاد بود ایجاد کنید
+                        <p style="color: #60ff00">
+                            شما به راحتی می توانید با ورود به سامانه یادبود مجازی و استفاده از کلید افزودن مرحوم جدید
+                            سفحه یاد بود ایجاد کنید
                         </p>
                     </div>
                 </div>
@@ -26,22 +27,32 @@
         </div>
         <div class="row">
             <div class="col-md-3 col-sm-1"></div>
+
             <div class="col-md-6 col-sm-10" style="margin-top: 10px;">
                 <div class="animated rubberBand"
                      style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-10">
-                            <a href="{% url 'memorial:add_Deveased' %}" style="text-decoration:none"
-                               data-toggle="tooltip" title="افزودن صفحه یادبود مرحوم جدید">
-                                <button type="submit"
-                                        class="btn btn-warning btn-block">{% trans "افزودن مرحوم جدید" %}</button>
-                            </a>
+                            {% if user.is_authenticated %}
+                                <a href="{% url 'memorial:add_Deveased' %}" style="text-decoration:none"
+                                   data-toggle="tooltip" title="افزودن صفحه یادبود مرحوم جدید">
+                                    <button type="submit"
+                                            class="btn btn-warning btn-block">{% trans "افزودن مرحوم جدید" %}</button>
+                                </a>
+                            {% else %}
+                                <a href="{% url 'accounts:login' %}" style="text-decoration:none"
+                                   data-toggle="tooltip" title="ورود یا ثبت نام رایگان">
+                                    <button type="submit"
+                                            class="btn btn-warning btn-block">{% trans "ورود یا ثبت نام رایگان" %}</button>
+                                </a>
+                            {% endif %}
                         </div>
                         <div class="col-md-1"></div>
                     </div>
                 </div>
             </div>
+
             <div class="col-md-3 col-sm-1"></div>
         </div>
 
@@ -104,13 +115,8 @@
                                     </div>
                                     <br>
                                     <div class="row">
-                                        <div class="col-md-4">
-                                            <a class="btn btn-primary btn-xs btn-block"
-                                               href="{% url 'memorial:edit_Deveased' id=marhom.id %}"
-                                               style="color: black" data-toggle="tooltip"
-                                               title="برای ویرایش صفحه این یادبود کلیک کنید">{% trans "Edit" %}</a>
-                                        </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-10">
                                             {% if marhom.status == 'active' %}
                                                 <a class="btn btn-warning btn-xs btn-block" target="_blank"
                                                    href="{% url 'memorial:view_Deveased' pk=marhom.id %}"
@@ -118,14 +124,7 @@
                                                    title="برای مشاهده صفحه یادبود کلیک کنید">{% trans "View" %}</a>
                                             {% endif %}
                                         </div>
-                                        <div class="col-md-4">
-                                            <button class="btn btn-danger btn-xs btn-block" data-toggle="modal"
-                                                    data-target="#myModal" id="{{ marhom.id }}"
-                                                    value="{{ marhom.name }}"
-                                                    style="color: black" onClick="reply_click(this.id,this.value)"
-                                                    data-toggle="tooltip"
-                                                    title="برای حذف این صفحه یادبود کلیک کنید">{% trans "Delete" %}</button>
-                                        </div>
+                                        <div class="col-md-1"></div>
 
                                     </div>
                                 </div>

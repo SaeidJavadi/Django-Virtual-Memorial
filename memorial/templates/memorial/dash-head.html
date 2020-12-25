@@ -9,8 +9,13 @@
                 </h4>
             </div>
             <div style="text-align: center; color: #1fffb6" dir="rtl">
+                {% if user.user.is_authenticated  %}
                 <p>
                     کاربر گرامی <b style="color: #4acdff">{{ user.name}}</b> به صفحه خود خوش آمدید.</p>
+                {% else %}
+                    <p>
+                    </p>
+                {% endif %}
             </div>
         </div>
     </div>
