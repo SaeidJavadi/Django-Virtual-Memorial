@@ -19,33 +19,32 @@
                 <div class="row">
                     <div class="col-xl-2 col-sm-2"></div>
                     <div class="col-xl-8 col-sm-8">
-                        <p>
+                        <p style="text-align: center;font-weight: bold;padding: 20px">
                             {{ citys.stateName }}
                         </p>
                     </div>
                     <div class="col-xl-2 col-sm-2"></div>
                 </div>
-
-{#                {% for state in data.states %}#}
+                {% for citys in citys.citylist %}
                     <div class="row" style="padding:10px 0 10px 0">
                         <div class="col-xl-1 col-sm-1"></div>
-{#                        <div class="col-xl-5 col-sm-5">#}
-{#                            <a href="{% url 'memorial:state' state.0.id %}" style="text-decoration:none">#}
-{#                                <button type="button" class="btn btn-outline-success btn-block" style="color: #d9ff00;font-weight: bold"#}
-{#                                >{{ state.0.state }} : {{ state.0.statedeads.all.count }}</button>#}
-{#                            </a>#}
-{#                        </div>#}
-{#                        <div class="col-xl-5 col-sm-5">#}
-{#                            {% if state.1 %}#}
-{#                                <a href="{% url 'memorial:state' state.1.id %}" style="text-decoration:none">#}
-{#                                    <button type="button" class="btn btn-outline-success btn-block" style="color: #d9ff00;font-weight: bold"#}
-{#                                    >{{ state.1.state }} : {{ state.1.statedeads.all.count }}</button>#}
-{#                                </a>#}
-{#                            {% endif %}#}
+                        <div class="col-xl-5 col-sm-5">
+                            <a href="" style="text-decoration:none">
+                                <button type="button" class="btn btn-outline-success btn-block" style="color: #d9ff00;font-weight: bold"
+                                >{{ citys.0.city }} : {{ citys.0.citydeads.all.count }}</button>
+                            </a>
+                        </div>
+                        <div class="col-xl-5 col-sm-5">
+                            {% if citys.1 %}
+                                <a href="" style="text-decoration:none">
+                                    <button type="button" class="btn btn-outline-success btn-block" style="color: #d9ff00;font-weight: bold"
+                                    >{{ citys.1.city }} : {{ citys.1.citydeads.all.count }}</button>
+                                </a>
+                            {% endif %}
                         </div>
                         <div class="col-xl-1 col-sm-1"></div>
                     </div>
-{#                {% endfor %}#}
+                {% endfor %}
             </div>
         </div>
         <div class="col-md-3 col-sm-1"></div>

@@ -99,9 +99,6 @@ def DeveasedEdit(request, id=None):
     return render(request, 'memorial/deveased_edit.html', context)
 
 
-# class DeadDetailView(DetailView):
-#     model = Deveased
-
 def DeadView(request, pk):
     marhom = get_object_or_404(Deveased, id=pk)
     context = {}
@@ -338,8 +335,17 @@ def vote(request):
 def state(request, pk):
     state = State.objects.get(id=pk)
     stateName = state.state
-    cityCount = state.citystate.all().count()
-    print(cityCount)
+    CITYs = state.citystate.all()
+    cityCount = CITYs.count()
+    CityList = []
+    for i in range(0, cityCount, 2):
+        row = []
+        row.append(CITYs[i])
+        if i < cityCount - 1:
+            row.append(CITYs[i + 1])
+        CityList.append(row)
+    print(CityList)
     citys = {}
     citys['stateName'] = stateName
-    return render(request,'memorial/state.html', {'citys':citys})
+    citys['citylist'] = CityList
+    return render(request, 'memorial/state.html', {'citys': citys})
