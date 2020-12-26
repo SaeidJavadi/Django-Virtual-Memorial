@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load jformat %}
+{% load static %}
+{% load i18n %}
+{% block title %}درخواست زیارت نیابتی |{% endblock title %}
+{% block head %} {% endblock head %}
+{% block body %}
+    {% include 'memorial/dash-head.html' %}
+    <div class="row">
+        <div class="col-md-3 col-sm-1"></div>
+        <div class="col-md-6 col-sm-10" style="margin-top: 10px;">
+            <div class="animated rubberBand"
+                 style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
+                <div style="text-align: center; color: #d9ff00" dir="rtl">
+                    <p>
+                        جزئیات درخواست زیارت نیابتی :
+                    </p>
+                    <p>
+                        استان : <span style="color: #1fffb6">{{ ziarat.state.state }}</span> شهر : <span
+                            style="color: #1fffb6">{{ ziarat.city.city }}</span>
+                    </p>
+                    <p>
+                        کد متقاضی : <span style="color: #1fffb6">{{ ziarat.user.id }}</span>
+                    </p>
+                    <p>
+                        زمان درخواست : <br><span style="color: #1fffb6"
+                                                 dir="ltr">{{ ziarat.created|jformat:"%Y-%m-%d  %H:%M" }}</span>
+                    </p>
+                    <p>
+                        نوع درخواست : <br><span
+                            style="color: #1fffb6">زیارت امام رضا(ع) و قرائت دعای زیارت و صلوات خاصه</span>
+                    </p>
+                    <p>
+                        توضیحات :<br><span style="color: #1fffb6"> {{ ziarat.description }}</span>
+                    </p>
+                    <p>
+                        <button type="submit" id="btn-ziarat" data-id="{{ ziarat.id }}"
+                                class="btn btn-success btn-block"><span style="font-weight: bold;color: #ffffff">
+                                                                قرائت زیارت و انجام این درخواست را تقبل میکنم
+                            </span>
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-sm-1"></div>
+        <div class="col-md-6 col-sm-10" style="margin-top: 10px;">
+            <div class="animated rubberBand"
+                 style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <a href="{% url 'memorial:add_Ziarat' %}" style="text-decoration:none"
+                           data-toggle="tooltip" title="افزود زیارت نیابتی جدید">
+                            <button type="submit"
+                                    class="btn btn-outline-warning btn-block">{% trans "افزودن زیارت نیابتی جدید" %}</button>
+                        </a>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <a href="{% url 'memorial:lists_ziarat' %}" style="text-decoration:none"
+                           data-toggle="tooltip" title="لیست درخواست زیارات نیابتی">
+                            <button type="submit"
+                                    class="btn btn-outline-warning btn-block">{% trans "لیست درخواست های زیارات نیابتی" %}</button>
+                        </a>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-1"></div>
+    </div>
+
+    <script src="{% static 'root/bs/js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'memorial/js/script.js' %}"></script>
+    <script src="{% static 'root/bs/js/popper.min.js' %}"></script>
+    <script src="{% static 'root/bs/js/bootstrap.min.js' %}"></script>
+{% endblock body %}

@@ -1,6 +1,6 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
-from memorial.models import Deveased
+from memorial.models import Deveased, Ziarat
 from pytz import timezone
 from jdatetime import datetime as dt
 
@@ -8,9 +8,9 @@ searchD = {'class': 'form-control', 'placeholder': _('Deveased Code'), 'dir': 'r
 
 
 class Search(forms.Form):
-    searchD['type']='tel'
-    searchD['min']='0'
-    searchD['id']='inputSearch'
+    searchD['type'] = 'tel'
+    searchD['min'] = '0'
+    searchD['id'] = 'inputSearch'
     search = forms.CharField(max_length=200, label='', widget=forms.TextInput(attrs=searchD), )
 
 
@@ -19,9 +19,9 @@ class DeveasedForm(forms.ModelForm):
         model = Deveased
         fields = (
             'state', 'city', 'picture', 'title', 'name', 'gender', 'description', 'address', 'datedied', 'quran_chk',
-            'fatehe_chk','salavat_chk',
+            'fatehe_chk', 'salavat_chk',
             'ashora_chk',
-            'arbain_chk', 'ahd_chk', 'aye_chk', 'sahifeh_chk', 'komil_chk', 'rahman_chk','yasin_chk', 'molk_chk')
+            'arbain_chk', 'ahd_chk', 'aye_chk', 'sahifeh_chk', 'komil_chk', 'rahman_chk', 'yasin_chk', 'molk_chk')
         widgets = {
             'state': forms.Select(attrs={'class': 'form-control', 'onChange': 'iranwebsv(this.value);'}),
             'city': forms.Select(attrs={'class': 'form-control'}),
@@ -38,8 +38,8 @@ class DeveasedForm(forms.ModelForm):
             'title': 'عنوان (مانند شادروان)',
             'address': 'آدرس آرمگاه:',
             'sahifeh_chk': 'دعای 7 صحیفه سجادیه',
-            'description':'توضیحات مندرج در ذیل صفحه',
-            'quran_chk':'ختم قرآن',
+            'description': 'توضیحات مندرج در ذیل صفحه',
+            'quran_chk': 'ختم قرآن',
         }
         forceInputField = 'این فیلد اجباری است'
         error_messages = {
@@ -73,3 +73,32 @@ class DeveasedForm(forms.ModelForm):
                                                   widget=forms.SelectDateWidget(empty_label=['سال', 'ماه', 'روز'],
                                                                                 years=YEAR_CHOICES,
                                                                                 months=MONTH_CHOICES))
+
+
+class ZiaratForm(forms.ModelForm):
+    class Meta:
+        model = Ziarat
+        fields = ('state', 'city', 'description')
+        widgets = {
+            'state': forms.Select(attrs={'class': 'form-control', 'onChange': 'iranwebsv(this.value);'}),
+            'city': forms.Select(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'rows': '3'})
+        }
+        forceInputField = 'این فیلد اجباری است'
+        error_messages = {
+            'state': {
+                'required': forceInputField,
+            },
+            'city': {
+                'required': forceInputField,
+            },
+
+        }
+        help_texts = {
+            'state': 'ابتدا استان مورد نظر را انتخاب کید',
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(ZiaratForm, self).__init__(*args, **kwargs)
+        self.fields['state'].empty_label = 'لطفا استان را انتخاب نمایید'
+        self.fields['city'].empty_label = 'لطفا ابتدا استان را انتخاب نمایید'

@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic.edit import ModelFormMixin
 from accounts.models import User
-from memorial.forms import Search, DeveasedForm
+from memorial.forms import Search, DeveasedForm, ZiaratForm
 from memorial.models import *
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
@@ -331,6 +331,20 @@ def vote(request):
         return HttpResponse(
             '<html><head><title>404</title></head><body><center><h1 style="color:blue;font-width=bold">404</h1><h3 style="color:red;">Not Found Page!</h3></center></body></html>')
 
+def voteZiarat(request):
+    if request.method == 'POST':
+        if request.POST['ziarat'] == 'ok':
+            ziarat_id = request.POST['ziarat_id']
+            ziarat = Ziarat.objects.get(id=ziarat_id)
+            ziarat.read = True
+            ziarat.save()
+            responsez = {
+                'status': 'ok',
+            }
+            return JsonResponse(responsez)
+    if request.method == 'GET':
+        return HttpResponse(
+            '<html><head><title>404</title></head><body><center><h1 style="color:blue;font-width=bold">404</h1><h3 style="color:red;">Not Found Page!</h3></center></body></html>')
 
 def state(request, pk):
     state = State.objects.get(id=pk)
@@ -364,4 +378,63 @@ def city(request, pk):
     except EmptyPage:
         posts = paginator.page(paginator.num_pages)
 
-    return render(request, 'memorial/city.html', {'objects': posts, 'allObj':deadCount,'cn':cityName })
+    return render(request, 'memorial/city.html', {'objects': posts, 'allObj': deadCount, 'cn': cityName})
+
+
+class ZiaratCreate(LoginRequiredMixin, CreateView):
+    model = Ziarat
+    form_class = ZiaratForm
+    template_name = 'memorial/ziarat_create.html'
+    success_url = reverse_lazy('memorial:dashboard')
+    success_message = 'با موفقیت اضافه شد'
+    error_message = 'خطا در ورود اطلاعات'
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user
+        self.object.save()
+        messages.success(self.request, self.success_message)
+        return super(ModelFormMixin, self).form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, self.error_message)
+        return super().form_invalid(form)
+
+
+@login_required
+def listZiarat(request):
+    user = User.objects.get(phone=request.user.phone)
+    if not request.user.is_authenticated:
+        ziarat = Ziarat.objects.filter(user=user, read=False).order_by('-created')
+    else:
+        ziarat = Ziarat.objects.filter(user=user).order_by('-created')
+    allObj = ziarat.count()
+    paginator = Paginator(ziarat, 5)
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+    return render(request, 'memorial/ziarat_list.html', {'objects': posts, 'allObj': allObj})
+
+
+def ZiaratView(request, pk):
+    ziarat = get_object_or_404(Ziarat, id=pk)
+    context = {'ziarat':ziarat}
+    return render(request, 'memorial/ziarat_detail.html', context)
+
+
+def listsZiarat(request):
+    ziarat = Ziarat.objects.filter(read=False).order_by('-created')
+    allObj = ziarat.count()
+    paginator = Paginator(ziarat, 10)
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+    return render(request, 'memorial/ziarat_lists.html', {'objects': posts, 'allObj': allObj})

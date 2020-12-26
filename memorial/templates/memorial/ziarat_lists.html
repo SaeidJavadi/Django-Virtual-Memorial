@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load jformat %}
+{% load static %}
+{% load i18n %}
+{% block title %}لیست زیارت های نیابتی ایجاد شده |{% endblock title %}
+{% block head %} {% endblock head %}
+{% block body %}
+    {% if allObj == 0 %}
+        {% include 'memorial/dash-head.html' %}
+        <div class="row">
+            <div class="col-md-3 col-sm-1"></div>
+            <div class="col-md-6 col-sm-10" style="margin-top: 10px;">
+                <div class="animated rubberBand"
+                     style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
+                    <div style="text-align: center; color: #d9ff00" dir="rtl">
+                        <p>
+                            کاربر گرامی هیچ صفحه زیارت نیابتی ایجاد نشده است
+                        </p>
+                        <p>
+                            شما به راحتی می توانید با ورود به سامانه و استفاده از کلید افزودن زیارت نیابتی جدید صفحه یاد بود ایجاد کنید
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-1"></div>
+            <div class="col-md-6 col-sm-10" style="margin-top: 10px;">
+                <div class="animated rubberBand"
+                     style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <a href="{% url 'memorial:add_Ziarat' %}" style="text-decoration:none"
+                               data-toggle="tooltip" title="افزود زیارت نیابتی جدید">
+                                <button type="submit"
+                                        class="btn btn-warning btn-block">{% trans "افزودن زیارت نیابتی جدید" %}</button>
+                            </a>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-1"></div>
+        </div>
+
+    {% else %}
+        {% for ziarat in objects %}
+            <div class="row">
+                <div class="col-md-3 col-sm-1"></div>
+                <div class="col-md-6 col-sm-10" style="margin-top: 10px;">
+                    <a href="{% url 'memorial:view_ziarat' ziarat.id %}" style="text-decoration: none">
+                        <div class="animated rubberBand"
+                             style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
+                            <div style="text-align: center; color: #faf5bb" dir="rtl">
+
+                                <div class="row">
+                                    <div class="col-md-4" style="alignment: center">
+                                        <span style="color: #7f82ef">کاربر: </span><span
+                                            style="color: #34fc66">{{ ziarat.user.id }}</span>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <span style="color: #7f82ef">تاریخ درخواست: </span><span
+                                            style="color: #34fc66;">{{ ziarat.created|jformat:"%H:%M %d-%m-%Y" }}</span>
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <span style="color: #1fffb6">درخواست زیارت نیابتی - شهادت امام رضا(ع)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-1"></div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <br>
+    {% if allObj > 5 %}
+        {% include 'partials/pagination.html' %}
+    {% endif %}
+{% endblock body %}

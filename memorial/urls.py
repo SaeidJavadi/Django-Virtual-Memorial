@@ -14,4 +14,10 @@ urlpatterns = [
     path('vote/', views.vote, name="vote"),
     path('state/<int:pk>/', views.state, name='state'),
     path('city/<int:pk>/', views.city, name='city'),
+    path('add2', views.ZiaratCreate.as_view(), name='add_Ziarat'),
+    path('lists', views.listZiarat, name='list_ziarat'),
+    path('n/<int:pk>/', views.ZiaratView, name='view_ziarat'),
+    path('votes/', views.voteZiarat, name="votes"),
+    path('az', views.listsZiarat, name='lists_ziarat'),
+
 ]

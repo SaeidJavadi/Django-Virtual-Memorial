@@ -93,6 +93,22 @@ class Deveased(models.Model):
     #     return reverse('memorial:detail', kwargs={'id': self.id})
 
 
+class Ziarat(models.Model):
+    id = models.IntegerField(auto_created=True, primary_key=True, serialize=False, verbose_name=_('ID'), editable=True)
+    user = models.ForeignKey('accounts.User', on_delete=models.CASCADE, verbose_name=_('Phone'),
+                             related_name='userziarat')
+    state = models.ForeignKey(State, on_delete=models.CASCADE, verbose_name=_('State'), related_name='zstate')
+    city = models.ForeignKey(City, on_delete=models.CASCADE, verbose_name=_('City'), related_name='cstate')
+    description = models.TextField(verbose_name=_('Description'), null=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True, verbose_name=_('Created'))
+    read = models.BooleanField(verbose_name=_('Read'), default=False)
+    status = models.CharField(max_length=60, choices=STATUS_CHOICES, default='active', verbose_name=_('Status'))
+
+    class Meta:
+        verbose_name = _('Ziarat')
+        verbose_name_plural = _('Ziarat')
+
+
 class Fatehe(models.Model):
     dead = models.ForeignKey(Deveased, on_delete=models.CASCADE, verbose_name=_('Fatehe'), related_name='fdead')
     ip = models.CharField(max_length=20, verbose_name=_('ip'), null=True, blank=True)

@@ -8,6 +8,15 @@ class DeveasedAdmin(admin.ModelAdmin):
     list_editable = ('status',)
     list_display_links = ('id', 'name')
     search_fields = ('id', 'name')
+    list_filter = ('state',)
+
+@admin.register(Ziarat)
+class ZiaratAdmin(admin.ModelAdmin):
+    list_display = ('id','user','state','city', 'created','status')
+    list_editable = ('status',)
+    list_display_links = ('id', 'user')
+    search_fields = ('id', 'user')
+    list_filter = ('state',)
 
 
 @admin.register(Quran)
