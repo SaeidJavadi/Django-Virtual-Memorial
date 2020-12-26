@@ -44,9 +44,9 @@ class RegisterForm(forms.ModelForm):
         # labels = {
         #     'password': _('Password :'),
         # }
-        help_texts = {
-            'password': _('The login password has been sent to your number.'),
-        }
+        # help_texts = {
+        #     'password': _('The login password has been sent to your number.'),
+        # }
         # error_messages = {
         #     'phone': {
         #         'max_length': _("This writer's name is too long."),
