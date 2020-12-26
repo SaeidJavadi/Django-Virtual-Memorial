@@ -1,11 +1,11 @@
 from random import randint
 from django.contrib.auth import login, authenticate, logout
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from accounts.forms import PhoneLoginForm, VerifyCodeForm, RegisterForm
 from accounts.models import User
 from django.utils.translation import gettext_lazy as _
-
+from kavenegar import *
 
 def LoginPage(request):
     if request.method == 'POST':
@@ -18,17 +18,21 @@ def LoginPage(request):
                 return redirect('accounts:verify')
             else:
                 phone = f"0{phone}"
-                # code = str(randint(1000, 9999))
-                code = str(1234)
-                # print('+'*10,'New Code','+'*10)
-                # print(code)
-                # print('+'*10,'New Code','+'*10)
-                # api = KavenegarAPI('54624B564154623558564355506C59417230747550612F7456524A544F4B733535374A624830485856456B3D')
-                # params = {'sender':'', 'receptor':phone, 'message':rand_num}
-                # api.sms_send(params)
-                # request.session['phone'] = f"0{phone}"
-                # request.session['code'] = code
-                # messages.success(request, _('The login password was sent to your number.'),'info')
+                code = str(randint(1000, 9999))
+                # code = str(1234)
+                text = f"""«سامانه یادبود مجازی»
+رمزعبور عضویت شما:
+{code}""".encode('utf-8')
+                api = KavenegarAPI('706D423758354D2B485652432B436C324F34412B454D59493549686234414534413157777178726D30486F3D')
+                params = {'sender':'1000596446', 'receptor':phone, 'message':text}
+                response = api.sms_send(params)
+                print(response)
+                print('+'*10,'New Code','+'*10)
+                print(code)
+                print('+'*10,'New Code','+'*10)
+                request.session['phone'] = f"0{phone}"
+                request.session['code'] = code
+                messages.success(request, _('The login password was sent to your number.'),'info')
                 return redirect('accounts:register')
 
 
