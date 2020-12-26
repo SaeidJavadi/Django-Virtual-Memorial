@@ -227,11 +227,11 @@ msgstr "مشاهده"
 
 #: .\memorial\templates\memorial\counter.html:12
 msgid "Total Salavat:"
-msgstr "تعداد کل صلوات ها:"
+msgstr "صلوات ها:"
 
 #: .\memorial\templates\memorial\counter.html:18
 msgid "Total Fatehe:"
-msgstr "تعداد کل فاتحه ها:"
+msgstr "فاتحه ها:"
 
 #: .\memorial\templates\memorial\dashboard.html:4
 msgid "Dashboard"
