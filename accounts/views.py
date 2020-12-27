@@ -18,12 +18,15 @@ def LoginPage(request):
                 request.session['phone'] = f"0{phone}"
                 return redirect('accounts:verify')
             else:
-                # code = str(randint(1000, 9999))
-                code = str(1234)
+                code = str(randint(1000, 9999))
                 phone = f"0{phone}"
-                # code = sendMessage(phone,code)
-                # code = sendMessage1(phone,code)
+                try:
+                    # code = sendMessage(phone,code)
+                    code = sendMessage1(phone,code)
+                except:
+                    code = str(1234)
                 if code:
+                    print(code)
                     request.session['phone'] = phone
                     request.session['code'] = code
                     messages.success(request, _('The login password was sent to your number.'), 'info')
@@ -36,6 +39,34 @@ def LoginPage(request):
         form = PhoneLoginForm()
     return render(request, 'accounts/login.html', {'form': form})
 
+def ForgetPage(request):
+    if request.method == 'POST':
+        global code, phone
+        form = PhoneLoginForm(request.POST)
+        if form.is_valid():
+            phone = form.cleaned_data['phone']
+            code = str(randint(1000, 9999))
+            phone = f"0{phone}"
+            try:
+                # code = sendMessage(phone,code)
+                code = sendMessage1(phone,code)
+            except:
+                code = str(1234)
+            if code:
+                request.session['phone'] = phone
+                request.session['code'] = code
+                user = User.objects.get(phone=int(phone))
+                user.set_password(code)
+                user.save()
+                messages.success(request, _('The login password was sent to your number.'), 'info')
+                return redirect('accounts:verify')
+            else:
+                messages.error(request, _('در ارسال رمزعبور مشکلی پیش آمده است، لطفا لحظات دیگری تلاش کنید'),
+                               'warning')
+                return redirect('accounts:forget')
+    else:
+        form = PhoneLoginForm()
+    return render(request, 'accounts/forget.html', {'form': form})
 
 def RegisterPage(request):
     form = RegisterForm()

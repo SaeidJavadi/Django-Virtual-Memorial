@@ -20,9 +20,8 @@ def sendMessage(phone, code):
 
 def sendMessage1(phone, code):
     api = KavenegarAPI('706D423758354D2B485652432B436C324F34412B454D59493549686234414534413157777178726D30486F3D')
-    text = f"""«سامانه یادبود مجازی»
-    رمزعبور شما:
-    {code}""".encode('utf-8')
+    text = f"«سامانه یادبود مجازی»\nرمزعبور شما:\n    {code}"
+    # params = {'sender': '1000596446', 'receptor': phone, 'message': f"رمزعبور شما: {code}"}
     params = {'sender': '1000596446', 'receptor': phone, 'message': text}
     response = api.sms_send(params)
     print('+' * 10, 'New Code', '+' * 10)

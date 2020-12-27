@@ -9,7 +9,7 @@
                     <div class="animated rubberBand"
                          style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
                         <div dir="rtl" style="text-align: right">
-                            <h3 class="text-center">{% trans "Verify Login" %}</h3>
+                            <h3 class="text-center">{% trans "فراموشی رمزعبور:" %}</h3>
                             <hr class="border-color: #ffffff;"/>
 
                             <form method="post" novalidate>
@@ -17,11 +17,11 @@
                                 <div class="form-group">
                                     {{ form.as_p }}
                                     <small id="emailHelp" class="form-text text-muted" dir="rtl">
-                                        {% trans "Please enter the your password" %}
+                                        {% trans "We'll never share your phone number with anyone else." %}
                                     </small>
                                 </div>
-                                <p><a class="login-link" href="{% url 'accounts:forget' %}">{% trans 'Forget Your Password?' %}</a></p>
-                                <button type="submit" class="btn btn-info btn-block">{% trans "Login" %}</button>
+                                <br/>
+                                <button type="submit" class="btn btn-info btn-block">{% trans "Send" %}</button>
                             </form>
 
                         </div>
@@ -31,4 +31,4 @@
             </div>
         </div>
     </section>
-{% endblock %}
+    {% endblock %}
