@@ -84,6 +84,11 @@
                             <div class="animated rubberBand border"
                                  style="background: #000000 ; border-radius: 5px; padding: 15px; color: #ffffff;">
                                 <p>{{ deveased.description }}</p>
+                                {% if deveased.datedied %}
+                                    <p><span
+                                            style="color: #91bc02">تاریخ درگذشت: </span><span>{{ deveased.datedied }}</span>
+                                    </p>
+                                {% endif %}
                                 <p>
                                     <span style="color: #91bc02">آدرس آرمگاه: </span>{{ deveased.address }}
                                 </p>
@@ -185,14 +190,17 @@
                         <div class="col-xl-10 col-sm-10 border border-warning" style="border-radius: 10px">
                             <p dir="rtl" style="text-align: center;padding: 10px 10px 0 10px">
                                 تعداد دفعات ختم قران <span
-                                    style="color: #38ff00; font-weight: bold;font-size: 20px" id="khatm-count"> {{ btns.q }} </span>
+                                    style="color: #38ff00; font-weight: bold;font-size: 20px"
+                                    id="khatm-count"> {{ btns.q }} </span>
                                 بارمی باشد</p>
                             <p style="text-align: center;"> جهت تسریع در ختم قرآن کریم
                                 پیشنهاد میشود حضرتعالی
-                                جزء شماره <span style="color: #ff0046;font-size: 20px; font-weight: bold" id="offer"> {{ offer }} </span>
+                                جزء شماره <span style="color: #ff0046;font-size: 20px; font-weight: bold"
+                                                id="offer"> {{ offer }} </span>
                                 را قرائت بفرمایید.
                             </p>
-                            <p dir="rtl" style="text-align: center; font-size: 13px;color: #7abaff;font-weight: bold;padding: 10px 10px 0 10px">
+                            <p dir="rtl"
+                               style="text-align: center; font-size: 13px;color: #7abaff;font-weight: bold;padding: 10px 10px 0 10px">
                                 لطفا با کلیک بر روی دکمه سبز رنگ مربوط به هر جزء ، آمادگی خود را اعلام کنید
                             </p>
                         </div>
