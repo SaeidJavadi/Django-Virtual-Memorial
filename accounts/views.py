@@ -1,11 +1,12 @@
-from random import randint
 from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from accounts.forms import PhoneLoginForm, VerifyCodeForm, RegisterForm
 from accounts.models import User
 from django.utils.translation import gettext_lazy as _
-from kavenegar import *
+from accounts.tasks import sendMessage, sendMessage1
+from random import randint
+
 
 def LoginPage(request):
     if request.method == 'POST':
@@ -17,25 +18,20 @@ def LoginPage(request):
                 request.session['phone'] = f"0{phone}"
                 return redirect('accounts:verify')
             else:
+                # code = str(randint(1000, 9999))
+                code = str(1234)
                 phone = f"0{phone}"
-                code = str(randint(1000, 9999))
-                # code = str(1234)
-                text = f"""«سامانه یادبود مجازی»
-رمزعبور عضویت شما:
-{code}""".encode('utf-8')
-                api = KavenegarAPI('706D423758354D2B485652432B436C324F34412B454D59493549686234414534413157777178726D30486F3D')
-                params = {'sender':'1000596446', 'receptor':phone, 'message':text}
-                response = api.sms_send(params)
-                print(response)
-                print('+'*10,'New Code','+'*10)
-                print(code)
-                print('+'*10,'New Code','+'*10)
-                request.session['phone'] = f"0{phone}"
-                request.session['code'] = code
-                messages.success(request, _('The login password was sent to your number.'),'info')
-                return redirect('accounts:register')
-
-
+                # code = sendMessage(phone,code)
+                # code = sendMessage1(phone,code)
+                if code:
+                    request.session['phone'] = phone
+                    request.session['code'] = code
+                    messages.success(request, _('The login password was sent to your number.'), 'info')
+                    return redirect('accounts:register')
+                else:
+                    messages.error(request, _('در ارسال رمزعبور مشکلی پیش آمده است، لطفا لحظات دیگری تلاش کنید'),
+                                   'warning')
+                    return redirect('accounts:login')
     else:
         form = PhoneLoginForm()
     return render(request, 'accounts/login.html', {'form': form})
@@ -43,8 +39,8 @@ def LoginPage(request):
 
 def RegisterPage(request):
     form = RegisterForm()
-    # phone = request.session['phone']
-    # code = request.session['code']
+    phone = request.session['phone']
+    code = request.session['code']
     form.fields['phone'].initial = phone
     if request.method == 'POST':
         form = RegisterForm(request.POST)
