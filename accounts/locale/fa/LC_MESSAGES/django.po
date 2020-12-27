@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-26 18:36+0330\n"
+"POT-Creation-Date: 2020-12-27 17:59+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgstr "مقدار وارد شده کمتر از سقف معین شده است"
 msgid "Enter your phone number :"
 msgstr "شماره تلفن خود را وارد کنید:"
 
-#: accounts/forms.py:41 accounts/forms.py:70 accounts/models.py:10
+#: accounts/forms.py:41 accounts/forms.py:70 accounts/models.py:11
 msgid "Full Name"
 msgstr "نام نام خانوادگی"
 
@@ -63,26 +63,35 @@ msgstr "کاربران باید شماره تلفن داشته باشند"
 msgid "users must have full name"
 msgstr "کاربران باید نام کامل داشته باشند"
 
-#: accounts/models.py:9
+#: accounts/models.py:10
 msgid "Phone Number"
 msgstr "شماره تلفن"
 
-#: accounts/models.py:32
+#: accounts/models.py:33
 msgid "User"
 msgstr "کاربر"
 
-#: accounts/models.py:33
+#: accounts/models.py:34
 msgid "Users"
 msgstr "کاربران"
 
-#: accounts/templates/accounts/login.html:12
-msgid "Login Form"
-msgstr "فرم ورود"
+#: accounts/templates/accounts/forget.html:12
+msgid "فراموشی رمزعبور:"
+msgstr ""
 
+#: accounts/templates/accounts/forget.html:20
 #: accounts/templates/accounts/login.html:23
 #: accounts/templates/accounts/register.html:24
 msgid "We'll never share your phone number with anyone else."
 msgstr "ما هرگز شماره تلفن شما را با شخص دیگری به اشتراک نمی گذاریم."
+
+#: accounts/templates/accounts/forget.html:24
+msgid "Send"
+msgstr "ارسال"
+
+#: accounts/templates/accounts/login.html:12
+msgid "Login Form"
+msgstr "فرم ورود"
 
 #: accounts/templates/accounts/login.html:34
 #: accounts/templates/accounts/verify.html:24
@@ -117,21 +126,28 @@ msgstr "لطفاً رمز عبور خود را وارد کنید"
 msgid "Forget Your Password?"
 msgstr "رمز عبور را فراموش کرده اید؟"
 
-#: accounts/views.py:57
+#: accounts/views.py:32 accounts/views.py:61
+#, fuzzy
+#| msgid "The login password has been sent to your number."
+msgid "The login password was sent to your number."
+msgstr "رمز ورود به شماره تلفن شما ارسال شده است."
+
+#: accounts/views.py:35 accounts/views.py:64
+msgid "در ارسال رمزعبور مشکلی پیش آمده است، لطفا لحظات دیگری تلاش کنید"
+msgstr ""
+
+#: accounts/views.py:88
 msgid "The code entered is incorrect"
 msgstr "مقدار وارد شده معتبر نیست"
 
-#: accounts/views.py:71
+#: accounts/views.py:102
 msgid "logged in successfully"
 msgstr "با موفقیت وارد شوید"
 
-#: accounts/views.py:74
+#: accounts/views.py:105
 msgid "your code is wrong"
 msgstr "کد شما اشتباه است"
 
-#: accounts/views.py:82
+#: accounts/views.py:113
 msgid "you logged out successfully"
 msgstr "با موفقیت از خارج شدید"
-
-#~ msgid "The login password has been sent to your number."
-#~ msgstr "رمز ورود به شماره تلفن شما ارسال شده است."
