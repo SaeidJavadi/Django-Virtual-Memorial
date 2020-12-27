@@ -86,7 +86,7 @@
                                 <p>{{ deveased.description }}</p>
                                 {% if deveased.datedied %}
                                     <p><span
-                                            style="color: #91bc02">تاریخ درگذشت: </span><span>{{ deveased.datedied }}</span>
+                                            style="color: #91bc02">تاریخ درگذشت: </span><span>{{ deveased.datedied.year }}/{{ deveased.datedied.month }}/{{ deveased.datedied.day }}</span>
                                     </p>
                                 {% endif %}
                                 <p>
