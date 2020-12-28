@@ -7,14 +7,14 @@
              style="background: #2c3e50; border-radius: 5px;  color: #ffffff;">
             {% for state in data.states %}
                 <div class="row" style="padding:10px 0 10px 0">
-                    <div class="col-xl-1 col-sm-1"></div>
-                    <div class="col-xl-5 col-sm-5">
+                    <div class="col-xl-1 col-sm-1 col-md-1 col-1"></div>
+                    <div class="col-xl-5 col-sm-5 col-md-5 col-5">
                         <a href="{% url 'memorial:state' state.0.id %}" style="text-decoration:none">
                             <button type="button" class="btn btn-outline-success btn-block" style="color: #d9ff00;font-weight: bold"
                             >{{ state.0.state }} : <span style="color: #c82333">{{ state.0.statedeads.all.count }}</span></button>
                         </a>
                     </div>
-                    <div class="col-xl-5 col-sm-5">
+                    <div class="col-xl-5 col-sm-5 col-md-5 col-5">
                         {% if state.1 %}
                             <a href="{% url 'memorial:state' state.1.id %}" style="text-decoration:none">
                                 <button type="button" class="btn btn-outline-success btn-block" style="color: #d9ff00;font-weight: bold"
@@ -22,7 +22,7 @@
                             </a>
                         {% endif %}
                     </div>
-                    <div class="col-xl-1 col-sm-1"></div>
+                    <div class="col-xl-1 col-sm-1 col-md-1 col-1"></div>
                 </div>
             {% endfor %}
         </div>

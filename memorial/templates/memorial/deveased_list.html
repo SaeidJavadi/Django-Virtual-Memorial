@@ -104,13 +104,13 @@
                                     </div>
                                     <br>
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-xl-4 col-sm-4 col-4">
                                             <a class="btn btn-primary btn-xs btn-block"
                                                href="{% url 'memorial:edit_Deveased' id=marhom.id %}"
                                                style="color: black" data-toggle="tooltip"
                                                title="برای ویرایش صفحه این یادبود کلیک کنید">{% trans "Edit" %}</a>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-xl-4 col-sm-4 col-4">
                                             {% if marhom.status == 'active' %}
                                                 <a class="btn btn-warning btn-xs btn-block" target="_blank"
                                                    href="{% url 'memorial:view_Deveased' pk=marhom.id %}"
@@ -118,7 +118,7 @@
                                                    title="برای مشاهده صفحه یادبود کلیک کنید">{% trans "View" %}</a>
                                             {% endif %}
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-xl-4 col-sm-4 col-4">
                                             <button class="btn btn-danger btn-xs btn-block" data-toggle="modal"
                                                     data-target="#myModal" id="{{ marhom.id }}"
                                                     value="{{ marhom.name }}"
