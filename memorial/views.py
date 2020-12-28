@@ -83,7 +83,7 @@ def delete(request, id=None):
         messages.success(request, _('item deleted successfully!'), extra_tags='alert alert-warning')
     return render(request, 'memorial/delete.html', {'marhom': dead})
 
-
+@login_required
 def DeveasedEdit(request, id=None):
     instance = get_object_or_404(Deveased, id=id)
     form = DeveasedForm(request.POST or None, request.FILES or None, instance=instance)
