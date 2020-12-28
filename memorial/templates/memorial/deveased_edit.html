@@ -30,7 +30,7 @@
                                     {{ form.city.errors }}
                                 </p>
                                 <div style="padding: 5px;">
-                                    {% if form.picture.value  %}
+                                    {% if form.picture.value %}
                                         <center><img src="{% get_media_prefix %}{{ form.picture.value }}"
                                                      alt="تصویر پیش فرض" width="60%"
                                                      height="60%" class="rounded"><br>
@@ -48,7 +48,8 @@
                                            id="{{ form.picture.id_for_label }}"
                                            class="inputfile inputfile-1" style="display:none"
                                            accept="image/*"/>
-                                    <label for="{{ form.picture.id_for_label }}"> <span>بارگزاری تصویر جدید</span></label>
+                                    <label for="{{ form.picture.id_for_label }}">
+                                        <span>بارگزاری تصویر جدید</span></label>
                                     {{ form.picture.errors }}
                                 </p>
                                 <p>
@@ -83,7 +84,7 @@
                                     {{ form.datedied.errors }}
                                 </p>
 
-                                <table class="table table-striped" style="color: #9fcdff">
+                                <table class="table table-striped" style="color: #9fcdff; text-align: left">
                                     <thead>
                                     <tr>
                                         <span style="color: #9bf3b1">
@@ -98,9 +99,9 @@
                                                 <input type="checkbox" class="custom-control-input"
                                                        id="{{ form.fatehe_chk.id_for_label }}"
                                                        name="{{ form.fatehe_chk.name }}"
-                                                {% if form.fatehe_chk.value %}
-                                                        checked
-                                                       {% endif %}>
+                                                        {% if form.fatehe_chk.value %}
+                                                       checked
+                                                        {% endif %}>
                                                 <label class="custom-control-label" type="checkbox"
                                                        for="{{ form.fatehe_chk.id_for_label }}">{{ form.fatehe_chk.label }}:</label>
                                             </div>
@@ -129,6 +130,8 @@
                                                        for="{{ form.quran_chk.id_for_label }}">{{ form.quran_chk.label }}:</label>
                                             </div>
                                         </th>
+                                    </tr>
+                                    <tr>
                                         <th>
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input"
@@ -141,8 +144,6 @@
                                                        for="{{ form.ashora_chk.id_for_label }}">{{ form.ashora_chk.label }}:</label>
                                             </div>
                                         </th>
-                                    </tr>
-                                    <tr>
                                         <th>
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input"
@@ -167,6 +168,8 @@
                                                        for="{{ form.ahd_chk.id_for_label }}">{{ form.ahd_chk.label }}:</label>
                                             </div>
                                         </th>
+                                    </tr>
+                                    <tr>
                                         <th>
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input"
@@ -179,8 +182,6 @@
                                                        for="{{ form.aye_chk.id_for_label }}">{{ form.aye_chk.label }}:</label>
                                             </div>
                                         </th>
-                                    </tr>
-                                    <tr>
                                         <th>
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input"
@@ -205,6 +206,8 @@
                                                        for="{{ form.komil_chk.id_for_label }}">{{ form.komil_chk.label }}:</label>
                                             </div>
                                         </th>
+                                    </tr>
+                                    <tr>
                                         <th>
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input"
@@ -255,7 +258,8 @@
                             </div>
                             <div class="col-md-5">
                                 <a href="{% url 'memorial:list_Deveased' %}" style="text-decoration: None">
-                                    <button type="button" value="" class="btn btn-warning btn-block">{% trans 'Cancel' %}</button>
+                                    <button type="button" value=""
+                                            class="btn btn-warning btn-block">{% trans 'Cancel' %}</button>
                                 </a>
                             </div>
                             <div class="col-md-1"></div>
