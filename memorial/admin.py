@@ -42,7 +42,7 @@ class AshoraAdmin(admin.ModelAdmin):
 class ArbainAdmin(admin.ModelAdmin):
     list_display = ('ip', 'dead', 'created')
 
-#
+
 # @admin.register(Ahd)
 # class AhdAdmin(admin.ModelAdmin):
 #     list_display = ('ip', 'dead', 'created')
@@ -66,7 +66,7 @@ class ArbainAdmin(admin.ModelAdmin):
 # @admin.register(Rahman)
 # class RahmanhAdmin(admin.ModelAdmin):
 #     list_display = ('ip', 'dead', 'created')
-#
+
 
 @admin.register(State)
 class StateAdmin(admin.ModelAdmin):
