@@ -315,7 +315,8 @@ def vote(request):
             count = Joz30.objects.all().filter(quran=khtmQuran).count()
 
         try:
-            khatmCount, offer = quranCount(marhom)
+            if marhom.quran_chk:
+                khatmCount, offer = quranCount(marhom)
         except:
             print('Error!')
         if vote:
