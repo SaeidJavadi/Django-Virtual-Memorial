@@ -147,6 +147,4 @@ STATIC_ROOT = 'staticfiles'
 
 AUTH_USER_MODEL = 'accounts.User'
 
-## for fix error : forbidden (csrf cookie not set.)
-CSRF_COOKIE_HTTPONLY = True
 
