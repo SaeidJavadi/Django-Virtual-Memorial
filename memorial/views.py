@@ -101,7 +101,7 @@ def DeveasedEdit(request, id=None):
 
 
 def DeadView(request, pk):
-    marhom = get_object_or_404(Deveased, id=pk)
+    marhom = get_object_or_404(Deveased, id=pk, status='active')
     context = {}
     btns = {}
     context['deveased'] = marhom
@@ -370,7 +370,7 @@ def state(request, pk):
 def city(request, pk):
     city = City.objects.get(id=pk)
     cityName = city.city
-    deads = city.citydeads.all().order_by('-created')
+    deads = city.citydeads.filter(status='active').all().order_by('-created')
     deadCount = deads.count()
     paginator = Paginator(deads, 5)
     page = request.GET.get('page')

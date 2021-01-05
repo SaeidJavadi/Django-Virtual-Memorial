@@ -52,8 +52,9 @@
                     <div class="col-xl-1 col-sm-1"></div>
                     <div class="col-xl-10 col-sm-10 rounded border border-secondar"
                          style="text-align: center; background-color:  #423f3e ; padding: 15px 0 20px 0;font-weight: bold;">
-                        {{ deveased.title }} {% if deveased.gender == 'male' %} آقای {% else %}
-                        خانوم {% endif %}{{ deveased.name }}
+{#                        {{ deveased.title }} {% if deveased.gender == 'male' %} آقای {% else %}#}
+{#                        خانوم {% endif %}{{ deveased.name }}                        #}
+                        {{ deveased.title }} {{ deveased.name }}
                     </div>
                     <div class="col-xl-1 col-sm-1"></div>
                 </div>

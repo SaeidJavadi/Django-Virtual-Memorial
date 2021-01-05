@@ -1,5 +1,6 @@
 {% load i18n %}
 {% load static %}
+{% load basetags %}
 <div class="row" dir="rtl" style="padding: 0 0 20px 0">
     <div class="col-md-3 col-sm-1"></div>
     <div class="col-md-6 col-sm-10" style="margin-top: 10px;" dir="rtl">
@@ -10,15 +11,19 @@
                     <div class="col-xl-1 col-sm-1 col-md-1 col-1"></div>
                     <div class="col-xl-5 col-sm-5 col-md-5 col-5">
                         <a href="{% url 'memorial:state' state.0.id %}" style="text-decoration:none">
-                            <button type="button" class="btn btn-outline-success btn-block" style="color: #d9ff00;font-weight: bold"
-                            >{{ state.0.state }} : <span style="color: #c82333">{{ state.0.statedeads.all.count }}</span></button>
+                            <button type="button" class="btn btn-outline-success btn-block"
+                                    style="color: #d9ff00;font-weight: bold"
+                            >{{ state.0.state }} : <span
+                                    style="color: #c82333">{{ state.0.statedeads |deadActive }}</span></button>
                         </a>
                     </div>
                     <div class="col-xl-5 col-sm-5 col-md-5 col-5">
                         {% if state.1 %}
                             <a href="{% url 'memorial:state' state.1.id %}" style="text-decoration:none">
-                                <button type="button" class="btn btn-outline-success btn-block" style="color: #d9ff00;font-weight: bold"
-                                >{{ state.1.state }} : <span style="color: #c82333">{{ state.1.statedeads.all.count }}</span></button>
+                                <button type="button" class="btn btn-outline-success btn-block"
+                                        style="color: #d9ff00;font-weight: bold"
+                                >{{ state.1.state }} : <span
+                                        style="color: #c82333">{{ state.1.statedeads|deadActive }}</span></button>
                             </a>
                         {% endif %}
                     </div>

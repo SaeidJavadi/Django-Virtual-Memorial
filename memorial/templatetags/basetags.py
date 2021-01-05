@@ -12,3 +12,8 @@ def even_test(value):
     else:
         print('nk')
         return False
+
+@register.filter()
+def deadActive(value):
+    c = value.filter(status='active').all().count()
+    return c
