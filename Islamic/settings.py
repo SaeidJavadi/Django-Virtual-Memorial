@@ -26,7 +26,7 @@ SECRET_KEY = 'kudclcnj)56_r))9&*#7g(#b-=n2gt*t^@==%$q7n=7bq43t!('
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-SITE_ADDRESS = '127.0.0.1:8000'
+SITE_ADDRESS = 'yadbod.cf'
 
 # Application definition
 
@@ -145,6 +145,12 @@ MEDIA_ROOT = 'media'
 STATIC_ROOT = 'staticfiles/static'
 
 AUTH_USER_MODEL = 'accounts.User'
+
+## SSL
+SECURE_SSL_REDIRECT = True
+# cookies will only be sent via HTTPS connections
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 ## Logs
 LOGGING = {'version': 1,
