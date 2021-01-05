@@ -1,6 +1,7 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
+from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.edit import ModelFormMixin
 from accounts.models import User
 from memorial.forms import Search, DeveasedForm, ZiaratForm
@@ -139,7 +140,7 @@ def DeadView(request, pk):
     context['btns'] = btns
     return render(request, 'memorial/deveased_detail.html', context)
 
-
+@csrf_exempt
 def vote(request):
     if request.method == 'POST':
         count = 0
@@ -332,6 +333,7 @@ def vote(request):
         return HttpResponse(
             '<html><head><title>404</title></head><body><center><h1 style="color:blue;font-width=bold">404</h1><h3 style="color:red;">Not Found Page!</h3></center></body></html>')
 
+@csrf_exempt
 def voteZiarat(request):
     if request.method == 'POST':
         if request.POST['ziarat'] == 'ok':
