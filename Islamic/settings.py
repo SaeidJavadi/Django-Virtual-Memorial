@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -147,10 +147,10 @@ STATIC_ROOT = 'staticfiles/static'
 AUTH_USER_MODEL = 'accounts.User'
 
 ## SSL
-SECURE_SSL_REDIRECT = True
+#SECURE_SSL_REDIRECT = True
 # cookies will only be sent via HTTPS connections
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+#SESSION_COOKIE_SECURE = True
+#CSRF_COOKIE_SECURE = True
 
 ## Logs
 LOGGING = {'version': 1,
