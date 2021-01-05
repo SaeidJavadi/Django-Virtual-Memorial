@@ -430,7 +430,7 @@ def ZiaratView(request, pk):
 
 
 def listsZiarat(request):
-    ziarat = Ziarat.objects.filter(read=False).order_by('-created')
+    ziarat = Ziarat.objects.filter(read=False,status='active').order_by('-created')
     allObj = ziarat.count()
     paginator = Paginator(ziarat, 10)
     page = request.GET.get('page')
