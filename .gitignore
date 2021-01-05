@@ -5,3 +5,6 @@ tmp/
 media/*.jpg
 media/*.png
 *.html.py
+*.sock
+logs/
+staticfiles/
