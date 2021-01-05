@@ -146,4 +146,37 @@ STATIC_ROOT = 'staticfiles/static'
 
 AUTH_USER_MODEL = 'accounts.User'
 
-
+## Logs
+LOGGING = {'version': 1,
+           'disable_existing_loggers': False,
+           'formatters': {
+               'console': {
+                   'format': '%(name)-12s %(levelname)-8s %(message)s'
+               },
+               'file': {
+                   'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
+               }
+           },
+           'handlers': {
+               'console': {
+                   'class': 'logging.StreamHandler',
+                   'formatter': 'console'
+               },
+               'file': {
+                   'level': 'DEBUG',
+                   'class': 'logging.FileHandler',
+                   'formatter': 'file',
+                   'filename': '/home/saeid/PycharmProjects/Islamic/zTemp/logs/islamic_deployRun.log'
+               }
+           },
+           'loggers': {
+               '': {
+                   'level': 'DEBUG',
+                   'handlers': ['console', 'file']
+               }
+           },
+           'celery': {
+               'handlers': ['console'],
+               'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+           },
+           }
