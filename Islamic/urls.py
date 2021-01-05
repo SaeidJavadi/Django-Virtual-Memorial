@@ -23,9 +23,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('memorial.urls', namespace='memorial')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
 
-# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = _("Administrator")
 admin.site.site_title = _("Administrator Panel")

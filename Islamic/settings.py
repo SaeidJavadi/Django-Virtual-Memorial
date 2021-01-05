@@ -141,7 +141,7 @@ STATICFILES_DIRS = (
         BASE_DIR / 'memorial/static',
         BASE_DIR / 'static',
                 )
-MEDIA_ROOT = 'media'
+MEDIA_ROOT = BASE_DIR / 'media'
 STATIC_ROOT = 'staticfiles/static'
 
 AUTH_USER_MODEL = 'accounts.User'
