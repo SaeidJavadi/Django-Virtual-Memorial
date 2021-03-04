@@ -9,13 +9,13 @@ class myUserMnager(BaseUserManager):
         if not name:
             raise ValueError(_('users must have full name'))
 
-        user = self.model(phone=phone,name=name)
+        user = self.model(phone=phone, name=name)
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, phone, name,password):
+    def create_superuser(self, phone, name, password):
         user = self.create_user(phone, name, password)
-        user.is_admin =True
+        user.is_admin = True
         user.save(using=self._db)
         return user

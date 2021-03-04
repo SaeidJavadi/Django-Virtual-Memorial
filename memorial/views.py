@@ -13,6 +13,7 @@ from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from django.http import JsonResponse, HttpResponse
 from memorial.tasks import quranCount
+from django.views.decorators.http import require_POST
 
 
 def home(request):
@@ -84,6 +85,7 @@ def delete(request, id=None):
         messages.success(request, _('item deleted successfully!'), extra_tags='alert alert-warning')
     return render(request, 'memorial/delete.html', {'marhom': dead})
 
+
 @login_required
 def DeveasedEdit(request, id=None):
     instance = get_object_or_404(Deveased, id=id)
@@ -140,6 +142,8 @@ def DeadView(request, pk):
     context['btns'] = btns
     return render(request, 'memorial/deveased_detail.html', context)
 
+
+@require_POST
 @csrf_exempt
 def vote(request):
     if request.method == 'POST':
@@ -329,10 +333,9 @@ def vote(request):
                 'khatm': khatmCount
             }
             return JsonResponse(response)
-    if request.method == 'GET':
-        return HttpResponse(
-            '<html><head><title>404</title></head><body><center><h1 style="color:blue;font-width=bold">404</h1><h3 style="color:red;">Not Found Page!</h3></center></body></html>')
 
+
+@require_POST
 @csrf_exempt
 def voteZiarat(request):
     if request.method == 'POST':
@@ -345,9 +348,7 @@ def voteZiarat(request):
                 'status': 'ok',
             }
             return JsonResponse(responsez)
-    if request.method == 'GET':
-        return HttpResponse(
-            '<html><head><title>404</title></head><body><center><h1 style="color:blue;font-width=bold">404</h1><h3 style="color:red;">Not Found Page!</h3></center></body></html>')
+
 
 def state(request, pk):
     state = State.objects.get(id=pk)
@@ -425,12 +426,12 @@ def listZiarat(request):
 
 def ZiaratView(request, pk):
     ziarat = get_object_or_404(Ziarat, id=pk)
-    context = {'ziarat':ziarat}
+    context = {'ziarat': ziarat}
     return render(request, 'memorial/ziarat_detail.html', context)
 
 
 def listsZiarat(request):
-    ziarat = Ziarat.objects.filter(read=False,status='active').order_by('-created')
+    ziarat = Ziarat.objects.filter(read=False, status='active').order_by('-created')
     allObj = ziarat.count()
     paginator = Paginator(ziarat, 10)
     page = request.GET.get('page')

@@ -172,7 +172,7 @@ LOGGING = {'version': 1,
                    'level': 'DEBUG',
                    'class': 'logging.FileHandler',
                    'formatter': 'file',
-                   'filename': '/home/saeid/site/Islamic/zTemp/logs/islamic_deployRun.log'
+                   'filename': './zTemp/logs/islamic_deployRun.log'
                }
            },
            'loggers': {
