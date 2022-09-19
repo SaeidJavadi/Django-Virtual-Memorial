@@ -18,15 +18,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: Islamic/urls.py:30
+#: Base/urls.py:30
 msgid "Administrator"
 msgstr "مدیریت"
 
-#: Islamic/urls.py:31
+#: Base/urls.py:31
 msgid "Administrator Panel"
 msgstr "پنل مدیریت"
 
-#: Islamic/urls.py:32
+#: Base/urls.py:32
 msgid "Welcome to the admin panel"
 msgstr "به پنل مدیریت خوش آمدید"
 
