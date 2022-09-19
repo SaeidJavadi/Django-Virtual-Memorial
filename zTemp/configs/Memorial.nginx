@@ -35,7 +35,7 @@ log_format sjps escape=json
         '}';
 
 
-    access_log  /home/saeid/site/Islamic/zTemp/logs/nginx.access sjps;
+    access_log  /home/saeid/site/Base/zTemp/logs/nginx.access sjps;
 
 
 server {
@@ -43,19 +43,19 @@ server {
 
     location = /favicon.ico { access_log off; log_not_found off; }
 
-    error_log  /home/saeid/site/Islamic/zTemp/logs/nginx.error;
+    error_log  /home/saeid/site/Base/zTemp/logs/nginx.error;
 
     location /static/ {
-        root /home/saeid/site/Islamic/staticfiles/;
+        root /home/saeid/site/Base/staticfiles/;
     }
     location /media {
         autoindex on;
-        alias /home/saeid/site/Islamic/media/;
+        alias /home/saeid/site/Base/media/;
     }
 
     location / {
         include proxy_params;
-        proxy_pass http://unix:/home/saeid/site/Islamic/Islamic.sock;
+        proxy_pass http://unix:/home/saeid/site/Base/Base.sock;
     }
 
     listen 443 ssl; # managed by Certbot
