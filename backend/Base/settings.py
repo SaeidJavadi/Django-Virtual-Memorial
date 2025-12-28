@@ -153,37 +153,52 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 # SESSION_COOKIE_SECURE = True
 # CSRF_COOKIE_SECURE = True
 
-# Logs
-LOGGING = {'version': 1,
-           'disable_existing_loggers': False,
-           'formatters': {
-               'console': {
-                   'format': '%(name)-12s %(levelname)-8s %(message)s'
-               },
-               'file': {
-                   'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
-               }
-           },
-           'handlers': {
-               'console': {
-                   'class': 'logging.StreamHandler',
-                   'formatter': 'console'
-               },
-               'file': {
-                   'level': 'DEBUG',
-                   'class': 'logging.FileHandler',
-                   'formatter': 'file',
-                   'filename': './zTemp/logs/Base_deployRun.log'
-               }
-           },
-           'loggers': {
-               '': {
-                   'level': 'DEBUG',
-                   'handlers': ['console', 'file']
-               }
-           },
-           'celery': {
-               'handlers': ['console'],
-               'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
-           },
-           }
+# # Logs
+# LOG_DIR = BASE_DIR / 'logs'
+# LOG_DIR.mkdir(parents=True, exist_ok=True)
+# LOGGING = {'version': 1,
+#            'disable_existing_loggers': False,
+#            'formatters': {
+#                'console': {
+#                    'format': '%(name)-12s %(levelname)-8s %(message)s'
+#                },
+#                'file': {
+#                    'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
+#                }
+#            },
+#            'handlers': {
+#                'console': {
+#                    'class': 'logging.StreamHandler',
+#                    'formatter': 'console'
+#                },
+#                'file': {
+#                    'level': 'DEBUG',
+#                    'class': 'logging.FileHandler',
+#                    'formatter': 'file',
+#                    'filename': './logs/Base_deployRun.log'
+#                }
+#            },
+#            'loggers': {
+#                '': {
+#                    'level': 'DEBUG',
+#                    'handlers': ['console', 'file']
+#                }
+#            },
+#            'celery': {
+#                'handlers': ['console'],
+#                'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+#            },
+#            }
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://memorial.sjpy.ir",
+    "https://www.memorial.sjpy.ir",
+]
+STORAGES = {
+    'default': {
+        'BACKEND': 'django.core.files.storage.FileSystemStorage',
+        'LOCATION': os.path.join(BASE_DIR, 'media')
+    }
+}
