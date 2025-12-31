@@ -2,7 +2,5 @@ Django>=3.2,<4
 django-jalali==4.1.2
 sorl-thumbnail==12.11.0
 setuptools<81
-ghasedak==0.1.7
 requests==2.25.1
-kavenegar==1.1.2
 Pillow==8.1.0

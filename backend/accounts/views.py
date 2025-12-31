@@ -4,8 +4,7 @@ from django.contrib import messages
 from accounts.forms import PhoneLoginForm, VerifyCodeForm, RegisterForm
 from accounts.models import User
 from django.utils.translation import gettext_lazy as _
-from accounts.tasks import sendMessage, sendMessage1
-from random import randint
+from accounts.tasks import send_sms
 
 
 def LoginPage(request):
@@ -15,16 +14,16 @@ def LoginPage(request):
         if form.is_valid():
             phone = form.cleaned_data['phone']
             if User.objects.filter(phone=phone).exists():
-                request.session['phone'] = f"0{phone}"
+                request.session['phone'] = f"{phone}"
                 return redirect('accounts:verify')
             else:
-                code = str(randint(1000, 9999))
-                phone = f"0{phone}"
+                # code = str(randint(1000, 9999))
+                code = "1234"
+                phone = f"{phone}"
                 try:
-                    # code = sendMessage(phone,code)
-                    code = sendMessage1(phone,code)
+                    code = send_sms(phone,code)
                 except:
-                    code = str(1234)
+                    code = "1234"
                 if code:
                     print(code)
                     request.session['phone'] = phone
@@ -45,13 +44,13 @@ def ForgetPage(request):
         form = PhoneLoginForm(request.POST)
         if form.is_valid():
             phone = form.cleaned_data['phone']
-            code = str(randint(1000, 9999))
-            phone = f"0{phone}"
+            # code = str(randint(1000, 9999))
+            code = "1234"
+            phone = f"{phone}"
             try:
-                # code = sendMessage(phone,code)
-                code = sendMessage1(phone,code)
+                code = send_sms(phone,code)
             except:
-                code = str(1234)
+                code = "1234"
             if code:
                 request.session['phone'] = phone
                 request.session['code'] = code
