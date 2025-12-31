@@ -46,11 +46,6 @@ msgstr "شماره تلفن خود را وارد کنید:"
 msgid "Full Name"
 msgstr "نام نام خانوادگی"
 
-#: accounts/forms.py:42 accounts/forms.py:71 accounts/forms.py:111
-#, fuzzy
-msgid "Password"
-msgstr "رمز عبور :"
-
 #: accounts/forms.py:110
 msgid "Password :"
 msgstr "رمز عبور :"
@@ -127,14 +122,12 @@ msgid "Forget Your Password?"
 msgstr "رمز عبور را فراموش کرده اید؟"
 
 #: accounts/views.py:32 accounts/views.py:61
-#, fuzzy
-#| msgid "The login password has been sent to your number."
 msgid "The login password was sent to your number."
 msgstr "رمز ورود به شماره تلفن شما ارسال شده است."
 
 #: accounts/views.py:35 accounts/views.py:64
-msgid "در ارسال رمزعبور مشکلی پیش آمده است، لطفا لحظات دیگری تلاش کنید"
-msgstr ""
+msgid "There was a problem sending the password, please try others"
+msgstr "در ارسال رمزعبور مشکلی پیش آمده است، لطفا لحظات دیگری تلاش کنید"
 
 #: accounts/views.py:88
 msgid "The code entered is incorrect"

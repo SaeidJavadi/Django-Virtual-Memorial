@@ -31,7 +31,7 @@ def LoginPage(request):
                     messages.success(request, _('The login password was sent to your number.'), 'info')
                     return redirect('accounts:register')
                 else:
-                    messages.error(request, _('در ارسال رمزعبور مشکلی پیش آمده است، لطفا لحظات دیگری تلاش کنید'),
+                    messages.error(request, _("There was a problem sending the password, please try others"),
                                    'warning')
                     return redirect('accounts:login')
     else:
@@ -60,7 +60,7 @@ def ForgetPage(request):
                 messages.success(request, _('The login password was sent to your number.'), 'info')
                 return redirect('accounts:verify')
             else:
-                messages.error(request, _('در ارسال رمزعبور مشکلی پیش آمده است، لطفا لحظات دیگری تلاش کنید'),
+                messages.error(request, _("There was a problem sending the password, please try others"),
                                'warning')
                 return redirect('accounts:forget')
     else:

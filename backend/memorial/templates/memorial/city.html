@@ -2,7 +2,7 @@
 {% load jformat %}
 {% load static %}
 {% load i18n %}
-{% block title %}لیست یادبودهای شهر {{ cn }} |{% endblock title %}
+{% block title %}{% trans " List of monuments of the country " %}{{ cn }} |{% endblock title %}
 {% block head %} {% endblock head %}
 {% block body %}
     {% if allObj == 0 %}
@@ -14,11 +14,10 @@
                      style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
                     <div style="text-align: center; color: #d9ff00" dir="rtl">
                         <p>
-                            کاربر گرامی برای شهر {{ cn }} هیچ صفحه یاد بودی وجود ندارد
+                           {% trans "Dear user for the country" %} {{ cn }} {% trans "There is no memory page" %}
                         </p>
                         <p style="color: #60ff00">
-                            شما به راحتی می توانید با ورود به سامانه یادبود مجازی و استفاده از کلید افزودن مرحوم جدید
-                            صفحه یاد بود ایجاد کنید
+                            {% trans "You can easily create a memorial page by logging into the virtual memorial system and using the Add New Deceased button." %}
                         </p>
                     </div>
                 </div>
@@ -36,15 +35,15 @@
                         <div class="col-md-10">
                             {% if user.is_authenticated %}
                                 <a href="{% url 'memorial:add_Deveased' %}" style="text-decoration:none"
-                                   data-toggle="tooltip" title="افزودن صفحه یادبود مرحوم جدید">
+                                   data-toggle="tooltip" title="{% trans "Adding a new deceased memorial page" %}">
                                     <button type="submit"
-                                            class="btn btn-warning btn-block">{% trans "افزودن مرحوم جدید" %}</button>
+                                            class="btn btn-warning btn-block">{% trans "Add New Deceased" %}</button>
                                 </a>
                             {% else %}
                                 <a href="{% url 'accounts:login' %}" style="text-decoration:none"
-                                   data-toggle="tooltip" title="ورود یا ثبت نام رایگان">
+                                   data-toggle="tooltip" title={% trans "Log in or register for free" %}>
                                     <button type="submit"
-                                            class="btn btn-warning btn-block">{% trans "ورود یا ثبت نام رایگان" %}</button>
+                                            class="btn btn-warning btn-block">{% trans "Login or register for free" %}</button>
                                 </a>
                             {% endif %}
                         </div>
@@ -78,39 +77,39 @@
                                     <div class="col-xl-8 col-sm-8" style="text-align: right" dir="rtl">
                                         <div class="row">
                                             <div class="col-xl-7 col-sm-7 col-7">
-                                                <span style="color: #7f82ef">نام: </span><span
+                                                <span style="color: #7f82ef">{% trans "Name:" %} </span><span
                                                     style="color: #34fc66">{{ marhom.name }}</span>
                                             </div>
                                             <div class="col-xl-5 col-sm-5 col-5">
-                                                <span style="color: #7f82ef">کد مرحوم: </span><span
+                                                <span style="color: #7f82ef">{% trans "Deceased code:" %} </span><span
                                                     style="color: #34fc66">{{ marhom.id }}</span>
                                             </div>
                                         </div>
                                         {#                                    <br>#}
                                         {#                                    <div class="row">#}
                                         {#                                        <div class="col-xl-7 col-sm-7 col-7">#}
-                                        {#                                            <span style="color: #7f82ef">تاریخ ایجاد: </span><span#}
+                                        {#                                            <span style="color: #7f82ef">Creation date: </span><span#}
                                         {#                                                style="color: #34fc66">{{ marhom.created|jformat:"%d-%m-%Y" }}</span>#}
                                         {#                                        </div>#}
                                         {#                                        <div class="col-xl-5 col-sm-5 col-5">#}
-                                        {#                                            <span style="color: #7f82ef">وضعیت: </span>#}
+                                        {#                                            <span style="color: #7f82ef">Status: </span>#}
                                         {#                                            {% if marhom.status == 'active' %}#}
-                                        {#                                                <span style="color: #34fc66">فعال</span>#}
+                                        {#                                                <span style="color: #34fc66">active</span>#}
                                         {#                                            {% elif marhom.status == 'inactive' %}#}
-                                        {#                                                <span style="color: #ff0a22">غیرفعال</span>#}
+                                        {#                                                <span style="color: #ff0a22">disabled</span>#}
                                         {#                                            {% elif marhom.status == 'pending' %}#}
-                                        {#                                                <span style="color: #ffc514">در انتظار بررسی</span>#}
+                                        {#                                                <span style="color: #ffc514">Awaiting review</span>#}
                                         {#                                            {% endif %}#}
                                         {#                                        </div>#}
                                         {#                                    </div>#}
                                         <br>
                                         <div class="row">
                                             <div class="col-xl-7 col-sm-7 col-7">
-                                                <span style="color: #7f82ef">استان: </span><span
+                                                <span style="color: #7f82ef">{% trans "Contery: " %}</span><span
                                                     style="color: #34fc66">{{ marhom.state }}</span>
                                             </div>
                                             <div class="col-xl-5 col-sm-5 col-5">
-                                                <span style="color: #7f82ef">شهر: </span>
+                                                <span style="color: #7f82ef">{% trans "City:" %}</span>
                                                 <span style="color: #34fc66">{{ marhom.city }}</span>
                                             </div>
                                         </div>
@@ -121,7 +120,7 @@
                                                 <a class="btn btn-warning btn-xs btn-block" target="_blank"
                                                    href="{% url 'memorial:view_Deveased' pk=marhom.id %}"
                                                    style="color: black" data-toggle="tooltip"
-                                                   title="برای مشاهده صفحه یادبود کلیک کنید">{% trans "View" %}</a>
+                                                   title={% trans "Click to view memorial page" %}>{% trans "View" %}</a>
                                             </div>
                                             <div class="col-xl-1 col-sm-1 col-1"></div>
 

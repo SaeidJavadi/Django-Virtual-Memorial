@@ -47,8 +47,8 @@ class DeveasedCreate(LoginRequiredMixin, CreateView):
     form_class = DeveasedForm
     template_name = 'memorial/deveased_create.html'
     success_url = reverse_lazy('memorial:dashboard')
-    success_message = 'با موفقیت اضافه شد'
-    error_message = 'خطا در ورود اطلاعات'
+    success_message = _('successfully added')
+    error_message = _('Error in data entry')
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -390,8 +390,8 @@ class ZiaratCreate(LoginRequiredMixin, CreateView):
     form_class = ZiaratForm
     template_name = 'memorial/ziarat_create.html'
     success_url = reverse_lazy('memorial:dashboard')
-    success_message = 'با موفقیت اضافه شد'
-    error_message = 'خطا در ورود اطلاعات'
+    success_message = _('Added successfully')
+    error_message = _('Error in data entry')
 
     def form_valid(self, form):
         self.object = form.save(commit=False)

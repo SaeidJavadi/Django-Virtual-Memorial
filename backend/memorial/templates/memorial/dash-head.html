@@ -1,3 +1,4 @@
+{% load i18n %}
 <div class="row">
     <div class="col-md-3 col-sm-1"></div>
     <div class="col-md-6 col-sm-10" style="margin-top: 10px;">
@@ -5,13 +6,13 @@
              style="background: #2c3e50; border-radius: 5px; padding: 20px; color: #ffffff;">
             <div class="shineTexts" style="padding: 20px 0 20px 0">
                 <h4 style="text-align: center;">
-                    سامانه یادبود مجازی
+                    {% trans "Virtual memorial system" %}
                 </h4>
             </div>
             <div style="text-align: center; color: #1fffb6" dir="rtl">
                 {% if user.user.is_authenticated  %}
                 <p>
-                    کاربر گرامی <b style="color: #4acdff">{{ user.name}}</b> به صفحه خود خوش آمدید.</p>
+                   {% trans "Dear user" %} <b style="color: #4acdff">{{ user.name}}</b> {% trans "Welcome to your page." %}</p>
                 {% else %}
                     <p>
                     </p>

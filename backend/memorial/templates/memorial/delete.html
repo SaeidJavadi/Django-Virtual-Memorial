@@ -2,7 +2,7 @@
 {% load jformat %}
 {% load static %}
 {% load i18n %}
-{% block title %}لیست یادبودهای ایجاد شده |{% endblock title %}
+{% block title %}{% trans "List of memorials created" %} |{% endblock title %}
 {% block head %} {% endblock head %}
 {% block body %}
 
@@ -19,13 +19,13 @@
                                     {{ marhom.name }}
                                 </div>
                                 <div class="col-md-4">
-                                    تاریخ ایجاد: {{ marhom.created|jformat:"%d-%m-%Y" }}
+                                    {% trans "Creation date:" %} {{ marhom.created|jformat:"%d-%m-%Y" }}
                                 </div>
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col-md-7">
-                                        وضعیت فعلی: حذف شده
+                                        {% trans "Current status: Deleted" %}
                                 </div>
                                 <div class="col-md-5">
                                     {{ marhom.state }} - {{ marhom.city }}
